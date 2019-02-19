@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基础资料</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="../../easyui/themes/metro/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../easyui/themes/mobile.css">
+    <link rel="stylesheet" type="text/css" href="../../easyui/themes/icon.css">
+    <script type="text/javascript" src="../../easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="../../easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../easyui/jquery.easyui.mobile.js"></script>
+</head>
+<body>
+<div class="easyui-navpanel" style="position:relative;padding:20px">
+    <header>
+        <div class="m-toolbar">
+            <div class="m-title" style="text-align: center">收货</div>
+        </div>
+    </header>
+    <form id="ff">
+        <div style="margin-bottom:10px">
+            <select class="easyui-combobox" id="descr" label="货物名称:" prompt="货物名称" style="width:100%"></select>
+        </div>
+        <div style="margin-bottom:10px">
+            <input class="easyui-textbox" id="price" label="定价:" prompt="定价" style="width:100%">
+        </div>
+        <div style="margin-bottom:10px">
+            <input class="easyui-textbox" id="qty" label="数量:" prompt="数量" style="width:100%">
+        </div>
+        <div style="margin-bottom:10px">
+            <select class="easyui-combobox" id="supplier" label="供应商:" prompt="供应商" style="width:100%"></select>
+        </div>
+        <div style="text-align:center;margin-top:30px">
+            <a href="#" class="easyui-linkbutton" style="width:80px">Normal</a>
+            <a href="#" class="easyui-linkbutton" plain="true" outline="true" style="width:80px">Outline</a>
+            <a href="#" class="easyui-linkbutton" disabled style="width:80px">Disabled</a>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="sku.js"></script>
+</body>
+</html>
