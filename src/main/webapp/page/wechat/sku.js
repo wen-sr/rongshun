@@ -1,50 +1,45 @@
 $(function(){
 });
 
-function register() {
-    var id = $.trim($("#id").textbox('getValue'));
-    var pwd = $.trim($("#pwd").textbox('getValue'));
-    var pwd_2 = $.trim($("#pwd_2").textbox('getValue'));
-    var organization_id = $.trim($("#organization_id").textbox('getValue'));
-    if(id == ''){
-        $.messager.alert("操作提示","客户代码不能为空！","error");
+function go() {
+    var name = $.trim($("#name").combobox('getValue'));
+    var price = $.trim($("#price").textbox('getValue'));
+    var qty = $.trim($("#qty").textbox('getValue'));
+    var supplier = $.trim($("#supplier").combobox('getValue'));
+    if(name == ''){
+        $.messager.alert("操作提示","货物名称不能为空！","error");
         return;
     }
-    if(organization_id == ''){
-        $.messager.alert("操作提示","请选择客户类型！","error");
+    if(price == ''){
+        $.messager.alert("操作提示","货物进价不能为空！","error");
         return;
     }
-    if(pwd == ''){
-        $.messager.alert("操作提示","密码不能为空！","error");
+    if(qty == ''){
+        $.messager.alert("操作提示","数量不能为空！","error");
         return;
     }
-    if(pwd_2 == ''){
-        $.messager.alert("操作提示","第二次输入的密码不能为空！","error");
-        return;
-    }
-    if(pwd != pwd_2){
-        $.messager.alert("操作提示","两次次输入的密码不相同！","error");
+    if(supplier == ''){
+        $.messager.alert("操作提示","供用商不能为空！","error");
         return;
     }
     var formData = {
-        id                  : id,
-        pwd                 : pwd,
-        organization_id     :   organization_id
+        name        : name,
+        price       : price,
+        qty         :   qty,
+        supplier    : supplier
     }
-
+    $("#go").linkbutton('disable');
     $.ajax({
         type:'Post',
-        url:'/management/wechat/common/register',
+        url:'/rongshun/receipt/add',
         data:formData,
         dataType:'json',
         success:function(res){
             if(res != null){
-                if(res.status == 0){
-                    window.location.href="http://www.baidu.com";
-                }else if(res.status == 1){
-                    $.messager.alert("提示",res.msg,"error");
-                }
-
+                $.messager.alert("操作提示",res.msg,"info", function () {
+                    $('#ff').form('reset');
+                    $("#go").linkbutton('enable');
+                });
             }
         },
         error:function(){
