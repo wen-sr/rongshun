@@ -1,5 +1,8 @@
 package com.rongshun.service.wechat;
 
+import com.rongshun.common.ServerResponse;
+import com.rongshun.pojo.wechat.Inventory;
+
 /**
  * Author: wen-sir
  * Description:
@@ -7,4 +10,5 @@ package com.rongshun.service.wechat;
  * Modified By：
  */
 public interface IInventoryService {
+    ServerResponse info(Inventory inventory);
 }

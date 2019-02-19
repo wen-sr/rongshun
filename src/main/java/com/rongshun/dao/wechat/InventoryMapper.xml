@@ -8,11 +8,12 @@
       <arg column="sku_name" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="qty_receipt" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="qty_shipped" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="qty_free" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="supplier" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    Id, sku_id, sku_name, qty_receipt, qty_shipped, supplier
+    Id, sku_id, sku_name, qty_receipt, qty_shipped, qty_free, supplier
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -26,11 +27,11 @@
   </delete>
   <insert id="insert" parameterType="com.rongshun.pojo.wechat.Inventory">
     insert into inventory (Id, sku_id, sku_name, 
-      qty_receipt, qty_shipped, supplier
-      )
+      qty_receipt, qty_shipped, qty_free, 
+      supplier)
     values (#{id,jdbcType=INTEGER}, #{skuId,jdbcType=INTEGER}, #{skuName,jdbcType=VARCHAR}, 
-      #{qtyReceipt,jdbcType=INTEGER}, #{qtyShipped,jdbcType=INTEGER}, #{supplier,jdbcType=VARCHAR}
-      )
+      #{qtyReceipt,jdbcType=INTEGER}, #{qtyShipped,jdbcType=INTEGER}, #{qtyFree,jdbcType=INTEGER}, 
+      #{supplier,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.rongshun.pojo.wechat.Inventory">
     insert into inventory
@@ -49,6 +50,9 @@
       </if>
       <if test="qtyShipped != null">
         qty_shipped,
+      </if>
+      <if test="qtyFree != null">
+        qty_free,
       </if>
       <if test="supplier != null">
         supplier,
@@ -70,6 +74,9 @@
       <if test="qtyShipped != null">
         #{qtyShipped,jdbcType=INTEGER},
       </if>
+      <if test="qtyFree != null">
+        #{qtyFree,jdbcType=INTEGER},
+      </if>
       <if test="supplier != null">
         #{supplier,jdbcType=VARCHAR},
       </if>
@@ -90,6 +97,9 @@
       <if test="qtyShipped != null">
         qty_shipped = #{qtyShipped,jdbcType=INTEGER},
       </if>
+      <if test="qtyFree != null">
+        qty_free = #{qtyFree,jdbcType=INTEGER},
+      </if>
       <if test="supplier != null">
         supplier = #{supplier,jdbcType=VARCHAR},
       </if>
@@ -102,6 +112,7 @@
       sku_name = #{skuName,jdbcType=VARCHAR},
       qty_receipt = #{qtyReceipt,jdbcType=INTEGER},
       qty_shipped = #{qtyShipped,jdbcType=INTEGER},
+      qty_free = #{qtyFree,jdbcType=INTEGER},
       supplier = #{supplier,jdbcType=VARCHAR}
     where Id = #{id,jdbcType=INTEGER}
   </update>
@@ -110,5 +121,23 @@
     from inventory
     where sku_name = #{skuName,jdbcType=VARCHAR}
     and supplier = #{supplier,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from inventory
+    <where>
+      <if test="id != null">
+        and id = #{id,jdbcType=INTEGER}
+      </if>
+      <if test="skuId != null">
+        and sku_id = #{skuId,jdbcType=INTEGER}
+      </if>
+      <if test="skuName != null">
+        and sku_name = #{skuName,jdbcType=VARCHAR}
+      </if>
+      <if test="supplier != null">
+        and supplier = #{supplier,jdbcType=VARCHAR}
+      </if>
+    </where>
   </select>
 </mapper>

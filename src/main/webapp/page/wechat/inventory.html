@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>基础资料</title>
+    <title>库存</title>
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="../../easyui/themes/metro/easyui.css">
     <link rel="stylesheet" type="text/css" href="../../easyui/themes/mobile.css">
@@ -17,22 +17,19 @@
 <div class="easyui-navpanel" style="position:relative;padding:20px">
     <form id="ff">
         <div style="margin-bottom:10px">
-            <select class="easyui-combobox" id="name" label="货物名称:" style="width:100%"></select>
-        </div>
-        <div style="margin-bottom:10px">
-            <input class="easyui-textbox" id="price" label="进价:"  style="width:100%">
-        </div>
-        <div style="margin-bottom:10px">
-            <input class="easyui-textbox" id="qty" label="数量:" style="width:100%">
+            <select class="easyui-combobox" id="skuName" label="货物名称:" style="width:100%"></select>
         </div>
         <div style="margin-bottom:10px">
             <select class="easyui-combobox" id="supplier" label="供应商:" style="width:100%"></select>
         </div>
         <div style="text-align:center;margin-top:30px">
-            <a href="#" id="go" class="easyui-linkbutton c4" style="width:100%" onclick="go()">提交</a>
+            <a href="#" id="go" class="easyui-linkbutton c4" style="width:100%" onclick="go()">查询</a>
         </div>
     </form>
 </div>
-<script type="text/javascript" src="sku.js"></script>
+<div id="w-detail" class="easyui-window" title="分书未发" data-options="modal:true,closed:true,iconCls:'icon-save',maximized:true,minimizable: false, maximizable: false" >
+    alglag
+</div>
+<script type="text/javascript" src="inventory.js"></script>
 </body>
 </html>

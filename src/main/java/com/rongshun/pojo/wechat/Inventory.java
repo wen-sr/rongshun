@@ -11,14 +11,17 @@ public class Inventory {
 
     private Integer qtyShipped;
 
+    private Integer qtyFree;
+
     private String supplier;
 
-    public Inventory(Integer id, Integer skuId, String skuName, Integer qtyReceipt, Integer qtyShipped, String supplier) {
+    public Inventory(Integer id, Integer skuId, String skuName, Integer qtyReceipt, Integer qtyShipped, Integer qtyFree, String supplier) {
         this.id = id;
         this.skuId = skuId;
         this.skuName = skuName;
         this.qtyReceipt = qtyReceipt;
         this.qtyShipped = qtyShipped;
+        this.qtyFree = qtyFree;
         this.supplier = supplier;
     }
 
@@ -64,6 +67,14 @@ public class Inventory {
 
     public void setQtyShipped(Integer qtyShipped) {
         this.qtyShipped = qtyShipped;
+    }
+
+    public Integer getQtyFree() {
+        return qtyFree;
+    }
+
+    public void setQtyFree(Integer qtyFree) {
+        this.qtyFree = qtyFree;
     }
 
     public String getSupplier() {

@@ -62,6 +62,8 @@
           <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:4.1.0" />
           <element id="library" level="project" name="Maven: com.github.miemiedev:mybatis-paginator:1.2.10" />
           <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:0.9.4" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-servlet-api:8.5.15" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.6" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="rongshun/web/Web" />

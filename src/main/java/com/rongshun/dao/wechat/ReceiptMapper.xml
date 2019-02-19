@@ -23,7 +23,7 @@
     where Id = #{id,jdbcType=INTEGER}
   </select>
     <select id="selectSku" resultType="com.rongshun.vo.wechat.ReceiptVo">
-      select distinct sku_id,sku_name
+      select distinct sku_id skuId,sku_name skuName
       from receipt
       <where>
         <if test="skuId != null" >
@@ -106,7 +106,7 @@
       <if test="addwho != null" >
         addwho,
       </if>
-      <if test="adddate != null" >
+      <if test="1 != 0" >
         adddate,
       </if>
     </trim>
@@ -132,8 +132,8 @@
       <if test="addwho != null" >
         #{addwho,jdbcType=VARCHAR},
       </if>
-      <if test="adddate != null" >
-        #{adddate,jdbcType=TIMESTAMP},
+      <if test="1 != 0" >
+        now(),
       </if>
     </trim>
   </insert>

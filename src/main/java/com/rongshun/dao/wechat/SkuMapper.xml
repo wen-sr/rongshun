@@ -25,10 +25,10 @@
   <insert id="insert" parameterType="com.rongshun.pojo.wechat.Sku" >
     insert into sku (Id, name, adddate, 
       addwho)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{adddate,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, now(),
       #{addwho,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.rongshun.pojo.wechat.Sku" >
+  <insert id="insertSelective" parameterType="com.rongshun.pojo.wechat.Sku" useGeneratedKeys="true" keyProperty="id">
     insert into sku
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -37,7 +37,7 @@
       <if test="name != null" >
         name,
       </if>
-      <if test="1 == 0" >
+      <if test="1 != 0" >
         adddate,
       </if>
       <if test="addwho != null" >

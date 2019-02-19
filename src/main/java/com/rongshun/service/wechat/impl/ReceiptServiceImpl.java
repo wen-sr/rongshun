@@ -5,6 +5,7 @@ import com.rongshun.common.ServerResponse;
 import com.rongshun.dao.wechat.InventoryMapper;
 import com.rongshun.dao.wechat.ReceiptMapper;
 import com.rongshun.dao.wechat.SkuMapper;
+import com.rongshun.exception.MyException;
 import com.rongshun.pojo.wechat.Inventory;
 import com.rongshun.pojo.wechat.Receipt;
 import com.rongshun.pojo.wechat.Sku;
@@ -39,12 +40,16 @@ public class ReceiptServiceImpl implements IReceiptService {
         //判断商品是否第一次收货
         Sku sku = skuMapper.selectByName(receipt.getSkuName());
         if(sku == null) {
-            sku.setAddwho(RequestHolder.getCurrentUser().getNickname());
+            sku = new Sku();
+//            sku.setAddwho(RequestHolder.getCurrentUser().getNickname());
+            sku.setAddwho("wen-sir");
+            sku.setName(receipt.getSkuName());
             skuMapper.insertSelective(sku);
         }
         //增加库存
         Inventory inventory = inventoryMapper.selectBySkuId(sku.getName(),receipt.getSupplier());
         if(inventory == null){
+            inventory = new Inventory();
             inventory.setSkuId(sku.getId());
             inventory.setSkuName(sku.getName());
             inventory.setQtyReceipt(receipt.getQty());
@@ -53,6 +58,7 @@ public class ReceiptServiceImpl implements IReceiptService {
             inventoryMapper.insertSelective(inventory);
         }else {
             inventory.setQtyReceipt(inventory.getQtyShipped() + receipt.getQty());
+            inventoryMapper.updateByPrimaryKeySelective(inventory);
         }
         //写入收货明细
         receiptMapper.insertSelective(receipt);

@@ -10,11 +10,11 @@
         </filter>
     </appender>
 
-    <appender name="management" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="rongshun" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--<File>d:/mmalllog/mmall.log</File>-->
-        <File>${catalina_home}/logs/management.log</File>
+        <File>${catalina_home}/logs/rongshun.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${catalina_home}/logs/management.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+            <fileNamePattern>${catalina_home}/logs/rongshun.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
             <append>true</append>
             <maxHistory>10</maxHistory>
         </rollingPolicy>
@@ -43,14 +43,14 @@
         </filter>
     </appender>
 
-    <logger name="com.management" additivity="false" level="INFO" >
-        <appender-ref ref="management" />
+    <logger name="com.rongshun" additivity="false" level="INFO" >
+        <appender-ref ref="rongshun" />
         <appender-ref ref="console"/>
     </logger>
 
     <!-- geelynote mybatis log 日志 -->
 
-    <logger name="com.management.dao" level="DEBUG"/>
+    <logger name="com.rongshun.dao" level="DEBUG"/>
 
     <logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" level="DEBUG" >
     <appender-ref ref="console"/>

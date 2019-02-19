@@ -17,6 +17,13 @@ $(function(){
     });
 });
 
+function add(){
+    var customer = $.trim($("#customer").combobox('getText'));
+    if(customer != ''){
+        window.open('/rongshun/page/wechat/add_sku.html?data=' + customer ,'_self');
+    }
+}
+
 function go() {
     var name = $.trim($("#name").combobox('getText'));
     var price = $.trim($("#price").textbox('getValue'));
