@@ -1,3 +1,10 @@
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
 .panel {
   overflow: hidden;
   text-align: left;
@@ -1294,9 +1301,11 @@
   position: relative;
   border: 0;
 }
-.tabs li a.tabs-inner {
+.tabs li .tabs-inner {
   display: inline-block;
   text-decoration: none;
+  cursor: hand;
+  cursor: pointer;
   margin: 0;
   padding: 0 10px;
   height: 25px;
@@ -1309,11 +1318,11 @@
   -webkit-border-radius: 0px 0px 0 0;
   border-radius: 0px 0px 0 0;
 }
-.tabs li.tabs-selected a.tabs-inner {
+.tabs li.tabs-selected .tabs-inner {
   font-weight: bold;
   outline: none;
 }
-.tabs li.tabs-selected a:hover.tabs-inner {
+.tabs li.tabs-selected .tabs-inner:hover {
   cursor: default;
   pointer: default;
 }
@@ -1388,7 +1397,7 @@
 .tabs-header-bottom .tabs li {
   margin: -1px 4px 0 0;
 }
-.tabs-header-bottom .tabs li a.tabs-inner {
+.tabs-header-bottom .tabs li .tabs-inner {
   -moz-border-radius: 0 0 0px 0px;
   -webkit-border-radius: 0 0 0px 0px;
   border-radius: 0 0 0px 0px;
@@ -1446,11 +1455,11 @@
   margin: 0 0 4px -1px;
   float: left;
 }
-.tabs-justified li a.tabs-inner {
+.tabs-justified li .tabs-inner {
   padding-left: 0;
   padding-right: 0;
 }
-.tabs-header-left .tabs li a.tabs-inner {
+.tabs-header-left .tabs li .tabs-inner {
   display: block;
   text-align: left;
   padding-left: 10px;
@@ -1459,7 +1468,7 @@
   -webkit-border-radius: 0px 0 0 0px;
   border-radius: 0px 0 0 0px;
 }
-.tabs-header-right .tabs li a.tabs-inner {
+.tabs-header-right .tabs li .tabs-inner {
   display: block;
   text-align: left;
   padding-left: 10px;
@@ -1497,7 +1506,7 @@
 .tabs-header-right .tabs-pill {
   padding-left: 3px;
 }
-.tabs-header .tabs-pill li a.tabs-inner {
+.tabs-header .tabs-pill li .tabs-inner {
   -moz-border-radius: 0px 0px 0px 0px;
   -webkit-border-radius: 0px 0px 0px 0px;
   border-radius: 0px 0px 0px 0px;
@@ -1540,16 +1549,16 @@
 .tabs li a.tabs-close {
   background: url('images/tabs_icons.png') no-repeat -34px center;
 }
-.tabs li a.tabs-inner:hover {
+.tabs li .tabs-inner:hover {
   background: #E6E6E6;
   color: #444;
   filter: none;
 }
-.tabs li.tabs-selected a.tabs-inner {
+.tabs li.tabs-selected .tabs-inner {
   background-color: #fff;
   color: #777;
 }
-.tabs li a.tabs-inner {
+.tabs li .tabs-inner {
   color: #777;
   background-color: #ffffff;
 }
@@ -1566,11 +1575,11 @@
 .tabs-tool,
 .tabs,
 .tabs-panels,
-.tabs li a.tabs-inner,
-.tabs li.tabs-selected a.tabs-inner,
-.tabs-header-bottom .tabs li.tabs-selected a.tabs-inner,
-.tabs-header-left .tabs li.tabs-selected a.tabs-inner,
-.tabs-header-right .tabs li.tabs-selected a.tabs-inner {
+.tabs li .tabs-inner,
+.tabs li.tabs-selected .tabs-inner,
+.tabs-header-bottom .tabs li.tabs-selected .tabs-inner,
+.tabs-header-left .tabs li.tabs-selected .tabs-inner,
+.tabs-header-right .tabs li.tabs-selected .tabs-inner {
   border-color: #ddd;
 }
 .tabs-p-tool a:hover,
@@ -1578,19 +1587,19 @@
 .tabs-scroller-over {
   background-color: #E6E6E6;
 }
-.tabs li.tabs-selected a.tabs-inner {
+.tabs li.tabs-selected .tabs-inner {
   border-bottom: 1px solid #fff;
 }
-.tabs-header-bottom .tabs li.tabs-selected a.tabs-inner {
+.tabs-header-bottom .tabs li.tabs-selected .tabs-inner {
   border-top: 1px solid #fff;
 }
-.tabs-header-left .tabs li.tabs-selected a.tabs-inner {
+.tabs-header-left .tabs li.tabs-selected .tabs-inner {
   border-right: 1px solid #fff;
 }
-.tabs-header-right .tabs li.tabs-selected a.tabs-inner {
+.tabs-header-right .tabs li.tabs-selected .tabs-inner {
   border-left: 1px solid #fff;
 }
-.tabs-header .tabs-pill li.tabs-selected a.tabs-inner {
+.tabs-header .tabs-pill li.tabs-selected .tabs-inner {
   background: #CCE6FF;
   color: #000;
   filter: none;
@@ -1880,6 +1889,20 @@
 }
 .datagrid-header .datagrid-filter-row td.datagrid-header-over {
   background: inherit;
+}
+.datagrid-split-proxy {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  border-left: 1px solid #99cdff;
+}
+.datagrid-moving-proxy {
+  border: 1px solid #99cdff;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 4px;
 }
 .propertygrid .datagrid-view1 .datagrid-body td {
   padding-bottom: 1px;
@@ -3061,6 +3084,14 @@
 .tree-node-hidden {
   display: none;
 }
+.inputbox {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+}
 .validatebox-invalid {
   border-color: #ffa8a8;
   background-color: #fff3f3;
@@ -3301,4 +3332,76 @@
   width: 1px;
   height: 1px;
   left: -999px;
+}
+.sidemenu .tree-hit {
+  background-image: none;
+}
+.sidemenu-default-icon {
+  background-image: none;
+  width: 0;
+}
+.sidemenu .accordion .accordion-header,
+.sidemenu .accordion .accordion-body {
+  border-bottom-color: transparent;
+  background: transparent;
+}
+.sidemenu .accordion .accordion-header {
+  color: #777;
+}
+.sidemenu .accordion-header .panel-title {
+  height: 30px;
+  line-height: 30px;
+  color: #777;
+}
+.sidemenu .accordion-header:hover {
+  background: #E6E6E6;
+  color: #777;
+}
+.sidemenu .tree-node-hover {
+  background: #E6E6E6;
+  color: #777;
+}
+.sidemenu .tree-node-selected {
+  border-right: 2px solid #99cdff;
+  color: #000;
+  background: #CCE6FF;
+}
+.sidemenu .tree-node {
+  height: 40px;
+}
+.sidemenu .tree-title {
+  margin: 11px 0;
+}
+.sidemenu .tree-node-nonleaf {
+  position: relative;
+}
+.sidemenu .tree-node-nonleaf::after {
+  display: inline-block;
+  content: '';
+  position: absolute;
+  top: 50%;
+  margin-top: -8px;
+  background: url('images/accordion_arrows.png') no-repeat 0 0;
+  width: 16px;
+  height: 16px;
+  right: 5px;
+}
+.sidemenu .tree-node-nonleaf-collapsed::after {
+  background: url('images/accordion_arrows.png') no-repeat -16px 0;
+}
+.sidemenu-collapsed .panel-icon {
+  left: 50%;
+  margin-left: -8px;
+}
+.sidemenu-tooltip {
+  padding: 0;
+  margin: 0 -12px;
+  border: 0;
+}
+.sidemenu-tooltip.tooltip-left {
+  margin: 0 12px;
+}
+.sidemenu-tooltip .tooltip-arrow-outer,
+.sidemenu-tooltip .tooltip-arrow {
+  display: none;
 }

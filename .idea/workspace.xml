@@ -5,37 +5,162 @@
       <artifact name="rongshun:war exploded" />
     </artifacts-to-build>
   </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/main/webapp/page/wechat/orders.js" line="19" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c0c5cb78-861d-47e3-9fd8-ebefb8be83c8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/getUrlParam.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/wechat/add_sku.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/wechat/add_sku.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/wechat/inventory.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/wechat/inventory.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/wechat/inventory_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/wechat/inventory_detail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/wechat/orders.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/wechat/orders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/rongshun_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/rongshun_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/easyui/changelog.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/easyui/demo/checkbox/basic.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/easyui/demo/radiobutton/basic.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/easyui/demo/sidemenu/basic.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/easyui/demo/sidemenu/sidemenu_style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/easyui/demo/sidemenu/style.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/easyui/demo/timespinner/hour12.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.checkbox.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.radiobutton.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.sidemenu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/black/sidemenu.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/bootstrap/sidemenu.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/default/sidemenu.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/gray/sidemenu.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material-teal/sidemenu.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material/sidemenu.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/metro/sidemenu.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/react.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/vue.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/hogan.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rongshun.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rongshun.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/rongshun/controller/wechat/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rongshun/controller/wechat/InventoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rongshun/dao/wechat/InventoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rongshun/dao/wechat/InventoryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rongshun/dao/wechat/InventoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rongshun/dao/wechat/InventoryMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rongshun/dao/wechat/ReceiptMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rongshun/dao/wechat/ReceiptMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rongshun/dao/wechat/SkuMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rongshun/dao/wechat/SkuMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rongshun/pojo/wechat/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rongshun/pojo/wechat/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rongshun/service/wechat/IInventoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rongshun/service/wechat/IInventoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rongshun/service/wechat/impl/InventoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rongshun/service/wechat/impl/InventoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rongshun/service/wechat/impl/ReceiptServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rongshun/service/wechat/impl/ReceiptServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/datasource.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/datasource.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/page/wechat/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/page/wechat/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/page/wechat/sku.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/page/wechat/sku.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/page/wechat/sku.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/page/wechat/sku.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/applicationContext-datasource.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/applicationContext-datasource.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/datasource.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/datasource.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/demo/datagrid/cacheeditor.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/demo/datagrid/cacheeditor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/demo/datagrid/cellediting.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/demo/datagrid/cellediting.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/demo/datagrid/datagrid_data1.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/demo/datagrid/datagrid_data1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/demo/datagrid/multisorting.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/demo/datagrid/multisorting.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/demo/datagrid/rowediting.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/demo/datagrid/rowediting.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/demo/droppable/sort.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/demo/droppable/sort.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/demo/tabs/tabstools.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/demo/tabs/tabstools.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/easyloader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/easyloader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/jquery.easyui.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/jquery.easyui.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/jquery.easyui.mobile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/jquery.easyui.mobile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.accordion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.accordion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.combo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.combo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.combobox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.combobox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.combogrid.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.combogrid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.combotree.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.combotree.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.combotreegrid.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.combotreegrid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.datagrid.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.datagrid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.datalist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.datalist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.datebox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.datebox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.datetimebox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.datetimebox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.datetimespinner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.datetimespinner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.dialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.dialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.draggable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.draggable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.droppable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.droppable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.filebox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.filebox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.form.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.linkbutton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.linkbutton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.maskedbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.maskedbox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.menubutton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.menubutton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.messager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.messager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.mobile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.mobile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.numberbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.numberbox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.numberspinner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.numberspinner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.pagination.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.pagination.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.panel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.panel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.parser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.passwordbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.passwordbox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.progressbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.progressbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.propertygrid.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.propertygrid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.resizable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.resizable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.searchbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.searchbox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.slider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.spinner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.spinner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.splitbutton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.splitbutton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.switchbutton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.switchbutton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.tabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.tabs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.tagbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.tagbox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.textbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.textbox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.timespinner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.timespinner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.tooltip.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.tooltip.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.tree.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.tree.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.treegrid.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.treegrid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.validatebox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.validatebox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.window.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/plugins/jquery.window.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/src/easyloader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/src/easyloader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.accordion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.accordion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.combobox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.combobox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.datebox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.datebox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.draggable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.draggable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.droppable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.droppable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.form.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.linkbutton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.linkbutton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.parser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.progressbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.progressbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.propertygrid.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.propertygrid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.resizable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.resizable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.slider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.tabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.tabs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.window.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/src/jquery.window.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/black/datagrid.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/black/datagrid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/black/easyui.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/black/easyui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/black/images/messager_icons.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/black/images/messager_icons.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/black/panel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/black/panel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/black/tabs.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/black/tabs.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/black/validatebox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/black/validatebox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/bootstrap/datagrid.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/bootstrap/datagrid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/bootstrap/easyui.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/bootstrap/easyui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/bootstrap/images/messager_icons.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/bootstrap/images/messager_icons.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/bootstrap/panel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/bootstrap/panel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/bootstrap/progressbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/bootstrap/progressbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/bootstrap/propertygrid.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/bootstrap/propertygrid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/bootstrap/switchbutton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/bootstrap/switchbutton.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/bootstrap/tabs.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/bootstrap/tabs.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/bootstrap/validatebox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/bootstrap/validatebox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/default/datagrid.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/default/datagrid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/default/easyui.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/default/easyui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/default/images/messager_icons.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/default/images/messager_icons.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/default/panel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/default/panel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/default/tabs.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/default/tabs.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/default/validatebox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/default/validatebox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/gray/datagrid.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/gray/datagrid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/gray/easyui.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/gray/easyui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/gray/images/messager_icons.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/gray/images/messager_icons.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/gray/panel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/gray/panel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/gray/tabs.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/gray/tabs.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/gray/validatebox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/gray/validatebox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material-teal/datagrid.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material-teal/datagrid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material-teal/easyui.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material-teal/easyui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material-teal/images/loading.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material-teal/images/loading.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material-teal/images/messager_icons.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material-teal/images/messager_icons.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material-teal/panel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material-teal/panel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material-teal/tabs.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material-teal/tabs.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material-teal/validatebox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material-teal/validatebox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material/calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material/calendar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material/checkbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material/checkbox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material/datagrid.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material/datagrid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material/easyui.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material/easyui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material/images/messager_icons.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material/images/messager_icons.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material/panel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material/panel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material/radiobutton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material/radiobutton.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material/tabs.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material/tabs.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material/validatebox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/material/validatebox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/metro/datagrid.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/metro/datagrid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/metro/easyui.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/metro/easyui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/metro/images/messager_icons.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/metro/images/messager_icons.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/metro/panel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/metro/panel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/metro/tabs.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/metro/tabs.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/easyui/themes/metro/validatebox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/easyui/themes/metro/validatebox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/page/wechat/add_sku.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/page/wechat/add_sku.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/page/wechat/inventory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/page/wechat/inventory.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/page/wechat/orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/page/wechat/orders.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/page/wechat/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/page/wechat/orders.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -47,72 +172,170 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="add_sku.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/add_sku.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="27" column="3" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add_sku.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/add_sku.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-              <folding>
-                <element signature="n#style#0;n#input#0;n#div#0;n#li#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#1;n#div#0;n#li#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="orders.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/orders.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="41" column="55" lean-forward="true" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="55" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#2;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#1;n#div#6;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="orders.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/orders.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inventory_detail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/inventory_detail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="14" column="42" lean-forward="true" selection-start-line="14" selection-end-line="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inventory.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/inventory.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="26" column="9" lean-forward="true" selection-start-line="26" selection-end-line="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="orders.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/orders.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="214">
+                  <caret line="66" column="34" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="34" />
+                  <folding>
+                    <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#2;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#input#0;n#div#2;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#6;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#a#1;n#div#6;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#input#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#input#1;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#select#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#2;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#input#0;n#div#2;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#1;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#input#0;n#div#1;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#2;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#input#0;n#div#2;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#2;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#input#0;n#div#2;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#1;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#input#0;n#div#1;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#3;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#a#0;n#div#3;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#span#0;n#a#0;n#div#3;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="orders.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/orders.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="234">
+                  <caret line="40" column="26" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="26" />
+                  <folding>
+                    <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#i#0;n#a#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="InventoryController.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/controller/wechat/InventoryController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="238">
+                  <caret line="26" column="59" lean-forward="true" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="InventoryServiceImpl.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/service/wechat/impl/InventoryServiceImpl.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="282">
+                  <caret line="26" column="61" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="InventoryMapper.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/dao/wechat/InventoryMapper.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="318">
+                  <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="InventoryMapper.xml" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/dao/wechat/InventoryMapper.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="54">
+                  <caret line="3" column="67" selection-start-line="3" selection-start-column="67" selection-end-line="3" selection-end-column="67" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Inventory.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/pojo/wechat/Inventory.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="90">
+                  <caret line="5" column="25" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="25" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ServerResponse.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/common/ServerResponse.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="125">
+                  <caret line="70" column="31" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="inventory_detail.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/inventory_detail.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="252">
+                  <caret line="14" column="42" selection-start-line="14" selection-end-line="15" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="rowediting.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/webapp/easyui/demo-mobile/datagrid/rowediting.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="214">
+                  <caret line="28" column="61" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="orders.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/orders.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="484">
+                  <caret line="63" column="10" lean-forward="true" selection-start-line="63" selection-start-column="10" selection-end-line="63" selection-end-column="10" />
+                  <folding>
+                    <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#2;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#input#0;n#div#2;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#input#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#input#1;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#select#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#1;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#input#0;n#div#1;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#2;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#input#0;n#div#2;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#3;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -161,8 +384,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/rongshun/vo/wechat/InventoryVo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rongshun/service/wechat/IInventoryService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rongshun/service/wechat/impl/InventoryServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/rongshun/controller/wechat/InventoryController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/page/wechat/inventory.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/wechat/inventory.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/wechat/inventory_detail.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/rongshun/dao/wechat/InventoryMapper.java" />
@@ -171,10 +392,13 @@
         <option value="$PROJECT_DIR$/src/main/webapp/page/wechat/sku.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/wechat/sku.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/wechat/index.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/page/wechat/orders.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/page/wechat/orders.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/wechat/add_sku.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/page/wechat/compute.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/wechat/add_sku.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/page/wechat/inventory.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rongshun/controller/wechat/InventoryController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/page/wechat/orders.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/page/wechat/orders.js" />
       </list>
     </option>
   </component>
@@ -229,9 +453,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="width" value="1934" />
-    <option name="height" value="1058" />
+    <option name="x" value="-15" />
+    <option name="width" value="1939" />
+    <option name="height" value="1063" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -242,6 +466,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -265,7 +492,77 @@
               <item name="rongshun" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rongshun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rongshun" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="rongshun" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rongshun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rongshun" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="rongshun" type="462c0819:PsiDirectoryNode" />
+              <item name="wechat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rongshun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rongshun" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="rongshun" type="462c0819:PsiDirectoryNode" />
+              <item name="wechat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rongshun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rongshun" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rongshun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rongshun" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="easyui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rongshun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rongshun" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="easyui" type="462c0819:PsiDirectoryNode" />
+              <item name="demo-mobile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rongshun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rongshun" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="easyui" type="462c0819:PsiDirectoryNode" />
+              <item name="demo-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="datagrid" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rongshun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rongshun" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="easyui" type="462c0819:PsiDirectoryNode" />
+              <item name="demo-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="datalist" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rongshun" type="b2602c69:ProjectViewProjectNode" />
@@ -284,18 +581,10 @@
               <item name="page" type="462c0819:PsiDirectoryNode" />
               <item name="wechat" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="rongshun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rongshun" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -303,7 +592,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550559343403" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../management" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -312,16 +601,16 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ideaProject\rongshun\src\main\webapp\js" />
+      <recent name="D:\ideaProject\rongshun\src\main\webapp\page\wechat" />
+      <recent name="D:\ideaProject\rongshun\src\main\webapp" />
+      <recent name="E:\ideaProject\rongshun\src\main\webapp\css" />
+      <recent name="E:\ideaProject\rongshun\target\artifacts\rongshun_war_exploded\easyui\themes" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\ideaProject\rongshun\src\main\webapp\js" />
       <recent name="E:\ideaProject\rongshun\src\main\webapp" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\ideaProject\rongshun\src\main\webapp\page\wechat" />
-      <recent name="D:\ideaProject\rongshun\src\main\webapp\js" />
-      <recent name="E:\ideaProject\rongshun\src\main\webapp\css" />
-      <recent name="E:\ideaProject\rongshun\target\artifacts\rongshun_war_exploded\easyui\themes" />
-      <recent name="E:\ideaProject\rongshun\src\main\webapp\easyui\themes" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -426,11 +715,12 @@
       <workItem from="1550478543695" duration="206000" />
       <workItem from="1550537768513" duration="6389000" />
       <workItem from="1550547562746" duration="10315000" />
+      <workItem from="1550653795060" duration="14388000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34630000" />
+    <option name="totallyTimeSpent" value="49218000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1563" height="845" extended-state="6" />
@@ -439,7 +729,7 @@
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Application Servers" order="14" weight="0.32936078" />
-      <window_info anchor="right" id="Maven Projects" weight="0.32956812" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.32956812" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Designer" order="2" />
@@ -447,79 +737,57 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="5" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3022599" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3983051" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32936078" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="3" />
       <window_info anchor="bottom" id="Java Enterprise" order="15" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32909605" />
       <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
       <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32909605" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14485049" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.329718" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.26445183" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26066098" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="right" id="Maven" order="3" visible="true" weight="0.098614074" />
-      <window_info anchor="bottom" id="Application Servers" order="14" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.329718" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="bottom" id="Database Changes" order="12" />
-      <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info id="Image Layers" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.3991323" />
-      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="UI Designer" order="5" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
-      <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info id="Designer" order="2" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" id="Maven" order="3" visible="true" weight="0.098614074" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="right" id="Maven" order="4" visible="true" weight="0.098614074" />
+      <window_info anchor="right" id="Maven" order="3" visible="true" weight="0.098614074" />
       <window_info anchor="bottom" id="Application Servers" order="14" weight="0.32936078" />
       <window_info id="Designer" order="2" />
-      <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info id="Image Layers" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.329718" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32936078" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Java Enterprise" order="15" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info anchor="right" id="Maven Projects" order="0" weight="0.32956812" />
+      <window_info anchor="right" id="Maven Projects" order="6" weight="0.32956812" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26066098" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26445183" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Web" order="7" side_tool="true" />
@@ -527,7 +795,7 @@
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.3991323" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3983051" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -542,37 +810,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/dist/demos/css/demos.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/fastclick.js" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/customerQuery.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/register.html" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/easyui/themes/mobile.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/service/wechat/IOrdersService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/service/wechat/impl/OrdersServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -633,19 +870,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#191#207#0" expanded="true" />
-            <element signature="e#347#367#0" expanded="true" />
-            <element signature="e#414#415#0" expanded="true" />
-            <element signature="e#453#454#0" expanded="true" />
-            <element signature="e#511#512#0" expanded="true" />
-            <element signature="e#553#554#0" expanded="true" />
-            <element signature="e#597#598#0" expanded="true" />
-            <element signature="e#636#637#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
-            <element signature="e#738#739#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -730,40 +954,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="e#397#398#0" expanded="true" />
-            <element signature="e#422#423#0" expanded="true" />
-            <element signature="e#459#460#0" expanded="true" />
-            <element signature="e#487#488#0" expanded="true" />
-            <element signature="e#520#521#0" expanded="true" />
-            <element signature="e#548#549#0" expanded="true" />
-            <element signature="e#591#592#0" expanded="true" />
-            <element signature="e#625#626#0" expanded="true" />
-            <element signature="e#659#660#0" expanded="true" />
-            <element signature="e#689#690#0" expanded="true" />
-            <element signature="e#735#736#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#805#806#0" expanded="true" />
-            <element signature="e#833#834#0" expanded="true" />
-            <element signature="e#875#876#0" expanded="true" />
-            <element signature="e#909#910#0" expanded="true" />
-            <element signature="e#940#941#0" expanded="true" />
-            <element signature="e#966#967#0" expanded="true" />
-            <element signature="e#1005#1006#0" expanded="true" />
-            <element signature="e#1035#1036#0" expanded="true" />
-            <element signature="e#1070#1071#0" expanded="true" />
-            <element signature="e#1101#1102#0" expanded="true" />
-            <element signature="e#1149#1150#0" expanded="true" />
-            <element signature="e#1189#1190#0" expanded="true" />
-            <element signature="e#1222#1223#0" expanded="true" />
-            <element signature="e#1251#1252#0" expanded="true" />
-            <element signature="e#1295#1296#0" expanded="true" />
-            <element signature="e#1331#1332#0" expanded="true" />
-            <element signature="e#1365#1366#0" expanded="true" />
-            <element signature="e#1395#1396#0" expanded="true" />
-            <element signature="e#1441#1442#0" expanded="true" />
-            <element signature="e#1479#1480#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -781,9 +971,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="32" column="38" lean-forward="true" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -794,16 +981,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/dao/wechat/OrdersMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/vo/wechat/InventoryVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/vo/wechat/InventoryVo.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/service/wechat/IInventoryService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -811,65 +989,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/controller/wechat/InventoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
-          <folding>
-            <element signature="e#738#739#0" expanded="true" />
-            <element signature="e#793#794#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/getUrlParam.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/inventory_detail.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/pojo/wechat/Inventory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="30" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/service/wechat/impl/InventoryServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="26" column="63" lean-forward="true" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/dao/wechat/InventoryMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/dao/wechat/InventoryMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="124" column="49" selection-start-line="124" selection-start-column="49" selection-end-line="124" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/inventory.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="25" column="89" selection-start-line="25" selection-start-column="89" selection-end-line="25" selection-end-column="89" />
         </state>
       </provider>
     </entry>
@@ -884,22 +1007,65 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
           <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/inventory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="26" column="9" selection-start-line="26" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/easyui/src/easyloader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="18" column="19" lean-forward="true" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/compute.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="84" column="4" selection-start-line="84" selection-start-column="4" selection-end-line="86" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/compute.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="203" column="12" selection-start-line="203" selection-start-column="12" selection-end-line="203" selection-end-column="42" />
           <folding>
-            <element signature="n#style#0;n#select#0;n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#2;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#3;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#!!block;n#loadWaitComputeData#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/easyui/themes/color.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="66" lean-forward="true" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/add_sku.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="18" selection-start-line="18" selection-end-line="22" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/add_sku.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="44" column="18" lean-forward="true" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+        <state relative-caret-position="144">
+          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -917,54 +1083,135 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/inventory.js">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/hogan.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/inventory.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/easyui/demo-mobile/datalist/basic.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="29" column="87" lean-forward="true" selection-start-line="29" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/easyui/demo-mobile/datagrid/basic.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
-          <caret line="26" column="9" lean-forward="true" selection-start-line="26" selection-end-line="27" />
+          <caret line="47" column="13" lean-forward="true" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/inventory_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="14" column="42" lean-forward="true" selection-start-line="14" selection-end-line="15" />
+        <state relative-caret-position="252">
+          <caret line="14" column="42" selection-start-line="14" selection-end-line="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/orders.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/common/ServerResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="125">
+          <caret line="70" column="31" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/easyui/demo-mobile/datagrid/rowediting.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="28" column="61" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/controller/wechat/InventoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="26" column="59" lean-forward="true" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/service/wechat/impl/InventoryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="26" column="61" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/dao/wechat/InventoryMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/dao/wechat/InventoryMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="67" selection-start-line="3" selection-start-column="67" selection-end-line="3" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rongshun/pojo/wechat/Inventory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/orders.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="41" column="55" lean-forward="true" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="55" />
+        <state relative-caret-position="214">
+          <caret line="66" column="34" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="34" />
           <folding>
             <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#2;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#6;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#1;n#div#6;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#2;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#1;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#2;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#2;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#1;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#3;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#div#3;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/add_sku.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/orders.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="27" column="3" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/wechat/add_sku.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+        <state relative-caret-position="234">
+          <caret line="40" column="26" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="26" />
           <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#li#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#div#0;n#li#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
