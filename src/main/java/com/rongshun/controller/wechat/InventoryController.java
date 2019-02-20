@@ -22,10 +22,15 @@ public class InventoryController {
     @Autowired
     IInventoryService inventoryService;
 
-    @RequestMapping("info")
+    @RequestMapping("/info")
     public EasyuiTableResponse info(Inventory inventory){
         ServerResponse<List> response = inventoryService.info(inventory);
         return  response.parseToEasyuiTableCommonResponse(response.getStatus(),response.getData(), response.getMsg(), response.getData().size(), response.getData().size());
+    }
+
+    @RequestMapping("/infoTips")
+    public ServerResponse infoTips(Inventory inventory){
+        return inventoryService.info(inventory);
     }
 
 }

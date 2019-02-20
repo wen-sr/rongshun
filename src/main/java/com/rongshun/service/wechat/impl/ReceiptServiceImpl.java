@@ -54,10 +54,12 @@ public class ReceiptServiceImpl implements IReceiptService {
             inventory.setSkuName(sku.getName());
             inventory.setQtyReceipt(receipt.getQty());
             inventory.setQtyShipped(0);
+            inventory.setQtyFree(receipt.getQty());
             inventory.setSupplier(receipt.getSupplier());
             inventoryMapper.insertSelective(inventory);
         }else {
             inventory.setQtyReceipt(inventory.getQtyShipped() + receipt.getQty());
+            inventory.setQtyFree(inventory.getQtyFree() + receipt.getQty());
             inventoryMapper.updateByPrimaryKeySelective(inventory);
         }
         //写入收货明细
