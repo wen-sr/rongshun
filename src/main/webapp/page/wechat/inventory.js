@@ -2,7 +2,7 @@ $(function(){
     $('#skuName').next('.combo').find('input').focus(function (){
         $('#skuName').combobox({
             url : "/rongshun/receipt/receiptSkuTips",
-            valueField : 'skuId',
+            valueField : 'skuName',
             textField : 'skuName'
         });
 
@@ -18,12 +18,8 @@ $(function(){
 });
 
 function go() {
-    var name = $.trim($("#skuName").combobox('getText'));
+    var name = $.trim($("#skuName").combobox('getValue'));
     var supplier = $.trim($("#supplier").combobox('getValue'));
-    var formData = {
-        skuName     : name,
-        supplier    : supplier
-    };
-    window.open('/rongshun/page/wechat/inventory_detail.html?data=' + formData ,'_self');
+    window.open('/rongshun/page/wechat/inventory_detail.html?skuName=' + name + '&supplier=' + supplier ,'_self');
 }
 

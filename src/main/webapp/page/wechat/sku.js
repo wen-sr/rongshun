@@ -2,7 +2,7 @@ $(function(){
     $('#name').next('.combo').find('input').focus(function (){
         $('#name').combobox({
             url : "/rongshun/receipt/receiptSkuTips",
-            valueField : 'skuId',
+            valueField : 'skuName',
             textField : 'skuName'
         });
 

@@ -1,8 +1,9 @@
 $(function() {
-    var data = UrlParm.parm("data");
+    var skuName = UrlParm.parm("skuName");
+    var supplier = UrlParm.parm("supplier");
     var formData = {
-        skuName     : data.skuName,
-        supplier    : data.supplier
+        skuName     : skuName,
+        supplier    : supplier
     };
     $.ajax({
         type: 'Post',
