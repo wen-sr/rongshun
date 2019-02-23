@@ -13,9 +13,22 @@
     <script type="text/javascript" src="../../easyui/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="../../easyui/locale/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript" src="../../js/hogan.js"></script>
+    <style scoped>
+        #list .list-header{
+            font-size: 16px;
+            font-weight: bold;
+        }
+        #list .list-content{
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        #list .m-list li{
+            line-height: 25px;
+        }
+    </style>
 </head>
 <body>
-<div class="easyui-navpanel" style="position:relative;padding:20px">
+    <div class="easyui-navpanel" style="position:relative;padding:20px;height: 90%">
     <form id="ff">
         <div style="margin-bottom:10px">
             <select class="easyui-combobox" id="customer" label="客户名称:" style="width:100%"></select>
@@ -24,44 +37,29 @@
             <input class="easyui-datebox" id="dd" label="开单日期:" style="width:100%"/>
         </div>
         <div style="margin-bottom:10px">
-            <input id="pwd" class="easyui-textbox" style="width:100%;height:32px;"label="历史欠款:" data-options="buttonText:'<span style=\'padding:0 15px\'; id=\'detail\'>欠款明细</span>'">
+            <input id="his" class="easyui-textbox" style="width:100%;height:32px;"label="历史欠款:" data-options="readonly:true,buttonText:'<span style=\'padding:0 15px\'; id=\'detail\'>欠款明细</span>'">
         </div>
-        <ul class="m-list">
-            <li>Large</li>
-        </ul>
-        <div style="text-align:center;margin-top:30px">
+        <div style="margin-bottom:10px">
+            <input id="my" class="easyui-textbox" style="width:100%;height:32px;"label="总价:" data-options="readonly:true">
+        </div>
+        <div style="margin-bottom:10px">
+            <input id="payable" class="easyui-textbox" style="width:100%;height:32px;"label="实付:" data-options="">
+        </div>
+        <div class="easyui-navpanel" >
+            <ul id="list" class="m-list" style="overflow: scroll">
+            </ul>
+        </div>
+        <div style="text-align:center;padding-bottom: 5px;">
             <a href="#" class="easyui-linkbutton c5" style="width:45%" onclick="add()">添加配件</a>
             <a href="#" class="easyui-linkbutton c4" style="width:45%" onclick="go()">提交</a>
         </div>
     </form>
 </div>
-<div id="w-detail" class="easyui-window" title="添加配件" data-options="modal:true,closed:true,iconCls:'icon-save',maximized:true,minimizable: false, maximizable: false" style="height: 100%">
+<div id="w-detail" class="easyui-window" title="添加配件" data-options="modal:true,closed:true,zIndex:100,iconCls:'icon-save',maximized:true,minimizable: false, maximizable: false" style="height: 100%">
     <table id="dg">
     </table>
 </div>
-<div id="tb" style="padding:5px;height:auto;display: none;">
-    <div style="margin-bottom:5px">
-        <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true"></a>
-        <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true"></a>
-        <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true"></a>
-        <a href="#" class="easyui-linkbutton" iconCls="icon-cut" plain="true"></a>
-        <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true"></a>
-    </div>
-    <div>
-        Date From: <input class="easyui-datebox" style="width:80px">
-        To: <input class="easyui-datebox" style="width:80px">
-        Language:
-        <select class="easyui-combobox" panelHeight="auto" style="width:100px">
-            <option value="java">Java</option>
-            <option value="c">C</option>
-            <option value="basic">Basic</option>
-            <option value="perl">Perl</option>
-            <option value="python">Python</option>
-        </select>
-        <a href="#" class="easyui-linkbutton" iconCls="icon-search">Search</a>
-    </div>
-</div>
-<div id="d" class="easyui-window" title="输入售价和数量" data-options="modal:true,closed:true,iconCls:'icon-add',maximized:true,minimizable: false, maximizable: false">
+<div id="d" class="easyui-window" title="输入售价和数量" data-options="modal:true,closed:true,zIndex:101,iconCls:'icon-add',maximized:true,minimizable: false, maximizable: false">
     <form>
         <div style="margin-bottom:10px">
             <input id="add_skuName" class="easyui-textbox" style="width:100%;height:32px;"label="配件名称:" prompt="配件名称" data-options="">
@@ -79,49 +77,10 @@
             <input id="add_qty" class="easyui-textbox" style="width:100%;height:32px;"label="数量:" prompt="数量" data-options="">
         </div>
         <div style="text-align:center;margin-top:30px">
-            <a id="confirm" href="#" class="easyui-linkbutton" style="width:100%;height:40px"><span style="font-size:16px">确认</span></a>
+            <a id="confirm" href="#" class="easyui-linkbutton" onclick="addDetail()" style="width:100%;height:40px"><span style="font-size:16px">确认</span></a>
         </div>
     </form>
 </div>
 <script type="text/javascript" src="orders.js"></script>
-<script type="text/javascript">
-    var editIndex = undefined;
-    function endEditing(){
-        if (editIndex == undefined){return true}
-        if ($('#dg').datagrid('validateRow', editIndex)){
-            $('#dg').datagrid('endEdit', editIndex);
-            editIndex = undefined;
-            return true;
-        } else {
-            return false;
-        }
-    }
-    function onClickRow(index){
-        if (editIndex != index){
-            if (endEditing()){
-                $('#dg').datagrid('selectRow', index)
-                    .datagrid('beginEdit', index);
-                editIndex = index;
-            } else {
-                $('#dg').datagrid('selectRow', editIndex);
-            }
-        }
-    }
-    function removeit(){
-        if (editIndex == undefined){return}
-        $('#dg').datagrid('cancelEdit', editIndex)
-            .datagrid('deleteRow', editIndex);
-        editIndex = undefined;
-    }
-    function accept(){
-        if (endEditing()){
-            $('#dg').datagrid('acceptChanges');
-        }
-    }
-    function reject(){
-        $('#dg').datagrid('rejectChanges');
-        editIndex = undefined;
-    }
-</script>
 </body>
 </html>

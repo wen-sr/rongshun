@@ -23,28 +23,29 @@
     where Id = #{id,jdbcType=INTEGER}
   </select>
     <select id="selectSku" resultType="com.rongshun.vo.wechat.ReceiptVo">
-      select distinct sku_id skuId,sku_name skuName
+      select distinct sku_id skuId,sku_name skuName,price
       from receipt
       <where>
         <if test="skuId != null" >
-          sku_id = #{skuId,jdbcType=INTEGER},
+          and sku_id = #{skuId,jdbcType=INTEGER}
         </if>
         <if test="skuName != null" >
-          sku_name = #{skuName,jdbcType=VARCHAR},
+          and sku_name = #{skuName,jdbcType=VARCHAR}
         </if>
         <if test="price != null" >
-          price = #{price,jdbcType=DOUBLE},
+          and price = #{price,jdbcType=DOUBLE}
         </if>
         <if test="qty != null" >
-          qty = #{qty,jdbcType=INTEGER},
+          and qty = #{qty,jdbcType=INTEGER}
         </if>
         <if test="supplier != null" >
-          supplier = #{supplier,jdbcType=VARCHAR},
+          and supplier = #{supplier,jdbcType=VARCHAR}
         </if>
         <if test="addwho != null" >
-          addwho = #{addwho,jdbcType=VARCHAR},
+          and addwho = #{addwho,jdbcType=VARCHAR}
         </if>
       </where>
+      order by skuName,price
     </select>
   <select id="selectSupplier" resultType="com.rongshun.vo.wechat.ReceiptVo">
     select distinct supplier

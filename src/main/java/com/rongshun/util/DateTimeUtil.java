@@ -17,6 +17,7 @@ public class DateTimeUtil {
     //str->Date
     //Date->str
     public static final String STANDARD_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    public static final String STANDARD_FORMAT_2 = "yyyy-MM-dd";
 
 
 

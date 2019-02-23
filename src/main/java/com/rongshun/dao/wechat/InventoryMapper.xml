@@ -116,7 +116,7 @@
       supplier = #{supplier,jdbcType=VARCHAR}
     where Id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="selectBySkuId" resultType="com.rongshun.pojo.wechat.Inventory">
+  <select id="selectBySkuId" resultMap="BaseResultMap">
     select <include refid="Base_Column_List" />
     from inventory
     where sku_name = #{skuName,jdbcType=VARCHAR}

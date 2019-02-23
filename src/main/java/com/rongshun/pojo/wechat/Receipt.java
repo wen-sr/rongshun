@@ -34,6 +34,11 @@ public class Receipt {
         super();
     }
 
+    public Receipt(String skuName, String supplier) {
+        this.skuName = skuName;
+        this.supplier = supplier;
+    }
+
     public Integer getId() {
         return id;
     }

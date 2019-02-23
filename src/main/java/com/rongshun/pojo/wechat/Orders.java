@@ -5,36 +5,38 @@ import java.util.Date;
 public class Orders {
     private Integer id;
 
-    private Integer skuId;
-
-    private String skuName;
-
-    private Double priceIn;
-
-    private String priceOut;
-
-    private Integer qty;
-
     private String customer;
+
+    private Double payable;
+
+    private Double paid;
+
+    private String status;
+
+    private Date dd;
 
     private String addwho;
 
     private Date adddate;
 
-    public Orders(Integer id, Integer skuId, String skuName, Double priceIn, String priceOut, Integer qty, String customer, String addwho, Date adddate) {
+    public Orders(Integer id, String customer, Double payable, Double paid, String status, Date dd, String addwho, Date adddate) {
         this.id = id;
-        this.skuId = skuId;
-        this.skuName = skuName;
-        this.priceIn = priceIn;
-        this.priceOut = priceOut;
-        this.qty = qty;
         this.customer = customer;
+        this.payable = payable;
+        this.paid = paid;
+        this.status = status;
+        this.dd = dd;
         this.addwho = addwho;
         this.adddate = adddate;
     }
 
     public Orders() {
         super();
+    }
+
+    public Orders(String customer, String status) {
+        this.customer = customer;
+        this.status = status;
     }
 
     public Integer getId() {
@@ -45,52 +47,44 @@ public class Orders {
         this.id = id;
     }
 
-    public Integer getSkuId() {
-        return skuId;
-    }
-
-    public void setSkuId(Integer skuId) {
-        this.skuId = skuId;
-    }
-
-    public String getSkuName() {
-        return skuName;
-    }
-
-    public void setSkuName(String skuName) {
-        this.skuName = skuName == null ? null : skuName.trim();
-    }
-
-    public Double getPriceIn() {
-        return priceIn;
-    }
-
-    public void setPriceIn(Double priceIn) {
-        this.priceIn = priceIn;
-    }
-
-    public String getPriceOut() {
-        return priceOut;
-    }
-
-    public void setPriceOut(String priceOut) {
-        this.priceOut = priceOut == null ? null : priceOut.trim();
-    }
-
-    public Integer getQty() {
-        return qty;
-    }
-
-    public void setQty(Integer qty) {
-        this.qty = qty;
-    }
-
     public String getCustomer() {
         return customer;
     }
 
     public void setCustomer(String customer) {
         this.customer = customer == null ? null : customer.trim();
+    }
+
+    public Double getPayable() {
+        return payable;
+    }
+
+    public void setPayable(Double payable) {
+        this.payable = payable;
+    }
+
+    public Double getPaid() {
+        return paid;
+    }
+
+    public void setPaid(Double paid) {
+        this.paid = paid;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status == null ? null : status.trim();
+    }
+
+    public Date getDd() {
+        return dd;
+    }
+
+    public void setDd(Date dd) {
+        this.dd = dd;
     }
 
     public String getAddwho() {

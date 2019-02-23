@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rongshun.dao.wechat.OrdersDetailMapper">
+  <resultMap id="BaseResultMap" type="com.rongshun.pojo.wechat.OrdersDetail">
+    <constructor>
+      <idArg column="Id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="orders_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="sku_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="sku_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="supplier" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="price_in" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="price_out" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="qty" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, orders_id, sku_id, sku_name, supplier, price_in, price_out, qty
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ordersdetail
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ordersdetail
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rongshun.pojo.wechat.OrdersDetail">
+    insert into ordersdetail (Id, orders_id, sku_id, 
+      sku_name, supplier, price_in, 
+      price_out, qty)
+    values (#{id,jdbcType=INTEGER}, #{ordersId,jdbcType=INTEGER}, #{skuId,jdbcType=INTEGER}, 
+      #{skuName,jdbcType=VARCHAR}, #{supplier,jdbcType=VARCHAR}, #{priceIn,jdbcType=DOUBLE}, 
+      #{priceOut,jdbcType=DOUBLE}, #{qty,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rongshun.pojo.wechat.OrdersDetail">
+    insert into ordersdetail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="ordersId != null">
+        orders_id,
+      </if>
+      <if test="skuId != null">
+        sku_id,
+      </if>
+      <if test="skuName != null">
+        sku_name,
+      </if>
+      <if test="supplier != null">
+        supplier,
+      </if>
+      <if test="priceIn != null">
+        price_in,
+      </if>
+      <if test="priceOut != null">
+        price_out,
+      </if>
+      <if test="qty != null">
+        qty,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ordersId != null">
+        #{ordersId,jdbcType=INTEGER},
+      </if>
+      <if test="skuId != null">
+        #{skuId,jdbcType=INTEGER},
+      </if>
+      <if test="skuName != null">
+        #{skuName,jdbcType=VARCHAR},
+      </if>
+      <if test="supplier != null">
+        #{supplier,jdbcType=VARCHAR},
+      </if>
+      <if test="priceIn != null">
+        #{priceIn,jdbcType=DOUBLE},
+      </if>
+      <if test="priceOut != null">
+        #{priceOut,jdbcType=DOUBLE},
+      </if>
+      <if test="qty != null">
+        #{qty,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rongshun.pojo.wechat.OrdersDetail">
+    update ordersdetail
+    <set>
+      <if test="ordersId != null">
+        orders_id = #{ordersId,jdbcType=INTEGER},
+      </if>
+      <if test="skuId != null">
+        sku_id = #{skuId,jdbcType=INTEGER},
+      </if>
+      <if test="skuName != null">
+        sku_name = #{skuName,jdbcType=VARCHAR},
+      </if>
+      <if test="supplier != null">
+        supplier = #{supplier,jdbcType=VARCHAR},
+      </if>
+      <if test="priceIn != null">
+        price_in = #{priceIn,jdbcType=DOUBLE},
+      </if>
+      <if test="priceOut != null">
+        price_out = #{priceOut,jdbcType=DOUBLE},
+      </if>
+      <if test="qty != null">
+        qty = #{qty,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rongshun.pojo.wechat.OrdersDetail">
+    update ordersdetail
+    set orders_id = #{ordersId,jdbcType=INTEGER},
+      sku_id = #{skuId,jdbcType=INTEGER},
+      sku_name = #{skuName,jdbcType=VARCHAR},
+      supplier = #{supplier,jdbcType=VARCHAR},
+      price_in = #{priceIn,jdbcType=DOUBLE},
+      price_out = #{priceOut,jdbcType=DOUBLE},
+      qty = #{qty,jdbcType=INTEGER}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="findAll" resultType="com.rongshun.vo.wechat.OrdersVo">
+    select a.id ordersId,a.customer,a.paid,a.payable,a.status,a.dd,a.addwho,b.id ordersDetailId,b.sku_id skuId,b.sku_name skuName,supplier,price_in priceIn,price_out priceOut,b.qty,b.qty*price_out my
+    from orders a, ordersdetail b
+    where a.id = b.orders_id
+      <if test="customer != null">
+        and customer = #{customer,jdbcType=VARCHAR}
+      </if>
+      <if test="payable != null">
+        and payable = #{payable,jdbcType=DOUBLE}
+      </if>
+      <if test="paid != null">
+        and paid = #{paid,jdbcType=DOUBLE}
+      </if>
+      <if test="status != null">
+        and status = #{status,jdbcType=VARCHAR}
+      </if>
+      <if test="dd != null">
+        and dd = #{dd,jdbcType=DATE}
+      </if>
+      <if test="addwho != null">
+        and addwho = #{addwho,jdbcType=VARCHAR}
+      </if>
+      <if test="ordersId != null">
+        and orders_id = #{ordersId,jdbcType=INTEGER}
+      </if>
+      <if test="skuId != null">
+        and sku_id = #{skuId,jdbcType=INTEGER}
+      </if>
+      <if test="skuName != null">
+        and sku_name = #{skuName,jdbcType=VARCHAR}
+      </if>
+      <if test="supplier != null">
+        and supplier = #{supplier,jdbcType=VARCHAR}
+      </if>
+  </select>
+</mapper>
