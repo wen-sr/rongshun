@@ -1,5 +1,6 @@
 package com.rongshun.service.wechat.impl;
 
+import com.rongshun.common.RequestHolder;
 import com.rongshun.common.ServerResponse;
 import com.rongshun.dao.wechat.InventoryMapper;
 import com.rongshun.dao.wechat.OrdersDetailMapper;
@@ -63,8 +64,11 @@ public class OrdersServiceImpl implements IOrdersService {
         //添加表头
         if(ordersList != null && ordersList.size() > 0){
             orders = ordersList.get(0);
-            orders.setPaid(orders.getPaid() + (o.getPriceOut()*o.getQty()));
-            ordersMapper.updateByPrimaryKeySelective(orders);
+            if(o.getPriceOut() != null){
+                ordersDetailMapper.selectByOrderIdAndSku(new OrdersDetail(orders.getId(),o.getSkuName(),o.getSupplier()));
+                orders.setPaid(orders.getPaid() + (o.getPriceOut()*o.getQty()));
+                ordersMapper.updateByPrimaryKeySelective(orders);
+            }
         }else {
             orders = new Orders();
             orders.setCustomer(o.getCustomer());
@@ -75,18 +79,39 @@ public class OrdersServiceImpl implements IOrdersService {
             orders.setDd(DateTimeUtil.strToDate(o.getDd(), "yyyy-MM-dd"));
             ordersMapper.insertSelective(orders);
         }
+        //占用库存
+        Inventory inventory = inventoryMapper.selectBySkuId(o.getSkuName(),o.getSupplier());
+        inventory.setQtyShipped(inventory.getQtyShipped() + o.getQty());
+        if(inventory.getQtyFree() - o.getQty() < 0){
+            throw new MyException(-1, "库存不足，添加配件失败");
+        }
+        inventory.setQtyFree(inventory.getQtyFree() - o.getQty());
+        inventoryMapper.updateByPrimaryKeySelective(inventory);
         //添加明细
-        OrdersDetail ordersDetail = new OrdersDetail();
-        ordersDetail.setOrdersId(orders.getId());
-        ordersDetail.setPriceOut(o.getPriceOut());
-        ReceiptVo receiptVo = receiptMapper.selectSku(new Receipt(o.getSkuName(), o.getSupplier())).get(0);
-        ordersDetail.setPriceIn(receiptVo.getPrice());
-        ordersDetail.setQty(o.getQty());
-        ordersDetail.setSkuId(receiptVo.getSkuId());
-        ordersDetail.setSkuName(o.getSkuName());
-        ordersDetail.setSupplier(o.getSupplier());
-        ordersDetailMapper.insertSelective(ordersDetail);
-        return ServerResponse.createBySuccessMsg("添加配件成功");
+        OrdersDetail ordersDetail = ordersDetailMapper.selectByOrderIdAndSku(new OrdersDetail(orders.getId(),o.getSkuName(),o.getSupplier()));
+        if(ordersDetail == null){
+            ordersDetail = new OrdersDetail();
+            ordersDetail.setOrdersId(orders.getId());
+            ordersDetail.setPriceOut(o.getPriceOut());
+            ReceiptVo receiptVo = receiptMapper.selectSku(new Receipt(o.getSkuName(), o.getSupplier())).get(0);
+            ordersDetail.setPriceIn(receiptVo.getPrice());
+            ordersDetail.setQty(o.getQty());
+            ordersDetail.setSkuId(receiptVo.getSkuId());
+            ordersDetail.setSkuName(o.getSkuName());
+            ordersDetail.setSupplier(o.getSupplier());
+            ordersDetailMapper.insertSelective(ordersDetail);
+        }else {
+            if(ordersDetail.getQty() + o.getQty() == 0){
+                ordersDetailMapper.deleteByPrimaryKey(ordersDetail.getId());
+            }else {
+                ordersDetail.setQty(ordersDetail.getQty() + o.getQty());
+                ordersDetailMapper.updateByPrimaryKeySelective(ordersDetail);
+            }
+            orders.setPaid(orders.getPaid() + ordersDetail.getPriceOut()*ordersDetail.getQty());
+            ordersMapper.updateByPrimaryKeySelective(orders);
+        }
+
+        return ServerResponse.createBySuccessMsg("操作成功");
     }
 
     @Override
@@ -104,13 +129,13 @@ public class OrdersServiceImpl implements IOrdersService {
             for(OrdersVo o : ordersVoList){
                 sumQty += o.getQty()*o.getPriceOut();
                 //增加库存
-                Inventory inventory = inventoryMapper.selectBySkuId(o.getSkuName(),o.getSupplier());
-                inventory.setQtyShipped(inventory.getQtyShipped() + o.getQty());
-                if(inventory.getQtyFree() - o.getQty() < 0){
-                    throw new MyException(-1, "供应商为" + o.getSupplier() + "的" + o.getSkuName() + "库存不足");
-                }
-                inventory.setQtyFree(inventory.getQtyFree() - o.getQty());
-                inventoryMapper.updateByPrimaryKeySelective(inventory);
+//                Inventory inventory = inventoryMapper.selectBySkuId(o.getSkuName(),o.getSupplier());
+//                inventory.setQtyShipped(inventory.getQtyShipped() + o.getQty());
+//                if(inventory.getQtyFree() - o.getQty() < 0){
+//                    throw new MyException(-1, "供应商为" + o.getSupplier() + "的" + o.getSkuName() + "库存不足");
+//                }
+//                inventory.setQtyFree(inventory.getQtyFree() - o.getQty());
+//                inventoryMapper.updateByPrimaryKeySelective(inventory);
             }
             Orders orders = ordersMapper.findAll(new Orders(ordersVo.getCustomer(), "-1")).get(0);
             orders.setPayable(ordersVo.getPayable());
@@ -131,5 +156,11 @@ public class OrdersServiceImpl implements IOrdersService {
     @Override
     public List<Orders> getCustomer(Orders orders) {
         return ordersMapper.getCustomer(orders);
+    }
+
+    @Override
+    public ServerResponse hisInfo(Orders orders) {
+        List<OrdersVo> ordersList = ordersMapper.hisInfo(orders);
+        return ServerResponse.createBySuccess(ordersList);
     }
 }

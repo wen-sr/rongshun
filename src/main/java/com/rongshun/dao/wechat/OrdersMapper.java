@@ -23,4 +23,6 @@ public interface OrdersMapper {
     List<Orders> findAll(Orders orders);
 
     List<Orders> getCustomer(Orders orders);
+
+    List<OrdersVo> hisInfo(Orders orders);
 }

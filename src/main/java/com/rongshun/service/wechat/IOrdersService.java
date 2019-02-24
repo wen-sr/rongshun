@@ -22,4 +22,6 @@ public interface IOrdersService {
     ServerResponse confirm(OrdersVo ordersVo);
 
     List<Orders> getCustomer(Orders orders);
+
+    ServerResponse hisInfo(Orders orders);
 }

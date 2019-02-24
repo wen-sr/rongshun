@@ -1,6 +1,9 @@
 package com.rongshun.mp.handler;
 
+import com.rongshun.dao.wechat.WeChatUserInfoMapper;
 import com.rongshun.mp.builder.TextBuilder;
+import com.rongshun.pojo.wechat.WeChatUserInfo;
+import com.rongshun.service.wechat.IWeChatUserInfoService;
 import com.rongshun.service.wechat.WeixinService;
 import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.common.session.WxSessionManager;
@@ -8,6 +11,7 @@ import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlOutMessage;
 import me.chanjar.weixin.mp.bean.result.WxMpUser;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
@@ -17,6 +21,12 @@ import java.util.Map;
  */
 @Component
 public class SubscribeHandler extends AbstractHandler {
+
+  @Autowired
+  IWeChatUserInfoService weChatUserInfoService;
+
+  @Autowired
+  WeChatUserInfoMapper weChatUserInfoMapper;
 
   @Override
   public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage, Map<String, Object> context, WxMpService wxMpService,
@@ -30,7 +40,26 @@ public class SubscribeHandler extends AbstractHandler {
     WxMpUser userWxInfo = weixinService.getUserService().userInfo(wxMessage.getFromUser(), null);
 
     if (userWxInfo != null) {
-      // TODO 可以添加关注用户到本地
+      WeChatUserInfo userInfo = weChatUserInfoMapper.selectByOpenid(userWxInfo.getUnionId());
+      if(userInfo == null){
+        userInfo = new WeChatUserInfo();
+        userInfo.setCity(userWxInfo.getCity());
+        userInfo.setCountry(userWxInfo.getCountry());
+        userInfo.setGroupid(userWxInfo.getUnionId());
+        userInfo.setHeadimgurl(userWxInfo.getHeadImgUrl());
+        userInfo.setLanguage(userWxInfo.getLanguage());
+        userInfo.setNickname(userWxInfo.getNickname());
+        userInfo.setOpenid(userWxInfo.getOpenId());
+        userInfo.setProvince(userWxInfo.getProvince());
+        userInfo.setRemark(userWxInfo.getRemark());
+        userInfo.setSex(userInfo.getSex());
+        userInfo.setSubscribe(1);
+        userInfo.setLoginId("0");
+        weChatUserInfoMapper.insertSelective(userInfo);
+      }else {
+        userInfo.setSubscribe(1);
+        weChatUserInfoMapper.updateByPrimaryKeySelective(userInfo);
+      }
     }
 
     WxMpXmlOutMessage responseResult = null;

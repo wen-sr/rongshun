@@ -181,4 +181,9 @@
       </if>
     </where>
   </select>
+  <select id="hisInfo" resultType="com.rongshun.vo.wechat.OrdersVo">
+    select a.id,a.customer,a.paid,a.payable,dd,b.sku_name skuName,b.supplier,b.price_out priceOut,b.qty,b.price_out*b.qty my
+    from orders a, ordersdetail b
+    where a.id = b.orders_id
+  </select>
 </mapper>

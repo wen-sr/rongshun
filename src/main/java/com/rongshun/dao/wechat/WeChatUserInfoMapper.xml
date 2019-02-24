@@ -29,7 +29,12 @@
     from we_chat_user_info
     where Id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectByOpenid" resultMap="BaseResultMap" >
+      select <include refid="Base_Column_List"/>
+      from we_chat_user_info
+      where openid = #{openId}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from we_chat_user_info
     where Id = #{id,jdbcType=INTEGER}
   </delete>
@@ -57,7 +62,7 @@
       <if test="subscribe != null" >
         subscribe,
       </if>
-      <if test="subscribetime != null" >
+      <if test="1 != 2" >
         subscribeTime,
       </if>
       <if test="nickname != null" >
@@ -101,8 +106,8 @@
       <if test="subscribe != null" >
         #{subscribe,jdbcType=INTEGER},
       </if>
-      <if test="subscribetime != null" >
-        #{subscribetime,jdbcType=BIGINT},
+      <if test="2 != 1" >
+        now(),
       </if>
       <if test="nickname != null" >
         #{nickname,jdbcType=VARCHAR},

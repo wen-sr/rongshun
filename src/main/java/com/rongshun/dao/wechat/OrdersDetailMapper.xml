@@ -162,4 +162,11 @@
         and supplier = #{supplier,jdbcType=VARCHAR}
       </if>
   </select>
+  <select id="selectByOrderIdAndSku" resultMap="BaseResultMap" parameterType="com.rongshun.pojo.wechat.OrdersDetail">
+    select <include refid="Base_Column_List"/>
+    from ordersdetail
+    where orders_id = #{ordersId}
+    and sku_name = #{skuName}
+    and supplier = #{supplier}
+  </select>
 </mapper>

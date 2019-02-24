@@ -36,6 +36,12 @@ public class OrdersDetail {
         super();
     }
 
+    public OrdersDetail(Integer ordersId, String skuName, String supplier) {
+        this.ordersId = ordersId;
+        this.skuName = skuName;
+        this.supplier = supplier;
+    }
+
     public Integer getId() {
         return id;
     }

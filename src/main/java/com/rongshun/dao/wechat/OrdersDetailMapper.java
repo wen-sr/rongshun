@@ -19,4 +19,6 @@ public interface OrdersDetailMapper {
     int updateByPrimaryKey(OrdersDetail record);
 
     List<OrdersVo> findAll(OrdersVo ordersVo);
+
+    OrdersDetail selectByOrderIdAndSku(OrdersDetail ordersDetail);
 }

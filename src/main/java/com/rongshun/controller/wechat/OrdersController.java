@@ -1,5 +1,8 @@
 package com.rongshun.controller.wechat;
 
+import com.rongshun.common.Constant;
+import com.rongshun.common.EasyuiTableResponse;
+import com.rongshun.common.ResponseCode;
 import com.rongshun.common.ServerResponse;
 import com.rongshun.pojo.wechat.Orders;
 import com.rongshun.pojo.wechat.OrdersDetail;
@@ -27,6 +30,12 @@ public class OrdersController {
     @RequestMapping("/getHis")
     public ServerResponse getHis(Orders orders){
         return ordersService.getHis(orders);
+    }
+
+    @RequestMapping("/hisInfo")
+    public EasyuiTableResponse hisInfo(Orders orders){
+        ServerResponse<List> response = ordersService.hisInfo(orders);
+        return response.parseToEasyuiTableCommonResponse(ResponseCode.SUCCESS.getCode(), response.getData(), "", response.getData().size(), response.getData().size());
     }
 
     @RequestMapping("/getCustomer")

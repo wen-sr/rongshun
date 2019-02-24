@@ -63,6 +63,9 @@ public class ReceiptServiceImpl implements IReceiptService {
             inventoryMapper.updateByPrimaryKeySelective(inventory);
         }
         //写入收货明细
+        receipt.setSkuId(sku.getId());
+//        receipt.setAddwho(RequestHolder.getCurrentUser().getOpenid());
+        receipt.setAddwho("wen-sir");
         receiptMapper.insertSelective(receipt);
         return ServerResponse.createBySuccessMsg("收货成功");
     }

@@ -62,13 +62,13 @@ public class WxMenuController implements WxMpMenuService {
     WxMenuButton button31 = new WxMenuButton();
     button31.setType(MenuButtonType.VIEW);
     button31.setName("仓库管理");
-    button31.setUrl("http://www.soso.com/");
+    button31.setUrl("http://www.jxlh56.com/rongshun/page/wechat/index.html");
 
 
     WxMenuButton button33 = new WxMenuButton();
     button33.setType(MenuButtonType.VIEW);
     button33.setName("关于我们");
-    button33.setUrl("http://www.soso.com/");
+    button33.setUrl("http://www.jxlh56.com/rongshun/page/wechat/index.html");
 
     menu.getButtons().add(button31);
     menu.getButtons().add(button33);

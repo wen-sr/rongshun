@@ -37,7 +37,7 @@
             <input class="easyui-datebox" id="dd" label="开单日期:" style="width:100%"/>
         </div>
         <div style="margin-bottom:10px">
-            <input id="his" class="easyui-textbox" style="width:100%;height:32px;"label="历史欠款:" data-options="readonly:true,buttonText:'<span style=\'padding:0 15px\'; id=\'detail\'>欠款明细</span>'">
+            <input id="his" class="easyui-textbox" style="width:100%;height:32px;"label="历史欠款:" data-options="readonly:true,buttonText:'<span style=\'padding:0 15px\'; id=\'hisDetail\'>欠款明细</span>'">
         </div>
         <div style="margin-bottom:10px">
             <input id="my" class="easyui-textbox" style="width:100%;height:32px;"label="总价:" data-options="readonly:true">
@@ -46,7 +46,7 @@
             <input id="payable" class="easyui-textbox" style="width:100%;height:32px;"label="实付:" data-options="">
         </div>
         <div class="easyui-navpanel" >
-            <ul id="list" class="m-list" style="overflow: scroll">
+            <ul id="list" class="m-list" style="border:1px solid #E6E6E6;overflow-y:scroll;">
             </ul>
         </div>
         <div style="text-align:center;padding-bottom: 5px;">
@@ -59,7 +59,19 @@
     <table id="dg">
     </table>
 </div>
-<div id="d" class="easyui-window" title="输入售价和数量" data-options="modal:true,closed:true,zIndex:101,iconCls:'icon-add',maximized:true,minimizable: false, maximizable: false">
+<div id="hisDiv" class="easyui-window" title="历史欠款" data-options="modal:true,closed:true,zIndex:200,iconCls:'icon-save',maximized:true,minimizable: false, maximizable: false" style="height: 100%">
+    <div class="easyui-navpanel">
+        <ul class="m-list">
+            <li><span id="info_customer"></span></li>
+            <li><span id="info_dd"></span></li>
+            <li><span id="info_paid"></span></li>
+            <li><span id="info_payable"></span></li>
+        </ul>
+    </div>
+    <table id="hisDg">
+    </table>
+</div>
+<div id="d" class="easyui-window" title="添加配件" data-options="modal:true,closed:true,zIndex:101,iconCls:'icon-add',maximized:true,minimizable: false, maximizable: false">
     <form>
         <div style="margin-bottom:10px">
             <input id="add_skuName" class="easyui-textbox" style="width:100%;height:32px;"label="配件名称:" prompt="配件名称" data-options="">
@@ -78,6 +90,25 @@
         </div>
         <div style="text-align:center;margin-top:30px">
             <a id="confirm" href="#" class="easyui-linkbutton" onclick="addDetail()" style="width:100%;height:40px"><span style="font-size:16px">确认</span></a>
+        </div>
+    </form>
+</div>
+<div id="d2" class="easyui-window" title="删除配件" data-options="modal:true,closed:true,zIndex:101,iconCls:'icon-add',maximized:true,minimizable: false, maximizable: false">
+    <form>
+        <div style="margin-bottom:10px">
+            <input id="minus_skuName" class="easyui-textbox" style="width:100%;height:32px;"label="配件名称:" prompt="配件名称" data-options="">
+        </div>
+        <div style="margin-bottom:10px">
+            <input id="minus_supplier" class="easyui-textbox" style="width:100%;height:32px;"label="供应商:" prompt="供应商" data-options="">
+        </div>
+        <div style="margin-bottom:10px">
+            <input id="minus_qtyFree" class="easyui-textbox" style="width:100%;height:32px;"label="库存:" prompt="库存" data-options="">
+        </div>
+        <div style="margin-bottom:10px">
+            <input id="minus_qty" class="easyui-textbox" style="width:100%;height:32px;"label="数量:" prompt="数量" data-options="">
+        </div>
+        <div style="text-align:center;margin-top:30px">
+            <a id="confirm_minus" href="#" class="easyui-linkbutton" onclick="minusDetail()" style="width:100%;height:40px"><span style="font-size:16px">确认</span></a>
         </div>
     </form>
 </div>
