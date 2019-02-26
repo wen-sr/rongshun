@@ -59,6 +59,7 @@ public class OAController {
         //根据openid找到对应的工号
         String openId = wxMpOAuth2AccessToken.getOpenId();
         WeChatUserInfo userInfo = userInfoService.selectByOpenid(openId);
+        logger.info("userInfo:"+userInfo.toString());
         if(userInfo == null || "0".equalsIgnoreCase(userInfo.getAuth()) ||
             userInfo.getAuth() == null) {
             logger.info("openid:" + openId + "访问系统无权限被跳转");

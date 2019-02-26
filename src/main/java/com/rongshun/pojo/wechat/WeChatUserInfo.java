@@ -60,6 +60,30 @@ public class WeChatUserInfo {
         this.bk3 = bk3;
     }
 
+    @Override
+    public String toString() {
+        return "WeChatUserInfo{" +
+                "id=" + id +
+                ", openid='" + openid + '\'' +
+                ", subscribe=" + subscribe +
+                ", subscribetime=" + subscribetime +
+                ", nickname='" + nickname + '\'' +
+                ", sex=" + sex +
+                ", country='" + country + '\'' +
+                ", province='" + province + '\'' +
+                ", city='" + city + '\'' +
+                ", language='" + language + '\'' +
+                ", headimgurl='" + headimgurl + '\'' +
+                ", remark='" + remark + '\'' +
+                ", groupid='" + groupid + '\'' +
+                ", loginId='" + loginId + '\'' +
+                ", auth='" + auth + '\'' +
+                ", bk1='" + bk1 + '\'' +
+                ", bk2='" + bk2 + '\'' +
+                ", bk3='" + bk3 + '\'' +
+                '}';
+    }
+
     public WeChatUserInfo() {
         super();
     }

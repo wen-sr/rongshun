@@ -31,9 +31,9 @@ public class HttpAspect {
 
 //    @Pointcut("execution(public * com.management.controller.login.UserController.*(..))")
     @Pointcut("execution(public * com.rongshun.controller..*.*(..)) " +
-            "&& !execution(public * com.rongshun.controller.wechat.OAController.*.*(..)) " +
-            "&& !execution(public * com.rongshun.controller.wechat.WxMpPortalController.*.*(..)) " +
-            "&& !execution(public * com.rongshun.controller.wechat.WxMenuController.*.*(..))" )
+            "&& !execution(public * com.rongshun.controller.wechat.OAController.*(..)) " +
+            "&& !execution(public * com.rongshun.controller.wechat.WxMpPortalController.*(..)) " +
+            "&& !execution(public * com.rongshun.controller.wechat.WxMenuController.*(..))" )
     public void log() {
     }
 
