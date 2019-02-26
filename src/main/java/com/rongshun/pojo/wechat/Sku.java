@@ -22,6 +22,10 @@ public class Sku {
         super();
     }
 
+    public Sku(String name) {
+        this.name = name;
+    }
+
     public Integer getId() {
         return id;
     }

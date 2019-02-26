@@ -1,196 +1,233 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.rongshun.dao.wechat.WeChatUserInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.rongshun.pojo.wechat.WeChatUserInfo" >
-    <constructor >
-      <idArg column="Id" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="openid" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="subscribe" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="subscribeTime" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="nickname" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="sex" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="country" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="province" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="city" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="language" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="headImgUrl" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="groupid" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="login_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rongshun.dao.wechat.WeChatUserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.rongshun.pojo.wechat.WeChatUserInfo">
+    <constructor>
+      <idArg column="Id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="openid" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="subscribe" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="subscribeTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="nickname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sex" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="country" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="province" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="city" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="language" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="headImgUrl" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="groupid" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="login_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="auth" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="bk1" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="bk2" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="bk3" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List" >
+  <sql id="Base_Column_List">
     Id, openid, subscribe, subscribeTime, nickname, sex, country, province, city, language, 
-    headImgUrl, remark, groupid, login_id
+    headImgUrl, remark, groupid, login_id, auth, bk1, bk2, bk3
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from we_chat_user_info
     where Id = #{id,jdbcType=INTEGER}
   </select>
-    <select id="selectByOpenid" resultMap="BaseResultMap" >
-      select <include refid="Base_Column_List"/>
-      from we_chat_user_info
-      where openid = #{openId}
-    </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from we_chat_user_info
     where Id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.rongshun.pojo.wechat.WeChatUserInfo" >
+  <insert id="insert" parameterType="com.rongshun.pojo.wechat.WeChatUserInfo">
     insert into we_chat_user_info (Id, openid, subscribe, 
       subscribeTime, nickname, sex, 
       country, province, city, 
       language, headImgUrl, remark, 
-      groupid, login_id)
+      groupid, login_id, auth, 
+      bk1, bk2, bk3)
     values (#{id,jdbcType=INTEGER}, #{openid,jdbcType=VARCHAR}, #{subscribe,jdbcType=INTEGER}, 
-      #{subscribetime,jdbcType=BIGINT}, #{nickname,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, 
+      #{subscribetime,jdbcType=TIMESTAMP}, #{nickname,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, 
       #{country,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
       #{language,jdbcType=VARCHAR}, #{headimgurl,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
-      #{groupid,jdbcType=VARCHAR}, #{loginId,jdbcType=VARCHAR})
+      #{groupid,jdbcType=VARCHAR}, #{loginId,jdbcType=VARCHAR}, #{auth,jdbcType=VARCHAR}, 
+      #{bk1,jdbcType=VARCHAR}, #{bk2,jdbcType=VARCHAR}, #{bk3,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.rongshun.pojo.wechat.WeChatUserInfo" >
+  <insert id="insertSelective" parameterType="com.rongshun.pojo.wechat.WeChatUserInfo">
     insert into we_chat_user_info
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         Id,
       </if>
-      <if test="openid != null" >
+      <if test="openid != null">
         openid,
       </if>
-      <if test="subscribe != null" >
+      <if test="subscribe != null">
         subscribe,
       </if>
-      <if test="1 != 2" >
+      <if test="subscribetime != null">
         subscribeTime,
       </if>
-      <if test="nickname != null" >
+      <if test="nickname != null">
         nickname,
       </if>
-      <if test="sex != null" >
+      <if test="sex != null">
         sex,
       </if>
-      <if test="country != null" >
+      <if test="country != null">
         country,
       </if>
-      <if test="province != null" >
+      <if test="province != null">
         province,
       </if>
-      <if test="city != null" >
+      <if test="city != null">
         city,
       </if>
-      <if test="language != null" >
+      <if test="language != null">
         language,
       </if>
-      <if test="headimgurl != null" >
+      <if test="headimgurl != null">
         headImgUrl,
       </if>
-      <if test="remark != null" >
+      <if test="remark != null">
         remark,
       </if>
-      <if test="groupid != null" >
+      <if test="groupid != null">
         groupid,
       </if>
-      <if test="loginId != null" >
+      <if test="loginId != null">
         login_id,
       </if>
+      <if test="auth != null">
+        auth,
+      </if>
+      <if test="bk1 != null">
+        bk1,
+      </if>
+      <if test="bk2 != null">
+        bk2,
+      </if>
+      <if test="bk3 != null">
+        bk3,
+      </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="openid != null" >
+      <if test="openid != null">
         #{openid,jdbcType=VARCHAR},
       </if>
-      <if test="subscribe != null" >
+      <if test="subscribe != null">
         #{subscribe,jdbcType=INTEGER},
       </if>
-      <if test="2 != 1" >
-        now(),
+      <if test="subscribetime != null">
+        #{subscribetime,jdbcType=TIMESTAMP},
       </if>
-      <if test="nickname != null" >
+      <if test="nickname != null">
         #{nickname,jdbcType=VARCHAR},
       </if>
-      <if test="sex != null" >
+      <if test="sex != null">
         #{sex,jdbcType=INTEGER},
       </if>
-      <if test="country != null" >
+      <if test="country != null">
         #{country,jdbcType=VARCHAR},
       </if>
-      <if test="province != null" >
+      <if test="province != null">
         #{province,jdbcType=VARCHAR},
       </if>
-      <if test="city != null" >
+      <if test="city != null">
         #{city,jdbcType=VARCHAR},
       </if>
-      <if test="language != null" >
+      <if test="language != null">
         #{language,jdbcType=VARCHAR},
       </if>
-      <if test="headimgurl != null" >
+      <if test="headimgurl != null">
         #{headimgurl,jdbcType=VARCHAR},
       </if>
-      <if test="remark != null" >
+      <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="groupid != null" >
+      <if test="groupid != null">
         #{groupid,jdbcType=VARCHAR},
       </if>
-      <if test="loginId != null" >
+      <if test="loginId != null">
         #{loginId,jdbcType=VARCHAR},
+      </if>
+      <if test="auth != null">
+        #{auth,jdbcType=VARCHAR},
+      </if>
+      <if test="bk1 != null">
+        #{bk1,jdbcType=VARCHAR},
+      </if>
+      <if test="bk2 != null">
+        #{bk2,jdbcType=VARCHAR},
+      </if>
+      <if test="bk3 != null">
+        #{bk3,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.rongshun.pojo.wechat.WeChatUserInfo" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.rongshun.pojo.wechat.WeChatUserInfo">
     update we_chat_user_info
-    <set >
-      <if test="openid != null" >
+    <set>
+      <if test="openid != null">
         openid = #{openid,jdbcType=VARCHAR},
       </if>
-      <if test="subscribe != null" >
+      <if test="subscribe != null">
         subscribe = #{subscribe,jdbcType=INTEGER},
       </if>
-      <if test="subscribetime != null" >
-        subscribeTime = #{subscribetime,jdbcType=BIGINT},
+      <if test="subscribetime != null">
+        subscribeTime = #{subscribetime,jdbcType=TIMESTAMP},
       </if>
-      <if test="nickname != null" >
+      <if test="nickname != null">
         nickname = #{nickname,jdbcType=VARCHAR},
       </if>
-      <if test="sex != null" >
+      <if test="sex != null">
         sex = #{sex,jdbcType=INTEGER},
       </if>
-      <if test="country != null" >
+      <if test="country != null">
         country = #{country,jdbcType=VARCHAR},
       </if>
-      <if test="province != null" >
+      <if test="province != null">
         province = #{province,jdbcType=VARCHAR},
       </if>
-      <if test="city != null" >
+      <if test="city != null">
         city = #{city,jdbcType=VARCHAR},
       </if>
-      <if test="language != null" >
+      <if test="language != null">
         language = #{language,jdbcType=VARCHAR},
       </if>
-      <if test="headimgurl != null" >
+      <if test="headimgurl != null">
         headImgUrl = #{headimgurl,jdbcType=VARCHAR},
       </if>
-      <if test="remark != null" >
+      <if test="remark != null">
         remark = #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="groupid != null" >
+      <if test="groupid != null">
         groupid = #{groupid,jdbcType=VARCHAR},
       </if>
-      <if test="loginId != null" >
+      <if test="loginId != null">
         login_id = #{loginId,jdbcType=VARCHAR},
+      </if>
+      <if test="auth != null">
+        auth = #{auth,jdbcType=VARCHAR},
+      </if>
+      <if test="bk1 != null">
+        bk1 = #{bk1,jdbcType=VARCHAR},
+      </if>
+      <if test="bk2 != null">
+        bk2 = #{bk2,jdbcType=VARCHAR},
+      </if>
+      <if test="bk3 != null">
+        bk3 = #{bk3,jdbcType=VARCHAR},
       </if>
     </set>
     where Id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.rongshun.pojo.wechat.WeChatUserInfo" >
+  <update id="updateByPrimaryKey" parameterType="com.rongshun.pojo.wechat.WeChatUserInfo">
     update we_chat_user_info
     set openid = #{openid,jdbcType=VARCHAR},
       subscribe = #{subscribe,jdbcType=INTEGER},
-      subscribeTime = #{subscribetime,jdbcType=BIGINT},
+      subscribeTime = #{subscribetime,jdbcType=TIMESTAMP},
       nickname = #{nickname,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=INTEGER},
       country = #{country,jdbcType=VARCHAR},
@@ -200,7 +237,49 @@
       headImgUrl = #{headimgurl,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},
       groupid = #{groupid,jdbcType=VARCHAR},
-      login_id = #{loginId,jdbcType=VARCHAR}
+      login_id = #{loginId,jdbcType=VARCHAR},
+      auth = #{auth,jdbcType=VARCHAR},
+      bk1 = #{bk1,jdbcType=VARCHAR},
+      bk2 = #{bk2,jdbcType=VARCHAR},
+      bk3 = #{bk3,jdbcType=VARCHAR}
     where Id = #{id,jdbcType=INTEGER}
   </update>
+    <select id="selectByOpenid" resultMap="BaseResultMap">
+      select <include refid="Base_Column_List" />
+      from we_chat_user_info
+      where openid = #{openId}
+    </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from we_chat_user_info
+    <where>
+      <if test="openid != null">
+        and openid = #{openid,jdbcType=VARCHAR}
+      </if>
+      <if test="subscribe != null">
+        and subscribe = #{subscribe,jdbcType=INTEGER}
+      </if>
+      <if test="nickname != null">
+        and nickname = #{nickname,jdbcType=VARCHAR}
+      </if>
+      <if test="remark != null">
+        and remark = #{remark,jdbcType=VARCHAR}
+      </if>
+      <if test="loginId != null">
+        and login_id = #{loginId,jdbcType=VARCHAR}
+      </if>
+      <if test="auth != null">
+        and auth = #{auth,jdbcType=VARCHAR}
+      </if>
+      <if test="bk1 != null">
+        and bk1 = #{bk1,jdbcType=VARCHAR}
+      </if>
+      <if test="bk2 != null">
+        and bk2 = #{bk2,jdbcType=VARCHAR}
+      </if>
+      <if test="bk3 != null">
+        and bk3 = #{bk3,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
 </mapper>

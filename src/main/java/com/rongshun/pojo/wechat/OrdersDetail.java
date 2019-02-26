@@ -42,6 +42,11 @@ public class OrdersDetail {
         this.supplier = supplier;
     }
 
+    public OrdersDetail(Integer ordersId, String skuName) {
+        this.ordersId = ordersId;
+        this.skuName = skuName;
+    }
+
     public Integer getId() {
         return id;
     }

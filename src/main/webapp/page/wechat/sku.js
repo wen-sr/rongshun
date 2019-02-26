@@ -1,57 +1,43 @@
 $(function(){
-    $('#name').next('.combo').find('input').focus(function (){
-        $('#name').combobox({
-            url : "/rongshun/receipt/receiptSkuTips",
-            valueField : 'skuName',
-            textField : 'skuName'
-        });
-
+    $('#name').combobox({
+        url : "/rongshun/receipt/receiptSkuTips",
+        valueField : 'skuName',
+        textField : 'skuName'
     });
-    $('#supplier').next('.combo').find('input').focus(function (){
-        $('#supplier').combobox({
-            url : "/rongshun/receipt/receiptSupplierTips",
-            valueField : 'supplier',
-            textField : 'supplier'
-        });
 
-    });
+    // $('#name').next('.combo').find('input').focus(function (){
+    //     $('#name').combobox({
+    //         url : "/rongshun/receipt/receiptSkuTips",
+    //         valueField : 'skuName',
+    //         textField : 'skuName'
+    //     });
+    //
+    // });
+    // $('#supplier').next('.combo').find('input').focus(function (){
+    //     $('#supplier').combobox({
+    //         url : "/rongshun/receipt/receiptSupplierTips",
+    //         valueField : 'supplier',
+    //         textField : 'supplier'
+    //     });
+    //
+    // });
 });
 
 function go() {
     var name = $.trim($("#name").combobox('getText'));
-    var price = $.trim($("#price").textbox('getValue'));
     var qty = $.trim($("#qty").textbox('getValue'));
-    var supplier = $.trim($("#supplier").combobox('getValue'));
     if(name == ''){
         $.messager.alert("操作提示","货物名称不能为空！","error");
         return;
     }
-    if(price == ''){
-        $.messager.alert("操作提示","货物进价不能为空！","error");
-        return;
-    }
     var reg = /^\d+(\.\d+)?$/;
-    if(!reg.test(price)){
-        $.messager.alert("操作提示","货物进价只能输入数字！","error");
-        return;
-    }
     if(qty == ''){
         $.messager.alert("操作提示","数量不能为空！","error");
         return;
     }
-    if(!reg.test(price)){
-        $.messager.alert("操作提示","数量只能输入数字！","error");
-        return;
-    }
-    if(supplier == ''){
-        $.messager.alert("操作提示","供用商不能为空！","error");
-        return;
-    }
     var formData = {
         skuName     : name,
-        price       : price,
-        qty         :   qty,
-        supplier    : supplier
+        qty         :   qty
     }
     $("#go").linkbutton('disable');
     $.ajax({

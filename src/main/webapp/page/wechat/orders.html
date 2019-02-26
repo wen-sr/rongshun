@@ -61,23 +61,20 @@
 </div>
 <div id="hisDiv" class="easyui-window" title="历史欠款" data-options="modal:true,closed:true,zIndex:200,iconCls:'icon-save',maximized:true,minimizable: false, maximizable: false" style="height: 100%">
     <div class="easyui-navpanel">
-        <ul class="m-list">
+        <ul class="m-list" style="color:#2319DC;font-size: 20px">
             <li><span id="info_customer"></span></li>
-            <li><span id="info_dd"></span></li>
-            <li><span id="info_paid"></span></li>
-            <li><span id="info_payable"></span></li>
+            <li style="color:#2319DC;font-size: 16px"><span id="info_dd" ></span><span id="info_paid" style="color: green;padding-left: 20px;"></span><span id="info_payable" style="color: red;padding-left: 20px;"></span></li>
         </ul>
     </div>
-    <table id="hisDg">
+    <input type="hidden" id="old_id">
+    <table id="hisDg" data-options="toolbar:'#payDone'">
     </table>
+    <a href="#" id="payDone" class="easyui-linkbutton c4" style="width:100%" onclick="payDone()">支付完成请点击此处</a>
 </div>
 <div id="d" class="easyui-window" title="添加配件" data-options="modal:true,closed:true,zIndex:101,iconCls:'icon-add',maximized:true,minimizable: false, maximizable: false">
     <form>
         <div style="margin-bottom:10px">
             <input id="add_skuName" class="easyui-textbox" style="width:100%;height:32px;"label="配件名称:" prompt="配件名称" data-options="">
-        </div>
-        <div style="margin-bottom:10px">
-            <input id="add_supplier" class="easyui-textbox" style="width:100%;height:32px;"label="供应商:" prompt="供应商" data-options="">
         </div>
         <div style="margin-bottom:10px">
             <input id="add_qtyFree" class="easyui-textbox" style="width:100%;height:32px;"label="库存:" prompt="库存" data-options="">
@@ -97,9 +94,6 @@
     <form>
         <div style="margin-bottom:10px">
             <input id="minus_skuName" class="easyui-textbox" style="width:100%;height:32px;"label="配件名称:" prompt="配件名称" data-options="">
-        </div>
-        <div style="margin-bottom:10px">
-            <input id="minus_supplier" class="easyui-textbox" style="width:100%;height:32px;"label="供应商:" prompt="供应商" data-options="">
         </div>
         <div style="margin-bottom:10px">
             <input id="minus_qtyFree" class="easyui-textbox" style="width:100%;height:32px;"label="库存:" prompt="库存" data-options="">

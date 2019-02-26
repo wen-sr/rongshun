@@ -23,7 +23,7 @@
     where Id = #{id,jdbcType=INTEGER}
   </select>
     <select id="selectSku" resultType="com.rongshun.vo.wechat.ReceiptVo">
-      select distinct sku_id skuId,sku_name skuName,price
+      select distinct sku_id skuId,sku_name skuName
       from receipt
       <where>
         <if test="skuId != null" >

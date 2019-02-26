@@ -1,11 +1,17 @@
 $(function(){
-    $('#customer').next('.combo').find('input').focus(function (){
-        $('#customer').combobox({
-            url : "/rongshun/orders/getCustomer",
-            valueField : 'customer',
-            textField : 'customer',
-            events:{blur:getHis}
-        });
+    // $('#customer').next('.combo').find('input').focus(function (){
+    //     $('#customer').combobox({
+    //         url : "/rongshun/orders/getCustomer",
+    //         valueField : 'customer',
+    //         textField : 'customer',
+    //         events:{blur:getHis}
+    //     });
+    // });
+    $('#customer').combobox({
+        url : "/rongshun/orders/getCustomer",
+        valueField : 'customer',
+        textField : 'customer',
+        events:{blur:getHis}
     });
     $('#w-detail').window({
         onBeforeClose:function(){
@@ -38,17 +44,13 @@ function hisDetail(customer) {
             title:"配件名称",
             width:50
         },{
-            field:"supplier",
-            title:"配件供商",
-            width:50
-        },{
-            field:"qty",
-            title:"库存",
-            width:30
-        },{
             field:"priceOut",
             title:"售价",
             align:'center',
+            width:30
+        },{
+            field:"qty",
+            title:"数量",
             width:30
         },{
             field:"my",
@@ -62,8 +64,10 @@ function hisDetail(customer) {
             var customer = rows[0].customer;
             var dd = rows[0].dd;
             var payable = rows[0].payable;
+            var id = rows[0].ordersId;
+            $("#old_id").val(id);
             $("#info_customer").html(customer);
-            $("#info_dd").html("下单日期:" +dd);
+            $("#info_dd").html("日期:" +dd);
             $("#info_paid").html("应付:" + paid);
             $("#info_payable").html("实付:" + payable);
 
@@ -89,7 +93,7 @@ function getHis() {
         success:function(res){
             if(res != null){
                 $('#dd').datebox('setValue', formatterDate(new Date()));
-                $("#his").textbox('setValue', res.data);
+                $("#his").textbox('setValue', res.data["i"]);
                 getDetail(customer);
             }
         },
@@ -121,10 +125,6 @@ function add() {
             title:"配件名称",
             width:50
         },{
-            field:"supplier",
-            title:"配件供商",
-            width:50
-        },{
             field:"qtyFree",
             title:"库存",
             width:30
@@ -145,10 +145,10 @@ function add() {
 }
 
 function addPlus(val, row, index) {
-    return '<a href="#" onclick="plus(&quot;' +row.skuName +'&quot;,&quot;'+ row.supplier +'&quot;,&quot;' +row.qtyFree+ '&quot;)"><i class="fa fa-plus-circle" style="font-size: 35px;color: #00ee00;font-weight: bolder" aria-hidden="true"></i></a>';
+    return '<a href="#" onclick="plus(&quot;' +row.skuName +'&quot;,&quot;' +row.qtyFree+ '&quot;)"><i class="fa fa-plus-circle" style="font-size: 35px;color: #00ee00;font-weight: bolder" aria-hidden="true"></i></a>';
 }
 function addMinus(val, row, index) {
-    return '<a href="#" onclick="minus(&quot;' +row.skuName +'&quot;,&quot;'+ row.supplier +'&quot;,&quot;' +row.qtyFree+ '&quot;)"><i class="fa fa-minus-circle" style="font-size: 35px;color: red;font-weight: bolder" aria-hidden="true"></i></a>';
+    return '<a href="#" onclick="minus(&quot;' +row.skuName +'&quot;,&quot;' +row.qtyFree+ '&quot;)"><i class="fa fa-minus-circle" style="font-size: 35px;color: red;font-weight: bolder" aria-hidden="true"></i></a>';
 
 }
 function formatterDate(date) {
@@ -157,17 +157,15 @@ function formatterDate(date) {
         + (date.getMonth() + 1);
     return date.getFullYear() + '-' + month + '-' + day;
 }
-function plus(skuName,supplier,qtyFree) {
+function plus(skuName,qtyFree) {
     $("#add_skuName").textbox('setValue', skuName);
-    $("#add_supplier").textbox('setValue', supplier);
     $("#add_qtyFree").textbox('setValue', qtyFree);
     $("#add_price_out").textbox('setValue', '');
     $("#add_qty").textbox('setValue', '');
     $("#d").window("open");
 }
-function minus(skuName,supplier,qtyFree) {
+function minus(skuName,qtyFree) {
     $("#minus_skuName").textbox('setValue', skuName);
-    $("#minus_supplier").textbox('setValue', supplier);
     $("#minus_qtyFree").textbox('setValue', qtyFree);
     $("#minus_qty").textbox('setValue', '');
     $("#d2").window("open");
@@ -179,7 +177,7 @@ function go() {
     var formData = {
         dd          : dd,
         customer    : customer,
-        payable      :   payable
+        payable     :   payable
     };
     $("#go").linkbutton('disable');
     $.ajax({
@@ -222,7 +220,7 @@ function getDetail(customer){
                     '{{#list}}'+
                     '<li style="line-height: 25px;">' +
                         '<div class="list-header">{{skuName}}</div>' +
-                        '<div class="list-content">{{supplier}}:{{priceOut}}*{{qty}}={{my}}元</div>' +
+                        '<div class="list-content">售价:{{priceOut}},数量:{{qty}},总价:{{my}}元</div>' +
                     '</li>' +
                     '{{/list}}';
                 var result = '<li line-height: 25px;><div class="list-header" style="color: #D74D49;">订单明细</div></li>';
@@ -248,7 +246,6 @@ function renderHtml (tpl, data){
 }
 function addDetail() {
     var skuName = $("#add_skuName").textbox('getValue');
-    var supplier = $("#add_supplier").textbox('getValue');
     var price_out = $("#add_price_out").textbox('getValue');
     var qty = $("#add_qty").textbox('getValue');
     var dd = $("#dd").textbox('getValue');
@@ -272,7 +269,6 @@ function addDetail() {
     }
     var formData = {
         skuName     : skuName,
-        supplier    : supplier,
         priceOut    : price_out,
         qty         : qty,
         dd          : dd,
@@ -299,7 +295,6 @@ function addDetail() {
 }
 function minusDetail() {
     var skuName = $("#minus_skuName").textbox('getValue');
-    var supplier = $("#minus_supplier").textbox('getValue');
     var qty = $("#minus_qty").textbox('getValue');
     var dd = $("#dd").textbox('getValue');
     var customer = $("#customer").textbox('getValue');
@@ -314,7 +309,6 @@ function minusDetail() {
     }
     var formData = {
         skuName     : skuName,
-        supplier    : supplier,
         qty         : 0-qty,
         dd          : dd,
         customer    : customer
@@ -330,6 +324,28 @@ function minusDetail() {
                 $.messager.alert("操作提示",res.msg,"info", function () {
                     $("#d2").window("close");
                     add();
+                });
+            }
+        },
+        error:function(){
+            $.messager.alert("提示","数据错误，联系管理员","error");
+        }
+    });
+}
+
+function payDone() {
+    var id = $("#old_id").val();
+    $.ajax({
+        type:'Post',
+        url:'/rongshun/orders/payDone',
+        data:{ordersId : id},
+        dataType:'json',
+        success:function(res){
+            if(res != null){
+                // getDetail(customer);
+                $.messager.alert("操作提示",res.msg,"info", function () {
+                    $("#hisDiv").window("close");
+                    getHis();
                 });
             }
         },

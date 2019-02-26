@@ -167,6 +167,5 @@
     from ordersdetail
     where orders_id = #{ordersId}
     and sku_name = #{skuName}
-    and supplier = #{supplier}
   </select>
 </mapper>

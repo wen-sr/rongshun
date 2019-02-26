@@ -41,13 +41,13 @@ public class ReceiptServiceImpl implements IReceiptService {
         Sku sku = skuMapper.selectByName(receipt.getSkuName());
         if(sku == null) {
             sku = new Sku();
-//            sku.setAddwho(RequestHolder.getCurrentUser().getNickname());
+            sku.setAddwho(RequestHolder.getCurrentUser().getNickname());
             sku.setAddwho("wen-sir");
             sku.setName(receipt.getSkuName());
             skuMapper.insertSelective(sku);
         }
         //增加库存
-        Inventory inventory = inventoryMapper.selectBySkuId(sku.getName(),receipt.getSupplier());
+        Inventory inventory = inventoryMapper.selectBySkuId(sku.getName());
         if(inventory == null){
             inventory = new Inventory();
             inventory.setSkuId(sku.getId());
@@ -55,7 +55,6 @@ public class ReceiptServiceImpl implements IReceiptService {
             inventory.setQtyReceipt(receipt.getQty());
             inventory.setQtyShipped(0);
             inventory.setQtyFree(receipt.getQty());
-            inventory.setSupplier(receipt.getSupplier());
             inventoryMapper.insertSelective(inventory);
         }else {
             inventory.setQtyReceipt(inventory.getQtyShipped() + receipt.getQty());

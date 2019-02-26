@@ -1,5 +1,7 @@
 package com.rongshun.pojo.wechat;
 
+import java.util.Date;
+
 public class WeChatUserInfo {
     private Integer id;
 
@@ -7,7 +9,7 @@ public class WeChatUserInfo {
 
     private Integer subscribe;
 
-    private Long subscribetime;
+    private Date subscribetime;
 
     private String nickname;
 
@@ -29,7 +31,15 @@ public class WeChatUserInfo {
 
     private String loginId;
 
-    public WeChatUserInfo(Integer id, String openid, Integer subscribe, Long subscribetime, String nickname, Integer sex, String country, String province, String city, String language, String headimgurl, String remark, String groupid, String loginId) {
+    private String auth;
+
+    private String bk1;
+
+    private String bk2;
+
+    private String bk3;
+
+    public WeChatUserInfo(Integer id, String openid, Integer subscribe, Date subscribetime, String nickname, Integer sex, String country, String province, String city, String language, String headimgurl, String remark, String groupid, String loginId, String auth, String bk1, String bk2, String bk3) {
         this.id = id;
         this.openid = openid;
         this.subscribe = subscribe;
@@ -44,6 +54,10 @@ public class WeChatUserInfo {
         this.remark = remark;
         this.groupid = groupid;
         this.loginId = loginId;
+        this.auth = auth;
+        this.bk1 = bk1;
+        this.bk2 = bk2;
+        this.bk3 = bk3;
     }
 
     public WeChatUserInfo() {
@@ -74,11 +88,11 @@ public class WeChatUserInfo {
         this.subscribe = subscribe;
     }
 
-    public Long getSubscribetime() {
+    public Date getSubscribetime() {
         return subscribetime;
     }
 
-    public void setSubscribetime(Long subscribetime) {
+    public void setSubscribetime(Date subscribetime) {
         this.subscribetime = subscribetime;
     }
 
@@ -160,5 +174,37 @@ public class WeChatUserInfo {
 
     public void setLoginId(String loginId) {
         this.loginId = loginId == null ? null : loginId.trim();
+    }
+
+    public String getAuth() {
+        return auth;
+    }
+
+    public void setAuth(String auth) {
+        this.auth = auth == null ? null : auth.trim();
+    }
+
+    public String getBk1() {
+        return bk1;
+    }
+
+    public void setBk1(String bk1) {
+        this.bk1 = bk1 == null ? null : bk1.trim();
+    }
+
+    public String getBk2() {
+        return bk2;
+    }
+
+    public void setBk2(String bk2) {
+        this.bk2 = bk2 == null ? null : bk2.trim();
+    }
+
+    public String getBk3() {
+        return bk3;
+    }
+
+    public void setBk3(String bk3) {
+        this.bk3 = bk3 == null ? null : bk3.trim();
     }
 }

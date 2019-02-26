@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>库存明细</title>
+    <title>管理</title>
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="../../easyui/themes/metro/easyui.css">
     <link rel="stylesheet" type="text/css" href="../../easyui/themes/mobile.css">
@@ -12,24 +12,17 @@
     <script type="text/javascript" src="../../easyui/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="../../easyui/jquery.easyui.mobile.js"></script>
     <script type="text/javascript" src="../../easyui/locale/easyui-lang-zh_CN.js"></script>
-    <script type="text/javascript" src="../../js/getUrlParam.js"></script>
 </head>
 <body>
-<div class="easyui-navpanel">
-    <ul id="list" class="m-list" style="overflow:scroll;">
-    </ul>
+<div id="d" style="position:relative;padding:20px">
+    <table id="dg" class="easyui-datagrid">
+
+</table>
 </div>
-<style scoped>
-    #list .list-header{
-        font-size: 16px;
-        font-weight: bold;
-    }
-    #list .list-content{
-        text-overflow: ellipsis;
-        overflow: scroll;
-        padding: 5px 0 0 0;
-    }
-</style>
-<script type="text/javascript" src="inventory_detail.js"></script>
+<div id="tb" style="text-align: center;display: none;">
+    <a class="easyui-linkbutton" iconCls="icon-edit" onclick="auth(1)">赋予权限</a>
+    <a class="easyui-linkbutton" iconCls="icon-edit" onclick="auth(0)">取消权限</a>
+</div>
+<script type="text/javascript" src="auth.js"></script>
 </body>
 </html>

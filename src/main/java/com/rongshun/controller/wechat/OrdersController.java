@@ -57,4 +57,9 @@ public class OrdersController {
     public ServerResponse confirm(OrdersVo ordersVo){
         return ordersService.confirm(ordersVo);
     }
+
+    @RequestMapping("/payDone")
+    public ServerResponse payDone(OrdersVo ordersVo){
+        return ordersService.payDone(ordersVo);
+    }
 }

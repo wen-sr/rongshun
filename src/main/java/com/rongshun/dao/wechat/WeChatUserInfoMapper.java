@@ -2,6 +2,8 @@ package com.rongshun.dao.wechat;
 
 import com.rongshun.pojo.wechat.WeChatUserInfo;
 
+import java.util.List;
+
 public interface WeChatUserInfoMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -16,4 +18,6 @@ public interface WeChatUserInfoMapper {
     int updateByPrimaryKey(WeChatUserInfo record);
 
     WeChatUserInfo selectByOpenid(String openId);
+
+    List<WeChatUserInfo> selectAll(WeChatUserInfo weChatUserInfo);
 }

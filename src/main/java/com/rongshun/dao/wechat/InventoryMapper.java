@@ -18,7 +18,7 @@ public interface InventoryMapper {
 
     int updateByPrimaryKey(Inventory record);
 
-    Inventory selectBySkuId(@Param("skuName") String skuName, @Param("supplier") String supplier);
+    Inventory selectBySkuId(@Param("skuName") String skuName);
 
     List<Inventory> selectAll(Inventory inventory);
 }

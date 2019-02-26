@@ -120,7 +120,6 @@
     select <include refid="Base_Column_List" />
     from inventory
     where sku_name = #{skuName,jdbcType=VARCHAR}
-    and supplier = #{supplier,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select <include refid="Base_Column_List" />

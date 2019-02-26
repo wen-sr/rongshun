@@ -24,4 +24,6 @@ public interface IOrdersService {
     List<Orders> getCustomer(Orders orders);
 
     ServerResponse hisInfo(Orders orders);
+
+    ServerResponse payDone(OrdersVo ordersVo);
 }
