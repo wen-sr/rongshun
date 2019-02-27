@@ -1,6 +1,9 @@
 package com.rongshun.dao.wechat;
 
 import com.rongshun.pojo.wechat.Sku;
+import com.rongshun.vo.wechat.SkuVo;
+
+import java.util.List;
 
 public interface SkuMapper {
     int deleteByPrimaryKey(Integer id);
@@ -16,4 +19,8 @@ public interface SkuMapper {
     int updateByPrimaryKey(Sku record);
 
     Sku selectByName(String skuName);
+
+    List<Sku> selectByParentId(Integer foo_id);
+
+    List<Sku> selectAll(Sku sku);
 }

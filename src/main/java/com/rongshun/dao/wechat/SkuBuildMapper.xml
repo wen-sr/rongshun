@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rongshun.dao.wechat.SkuBuildMapper">
+  <resultMap id="BaseResultMap" type="com.rongshun.pojo.wechat.SkuBuild">
+    <constructor>
+      <idArg column="skuId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="foo_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="qty" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    skuId, foo_id, qty
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sku_build
+    where skuId = #{skuid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sku_build
+    where skuId = #{skuid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rongshun.pojo.wechat.SkuBuild">
+    insert into sku_build (skuId, foo_id, qty
+      )
+    values (#{skuid,jdbcType=INTEGER}, #{fooId,jdbcType=INTEGER}, #{qty,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rongshun.pojo.wechat.SkuBuild">
+    insert into sku_build
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="skuid != null">
+        skuId,
+      </if>
+      <if test="fooId != null">
+        foo_id,
+      </if>
+      <if test="qty != null">
+        qty,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="skuid != null">
+        #{skuid,jdbcType=INTEGER},
+      </if>
+      <if test="fooId != null">
+        #{fooId,jdbcType=INTEGER},
+      </if>
+      <if test="qty != null">
+        #{qty,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rongshun.pojo.wechat.SkuBuild">
+    update sku_build
+    <set>
+      <if test="fooId != null">
+        foo_id = #{fooId,jdbcType=INTEGER},
+      </if>
+      <if test="qty != null">
+        qty = #{qty,jdbcType=INTEGER},
+      </if>
+    </set>
+    where skuId = #{skuid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rongshun.pojo.wechat.SkuBuild">
+    update sku_build
+    set foo_id = #{fooId,jdbcType=INTEGER},
+      qty = #{qty,jdbcType=INTEGER}
+    where skuId = #{skuid,jdbcType=INTEGER}
+  </update>
+  <select id="selectByParentId" resultType="com.rongshun.vo.wechat.SkuVo">
+    select a.id,a.name,b.foo_id fooId,
+    (select name from sku c where c.id=b.foo_id) fooName,b.qty
+    from sku a, sku_build b
+    where a.id = b.skuId
+    and b.foo_id = #{foo_id}
+  </select>
+</mapper>

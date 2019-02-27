@@ -5,9 +5,10 @@
     <title>基础资料</title>
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="../../easyui/themes/metro/easyui.css">
-    <link rel="stylesheet" type="text/css" href="../../easyui/themes/mobile.css">
+    <!--<link rel="stylesheet" type="text/css" href="../../easyui/themes/mobile.css">-->
     <link rel="stylesheet" type="text/css" href="../../easyui/themes/color.css">
     <link rel="stylesheet" type="text/css" href="../../easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css" />
     <script type="text/javascript" src="../../easyui/jquery.min.js"></script>
     <script type="text/javascript" src="../../easyui/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="../../easyui/jquery.easyui.mobile.js"></script>
@@ -23,7 +24,46 @@
             <input class="easyui-textbox" id="qty" label="数量:" style="width:100%">
         </div>
         <div style="text-align:center;margin-top:30px">
-            <a href="#" id="go" class="easyui-linkbutton c4" style="width:100%" onclick="go()">提交</a>
+            <a href="#" class="easyui-linkbutton c5" style="width:45%" onclick="add()">组装配件</a>
+            <a href="#" id="go" class="easyui-linkbutton c4" style="width:45%" onclick="go()">提交</a>
+        </div>
+    </form>
+</div>
+<div id="w-detail" class="easyui-window" title="添加配件" data-options="modal:true,closed:true,zIndex:100,iconCls:'icon-save',maximized:true,minimizable: false, maximizable: false" style="height: 100%">
+    <table id="dg">
+    </table>
+</div>
+<div id="d" class="easyui-window" title="添加配件" data-options="modal:true,closed:true,zIndex:101,iconCls:'icon-add',maximized:true,minimizable: false, maximizable: false">
+    <form>
+        <div style="margin-bottom:10px">
+            <input id="add_skuName" class="easyui-textbox" style="width:100%;height:32px;"label="配件名称:" prompt="配件名称" data-options="">
+        </div>
+        <div style="margin-bottom:10px">
+            <input id="add_qtyFree" class="easyui-textbox" style="width:100%;height:32px;"label="库存:" prompt="库存" data-options="">
+        </div>
+        <div style="margin-bottom:10px">
+            <input id="add_qty" class="easyui-textbox" style="width:100%;height:32px;"label="数量:" prompt="数量" data-options="">
+        </div>
+        <input type="hidden" id="add_skuId">
+        <div style="text-align:center;margin-top:30px">
+            <a id="confirm" href="#" class="easyui-linkbutton" onclick="addDetail()" style="width:100%;height:40px"><span style="font-size:16px">确认</span></a>
+        </div>
+    </form>
+</div>
+<div id="d2" class="easyui-window" title="删除配件" data-options="modal:true,closed:true,zIndex:101,iconCls:'icon-add',maximized:true,minimizable: false, maximizable: false">
+    <form>
+        <div style="margin-bottom:10px">
+            <input id="minus_skuName" class="easyui-textbox" style="width:100%;height:32px;"label="配件名称:" prompt="配件名称" data-options="">
+        </div>
+        <div style="margin-bottom:10px">
+            <input id="minus_qtyFree" class="easyui-textbox" style="width:100%;height:32px;"label="库存:" prompt="库存" data-options="">
+        </div>
+        <div style="margin-bottom:10px">
+            <input id="minus_qty" class="easyui-textbox" style="width:100%;height:32px;"label="数量:" prompt="数量" data-options="">
+        </div>
+        <input type="hidden" id="minus_skuId">
+        <div style="text-align:center;margin-top:30px">
+            <a id="confirm_minus" href="#" class="easyui-linkbutton" onclick="minusDetail()" style="width:100%;height:40px"><span style="font-size:16px">确认</span></a>
         </div>
     </form>
 </div>

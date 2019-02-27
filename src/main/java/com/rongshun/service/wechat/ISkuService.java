@@ -1,5 +1,11 @@
 package com.rongshun.service.wechat;
 
+import com.rongshun.common.ServerResponse;
+import com.rongshun.pojo.wechat.Sku;
+
+import java.util.List;
+import java.util.Set;
+
 /**
  * Author: wen-sir
  * Description:
@@ -7,4 +13,13 @@ package com.rongshun.service.wechat;
  * Modified By：
  */
 public interface ISkuService {
+    Set<Sku> selectChildrenById(Integer skuId);
+
+    List<Sku> skuTips(Sku sku);
+
+    ServerResponse build(Integer skuId, String skuName, Integer qty);
+
+    ServerResponse buildDetail(String skuName);
+
+    public ServerResponse getChildrenParallel(Integer skuId);
 }
