@@ -5,6 +5,7 @@ import com.rongshun.common.RequestHolder;
 import com.rongshun.common.ServerResponse;
 import com.rongshun.dao.wechat.WeChatUserInfoMapper;
 import com.rongshun.pojo.wechat.WeChatUserInfo;
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import me.chanjar.weixin.common.api.WxConsts;
 import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.mp.api.WxMpService;
@@ -65,6 +66,7 @@ public class OAController {
             logger.info("openid:" + openId + "访问系统无权限被跳转");
             return "redirect:/page/wechat/hello.html";
         }
+        session.setAttribute(Constant.CURRENT_USER, userInfo);
         logger.info("openid:" + openId + "访问系统有权限成功进入");
         RequestHolder.add(userInfo);
         return "redirect:" + returnUrl;

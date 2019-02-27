@@ -42,12 +42,14 @@ public class HttpAspect {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
         HttpServletResponse response = attributes.getResponse();
-        WeChatUserInfo weChatUserInfo = RequestHolder.getCurrentUser();
+        HttpSession session = request.getSession();
+        WeChatUserInfo weChatUserInfo = (WeChatUserInfo) session.getAttribute(Constant.CURRENT_USER);
         if(weChatUserInfo == null) {
             logger.info("未授权的用户，无法继续进入程序");
             reDirect(request, response);
             throw new MyException(-1, "未授权的用户，无法继续进入程序");
         }
+        RequestHolder.add(weChatUserInfo);
         logger.info("---------------成功获得登录信息："+ RequestHolder.getCurrentUser().getId() +"---------------");
         RequestHolder.add(request);
 

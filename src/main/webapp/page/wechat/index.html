@@ -16,15 +16,11 @@
         $(function () {
             $.ajax({
                 type:'Post',
-                url:'/rongshun/receipt/add',
+                url:'/rongshun/receipt/receiptSkuTips',
                 data:'',
                 dataType:'json',
                 success:function(res){
                     if(res.code != "-1"){
-                        $.messager.alert("操作提示",res.msg,"info", function () {
-                            $('#ff').form('reset');
-                            $("#go").linkbutton('enable');
-                        });
                     }else {
                         top.location.href='/rongshun/page/wechat/hello.html';
                     }

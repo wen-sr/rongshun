@@ -151,6 +151,7 @@ public class OrdersServiceImpl implements IOrdersService {
             }
 
             ordersMapper.updateByPrimaryKeySelective(orders);
+            //发送微信模板消息，通知下单成功
             return ServerResponse.createBySuccessMsg("下单成功");
         }
         return ServerResponse.createByErrorMessage("下单失败");
