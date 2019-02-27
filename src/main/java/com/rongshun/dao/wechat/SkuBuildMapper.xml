@@ -15,7 +15,7 @@
     select 
     <include refid="Base_Column_List" />
     from sku_build
-    where skuId = #{skuid,jdbcType=INTEGER}
+    where skuId = #{skuid,jdbcType=INTEGER} and foo_id = #{fooId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from sku_build
@@ -63,12 +63,13 @@
       </if>
     </set>
     where skuId = #{skuid,jdbcType=INTEGER}
+    and foo_id = #{fooId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.rongshun.pojo.wechat.SkuBuild">
     update sku_build
     set foo_id = #{fooId,jdbcType=INTEGER},
       qty = #{qty,jdbcType=INTEGER}
-    where skuId = #{skuid,jdbcType=INTEGER}
+    where skuId = #{skuid,jdbcType=INTEGER} and foo_id = #{fooId,jdbcType=INTEGER}
   </update>
   <select id="selectByParentId" resultType="com.rongshun.vo.wechat.SkuVo">
     select a.id,a.name,b.foo_id fooId,
@@ -77,4 +78,10 @@
     where a.id = b.skuId
     and b.foo_id = #{foo_id}
   </select>
+    <select id="selectBySkuIdAndFooId" resultMap="BaseResultMap">
+      select <include refid="Base_Column_List"/>
+      from sku_build
+      where skuId = #{skuId}
+      and foo_id = #{fooId}
+    </select>
 </mapper>

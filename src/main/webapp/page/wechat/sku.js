@@ -2,13 +2,13 @@ $(function(){
     $('#name').combobox({
         url : "/rongshun/sku/skuTips",
         valueField : 'name',
-        textField : 'name'
+        textField : 'name',
+        events:{blur:getDetail}
     });
 
     $('#w-detail').window({
         onBeforeClose:function(){
-            var skuName = $("#name").combobox('getValue');
-            getDetail(skuName);
+            getDetail();
         }
     });
 
@@ -56,6 +56,7 @@ function go() {
             if(res != null){
                 $.messager.alert("操作提示",res.msg,"info", function () {
                     $('#ff').form('reset');
+                    $("#list").html("");
                     $("#go").linkbutton('enable');
                 });
             }
@@ -210,7 +211,8 @@ function minusDetail() {
     });
 }
 
-function getDetail(skuName){
+function getDetail(){
+    var skuName = $("#name").combobox('getValue');
     if(skuName == ''){
         return;
     }
@@ -224,17 +226,13 @@ function getDetail(skuName){
                 var tpl =
                     '{{#list}}'+
                     '<li style="line-height: 25px;">' +
-                    '<div class="list-content">{{name}},数量:{{qty}}</div>' +
+                    '<div class="list-content">{{name}}*{{qty}}</div>' +
                     '</li>' +
                     '{{/list}}';
-                var result = '<li line-height: 25px;><div class="list-header" style="color: #D74D49;">订单明细</div></li>';
+                var result = '<li line-height: 25px;><div class="list-header" style="color: #D74D49;">该总成由以下零件组成:</div></li>';
                 result += renderHtml(tpl, {list:res.data});
-                if(res.data.length >= 4){
-                    var screen = $(window).height();
-                    $("#list").height(parseInt(screen) - 270);
-                }else {
-                    $("#list").height('');
-                }
+                var screen = $(window).height();
+                $("#list").height(parseInt(screen) - 180);
                 $("#list").html('');
                 $('#list').append(result);
             }

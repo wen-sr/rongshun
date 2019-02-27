@@ -2,6 +2,7 @@ package com.rongshun.service.wechat;
 
 import com.rongshun.common.ServerResponse;
 import com.rongshun.pojo.wechat.Sku;
+import com.rongshun.vo.wechat.SkuVo;
 
 import java.util.List;
 import java.util.Set;
@@ -21,5 +22,5 @@ public interface ISkuService {
 
     ServerResponse buildDetail(String skuName);
 
-    public ServerResponse getChildrenParallel(Integer skuId);
+    public List<SkuVo> getChildrenParallel(Integer skuId);
 }

@@ -42,6 +42,9 @@ public class OrdersServiceImpl implements IOrdersService {
     @Autowired
     SkuMapper skuMapper;
 
+    @Autowired
+    SkuBuildMapper skuBuildMapper;
+
     @Override
     public ServerResponse getHis(Orders orders) {
         List<Orders> ordersList = ordersMapper.selectHis(orders);
@@ -92,9 +95,6 @@ public class OrdersServiceImpl implements IOrdersService {
         }
         inventory.setQtyFree(inventory.getQtyFree() - o.getQty());
         inventoryMapper.updateByPrimaryKeySelective(inventory);
-        //查找子零件并占用库存
-
-
 
         //添加明细
         OrdersDetail ordersDetail = ordersDetailMapper.selectByOrderIdAndSku(new OrdersDetail(orders.getId(),o.getSkuName()));

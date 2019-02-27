@@ -13,6 +13,7 @@
     <script type="text/javascript" src="../../easyui/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="../../easyui/jquery.easyui.mobile.js"></script>
     <script type="text/javascript" src="../../easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../js/hogan.js"></script>
 </head>
 <body>
 <div class="easyui-navpanel" style="position:relative;padding:20px">
@@ -28,6 +29,8 @@
             <a href="#" id="go" class="easyui-linkbutton c4" style="width:45%" onclick="go()">提交</a>
         </div>
     </form>
+    <ul id="list" class="m-list" style="border:1px solid #E6E6E6;overflow-y:scroll;padding-top: 5px;">
+    </ul>
 </div>
 <div id="w-detail" class="easyui-window" title="添加配件" data-options="modal:true,closed:true,zIndex:100,iconCls:'icon-save',maximized:true,minimizable: false, maximizable: false" style="height: 100%">
     <table id="dg">

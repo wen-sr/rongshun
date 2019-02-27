@@ -67,7 +67,7 @@ function hisDetail(customer) {
             var id = rows[0].ordersId;
             $("#old_id").val(id);
             $("#info_customer").html(customer);
-            $("#info_dd").html("日期:" +dd);
+            $("#info_dd").html("日期:" + dd);
             $("#info_paid").html("应付:" + paid);
             $("#info_payable").html("实付:" + payable);
 
@@ -225,12 +225,8 @@ function getDetail(customer){
                     '{{/list}}';
                 var result = '<li line-height: 25px;><div class="list-header" style="color: #D74D49;">订单明细</div></li>';
                 result += renderHtml(tpl, {list:res.data});
-                if(res.data.length >= 4){
-                    var screen = $(window).height();
-                    $("#list").height(parseInt(screen) - 270);
-                }else {
-                    $("#list").height('');
-                }
+                var screen = $(window).height();
+                $("#list").height(parseInt(screen) - 350);
                 $("#list").html('');
                 $('#list').append(result);
             }
