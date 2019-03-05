@@ -33,9 +33,8 @@ public class OrdersController {
     }
 
     @RequestMapping("/hisInfo")
-    public EasyuiTableResponse hisInfo(Orders orders){
-        ServerResponse<List> response = ordersService.hisInfo(orders);
-        return response.parseToEasyuiTableCommonResponse(ResponseCode.SUCCESS.getCode(), response.getData(), "", response.getData().size(), response.getData().size());
+    public ServerResponse hisInfo(Orders orders){
+        return ordersService.hisInfo(orders);
     }
 
     @RequestMapping("/getCustomer")
@@ -62,4 +61,21 @@ public class OrdersController {
     public ServerResponse payDone(OrdersVo ordersVo){
         return ordersService.payDone(ordersVo);
     }
+
+    @RequestMapping("/addPayble")
+    public ServerResponse addPayble(OrdersVo ordersVo){
+        return ordersService.addPayble(ordersVo);
+    }
+
+    @RequestMapping("/SalesInfo")
+    public ServerResponse SalesInfo(String begin, String end){
+        return ordersService.SalesInfo(begin, end);
+    }
+
+    @RequestMapping("/unclearInfo")
+    public ServerResponse unclearInfo(String begin, String end){
+        return ordersService.unclearInfo(begin, end);
+    }
+
+
 }

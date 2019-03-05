@@ -33,7 +33,6 @@ public class OrdersVo {
     private String supplier;
     private BigDecimal my;
 
-
     public OrdersVo() {
     }
 

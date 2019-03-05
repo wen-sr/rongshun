@@ -120,6 +120,20 @@ public class SkuServiceImpl implements ISkuService {
         return skuBuildMapper.selectByParentId(skuId);
     }
 
+    @Override
+    public ServerResponse add(String name) {
+        Sku sku = skuMapper.selectByName(name);
+        if(sku != null){
+            return ServerResponse.createByErrorMessage("您要添加的配件名称已存在");
+        }
+        sku = new Sku();
+        sku.setName(name);
+        sku.setFooId(0);
+        sku.setAddwho("wen-sir");
+        skuMapper.insertSelective(sku);
+        return ServerResponse.createBySuccessMsg("添加配件名称成功");
+    }
+
     private Set<Sku> getChildrenRecursive(Set<Sku> skuSet, Integer skuId) {
         Sku sku = skuMapper.selectByPrimaryKey(skuId);
         if(sku != null) {

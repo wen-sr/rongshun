@@ -32,4 +32,9 @@ public class SkuController {
         return skuService.buildDetail(skuName);
     }
 
+    @RequestMapping("/add")
+    public ServerResponse add(String name){
+        return skuService.add(name);
+    }
+
 }

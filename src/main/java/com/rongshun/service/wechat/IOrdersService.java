@@ -26,4 +26,10 @@ public interface IOrdersService {
     ServerResponse hisInfo(Orders orders);
 
     ServerResponse payDone(OrdersVo ordersVo);
+
+    ServerResponse addPayble(OrdersVo ordersVo);
+
+    ServerResponse SalesInfo(String begin, String end);
+
+    ServerResponse unclearInfo(String begin, String end);
 }

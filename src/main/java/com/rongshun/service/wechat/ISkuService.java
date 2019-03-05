@@ -23,4 +23,6 @@ public interface ISkuService {
     ServerResponse buildDetail(String skuName);
 
     public List<SkuVo> getChildrenParallel(Integer skuId);
+
+    ServerResponse add(String name);
 }

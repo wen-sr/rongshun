@@ -2,6 +2,7 @@ package com.rongshun.dao.wechat;
 
 import com.rongshun.pojo.wechat.Orders;
 import com.rongshun.vo.wechat.OrdersVo;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -25,4 +26,8 @@ public interface OrdersMapper {
     List<Orders> getCustomer(Orders orders);
 
     List<OrdersVo> hisInfo(Orders orders);
+
+    List<Orders> salesInfo(@Param("begin") String begin, @Param("end") String end);
+
+    List<Orders> unclearInfo(@Param("begin") String begin, @Param("end") String end);
 }

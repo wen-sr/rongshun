@@ -23,9 +23,8 @@ public class InventoryController {
     IInventoryService inventoryService;
 
     @RequestMapping("/info")
-    public EasyuiTableResponse info(Inventory inventory){
-        ServerResponse<List> response = inventoryService.info(inventory);
-        return  response.parseToEasyuiTableCommonResponse(response.getStatus(),response.getData(), response.getMsg(), response.getData().size(), response.getData().size());
+    public ServerResponse info(Inventory inventory){
+        return inventoryService.info(inventory);
     }
 
     @RequestMapping("/infoTips")

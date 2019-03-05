@@ -52,14 +52,22 @@ public class OrdersServiceImpl implements IOrdersService {
         if(ordersList != null && ordersList.size() >0){
             for (Orders o : ordersList){
                 i += (o.getPaid() - o.getPayable());
-                paid += o.getPaid();
-                payable += o.getPayable();
+//                paid += o.getPaid();
+//                payable += o.getPayable();
             }
         }
         Map<String, Object> map = new HashMap<>();
-        map.put("paid", paid);
-        map.put("payable", payable);
+//        map.put("payable", payable);
         map.put("i", i);
+        OrdersVo ordersVo = new OrdersVo();
+        ordersVo.setCustomer(orders.getCustomer());
+        ordersVo.setStatus(orders.getStatus());
+        List<OrdersVo> ordersVoList = ordersDetailMapper.findAll(ordersVo);
+        for(OrdersVo oo : ordersVoList){
+            paid += (oo.getPriceOut()*oo.getQty());
+        }
+        map.put("paid", paid);
+        map.put("list", ordersVoList);
         return ServerResponse.createBySuccess(map);
     }
 
@@ -158,7 +166,7 @@ public class OrdersServiceImpl implements IOrdersService {
             //发送微信模板消息，通知下单成功
             return ServerResponse.createBySuccessMsg("下单成功");
         }
-        return ServerResponse.createByErrorMessage("下单失败");
+        return ServerResponse.createByErrorMessage("下单失败, 您还没有添加订单明细");
     }
 
     @Override
@@ -169,7 +177,22 @@ public class OrdersServiceImpl implements IOrdersService {
     @Override
     public ServerResponse hisInfo(Orders orders) {
         List<OrdersVo> ordersList = ordersMapper.hisInfo(orders);
-        return ServerResponse.createBySuccess(ordersList);
+        double paid = 0, payable = 0;
+        String dd = ordersList.get(0).getDd();
+        List<Orders> ordersList1 = ordersMapper.selectHis(orders);
+        if(ordersList1 != null && ordersList1.size() > 0){
+            for(Orders o : ordersList1){
+                paid += o.getPaid();
+                payable += o.getPayable();
+            }
+        }
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("paid", paid);
+        map.put("payable", payable);
+        map.put("list", ordersList);
+        map.put("dd", dd);
+        return ServerResponse.createBySuccess(map);
     }
 
     @Override
@@ -179,5 +202,70 @@ public class OrdersServiceImpl implements IOrdersService {
         orders.setPayable(orders.getPaid());
         ordersMapper.updateByPrimaryKeySelective(orders);
         return ServerResponse.createBySuccessMsg("订单支付完成");
+    }
+
+    @Override
+    public ServerResponse addPayble(OrdersVo ordersVo) {
+        double addPayble = ordersVo.getPayable();
+        if(addPayble == 0){
+            return ServerResponse.createByErrorMessage("未输入补付金额");
+        }
+        Orders orders = new Orders();
+        orders.setCustomer(ordersVo.getCustomer());
+        List<Orders> ordersList = ordersMapper.selectHis(orders);
+        if(ordersList != null && ordersList.size() > 0){
+            for(Orders o : ordersList){
+                if(o.getPayable() + addPayble > o.getPaid()){
+                    addPayble = o.getPaid() - o.getPayable();
+                    o.setPayable(o.getPaid());
+                    o.setStatus("2");
+                }else {
+                    o.setPayable(o.getPayable() + addPayble);
+                    o.setStatus("1");
+                }
+                ordersMapper.updateByPrimaryKeySelective(o);
+            }
+        }
+        return ServerResponse.createBySuccessMsg("补付款成功");
+    }
+
+    @Override
+    public ServerResponse SalesInfo(String begin, String end) {
+        List<Orders> ordersList = ordersMapper.salesInfo(begin, end);
+        Map<String, Object> map = new HashMap<>();
+        map.put("list", ordersList);
+        double totalSales = 0,  getted = 0, ungetted = 0;
+        if(ordersList != null && ordersList.size() > 0){
+            for(Orders o : ordersList) {
+                totalSales += o.getPaid();
+                getted += o.getPayable();
+            }
+        }
+
+        ungetted = totalSales - getted;
+        map.put("totalSales", totalSales);
+        map.put("getted", getted);
+        map.put("ungetted", ungetted);
+        return ServerResponse.createBySuccess(map);
+    }
+
+    @Override
+    public ServerResponse unclearInfo(String begin, String end) {
+        List<Orders> ordersList = ordersMapper.unclearInfo(begin, end);
+        Map<String, Object> map = new HashMap<>();
+        map.put("list", ordersList);
+        double totalSales = 0,  getted = 0, ungetted = 0;
+        if(ordersList != null && ordersList.size() > 0){
+            for(Orders o : ordersList) {
+                totalSales += o.getPaid();
+                getted += o.getPayable();
+            }
+        }
+
+        ungetted = totalSales - getted;
+        map.put("totalSales", totalSales);
+        map.put("getted", getted);
+        map.put("ungetted", ungetted);
+        return ServerResponse.createBySuccess(map);
     }
 }

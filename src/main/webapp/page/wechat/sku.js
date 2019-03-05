@@ -110,7 +110,7 @@ function add() {
 }
 
 function addPlus(val, row, index) {
-    return '<a href="#" onclick="plus(&quot;' +row.skuName +'&quot;,&quot;' +row.skuId+ '&quot;,&quot;' +row.qtyFree+ '&quot;)"><i class="fa fa-plus-circle" style="font-size: 35px;color: #00ee00;font-weight: bolder" aria-hidden="true"></i></a>';
+        return '<a href="#" onclick="plus(&quot;' +row.skuName +'&quot;,&quot;' +row.skuId+ '&quot;,&quot;' +row.qtyFree+ '&quot;)"><i class="fa fa-plus-circle" style="font-size: 35px;color: #00ee00;font-weight: bolder" aria-hidden="true"></i></a>';
 }
 function addMinus(val, row, index) {
     return '<a href="#" onclick="minus(&quot;' +row.skuName +'&quot;,&quot;' +row.skuId+ '&quot;,&quot;' +row.qtyFree+ '&quot;)"><i class="fa fa-minus-circle" style="font-size: 35px;color: red;font-weight: bolder" aria-hidden="true"></i></a>';
