@@ -1,5 +1,6 @@
 package com.rongshun.controller.wechat;
 
+import me.chanjar.weixin.common.api.WxConsts;
 import me.chanjar.weixin.common.bean.menu.WxMenu;
 import me.chanjar.weixin.common.bean.menu.WxMenuButton;
 import me.chanjar.weixin.common.exception.WxErrorException;
@@ -59,10 +60,17 @@ public class WxMenuController implements WxMpMenuService {
 
 //        menu.getButtons().add(button2);
 
+    //WxMenuButton button31 = new WxMenuButton();
+    //button31.setType(MenuButtonType.VIEW);
+    //button31.setName("仓库管理");
+    //button31.setUrl("http://www.jxlh56.com/rongshun/oa/wechat/auth?returnUrl=/page/wechat/index.html");
     WxMenuButton button31 = new WxMenuButton();
-    button31.setType(MenuButtonType.VIEW);
+    button31.setType(MenuButtonType.MINIPROGRAM);
     button31.setName("仓库管理");
-    button31.setUrl("http://www.jxlh56.com/rongshun/oa/wechat/auth?returnUrl=/page/wechat/index.html");
+    button31.setAppId("wx0d38f71ff834b1d5");
+    button31.setPagePath("pages/receipt/receipt");
+    button31.setUrl("http://www.jxxh56.com");
+    //button31.setUrl("http://www.jxlh56.com/rongshun/oa/wechat/auth?returnUrl=/page/wechat/index.html");
 
 
     WxMenuButton button33 = new WxMenuButton();
