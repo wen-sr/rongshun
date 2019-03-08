@@ -17,9 +17,14 @@ public class SkuController {
     @Autowired
     ISkuService skuService;
 
+//    @RequestMapping("/skuTips")
+//    public List<Sku> skuTips(Sku sku){
+//        return skuService.skuTips(sku);
+//    }
+
     @RequestMapping("/skuTips")
-    public List<Sku> skuTips(Sku sku){
-        return skuService.skuTips(sku);
+    public ServerResponse skuTips(Sku sku){
+        return ServerResponse.createBySuccess("查询成功",skuService.skuTips(sku));
     }
 
     @RequestMapping("/build")

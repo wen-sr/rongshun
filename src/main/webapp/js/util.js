@@ -1,12 +1,12 @@
 var conf = {
-    serverHost : ''
+    serverHost : '/rongshun'
 };
 var tools = {
     // 网络请求
     request : function(param){
         var _this = this;
         $.ajax({
-            type        : param.method  || 'get',
+            type        : param.method  || 'POST',
             url         : param.url     || '',
             dataType    : param.type    || 'json',
             data        : param.data    || '',
@@ -20,12 +20,12 @@ var tools = {
                     _this.doLogin();
                 }
                 // 请求数据错误
-                else if(1 === res.status){
+                else {
                     typeof param.error === 'function' && param.error(res.msg);
                 }
             },
             error       : function(err){
-                alert("网络错误");
+                $.toast("网络错误", "forbidden");
             }
         });
     },

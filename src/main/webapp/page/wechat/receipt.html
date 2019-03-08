@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>收货</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" href="../../weui/lib/weui.min.css">
     <link rel="stylesheet" href="../../weui/css/jquery-weui.css">
     <link rel="stylesheet" href="../../weui/css/weui-index.css">
@@ -19,15 +22,30 @@
 </div>
 <div class="weui-cells weui-cells_form">
     <div class="weui-cell">
-        <div class="weui-cell__hd"><label for="name" class="weui-label">称呼</label></div>
+        <div class="weui-cell__hd"><label for="picker" class="weui-label">配件名称</label></div>
         <div class="weui-cell__bd">
-            <input class="weui-input" id="name" type="text" value="">
+            <input class="weui-input" id="picker" onclick="getSku()" type="text" placeholder="请选择或输入配件名称">
         </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label for="picker" class="weui-label">收货数量</label></div>
+        <div class="weui-cell__bd">
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="qty" required type="number" pattern="[0-9]*" placeholder="请输入收货数量">
+            </div>
+        </div>
+    </div>
+    <div class="weui-cell" >
+        <a class="weui-btn weui-btn_primary" href="javascript:" style="width:45%"  onclick="add()">组装总成</a>
+        <a class="weui-btn weui-btn_primary" href="javascript:" style="width:45%;margin-bottom: 13px;"  onclick="go()">收货确认</a>
+    </div>
+    <div class="weui-cells" id="list">
     </div>
 </div>
 
-<script type="text/javascript" src="../../easyui/jquery.min.js"></script>
-<script type="text/javascript" src="../../js/fastclick.js"></script>
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script type="text/javascript" src="../../weui/js/jquery-weui.min.js"></script>
+<!--<script type="text/javascript" src="../../js/fastclick.js"></script>-->
 <script type="text/javascript" src="../../js/hogan.js"></script>
 <script type="text/javascript" src="../../js/util.js"></script>
 <script type="text/javascript" src="receipt.js"></script>

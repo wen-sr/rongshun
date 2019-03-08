@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择配件</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../../weui/lib/weui.min.css">
+    <link rel="stylesheet" href="../../weui/css/jquery-weui.css">
+    <link rel="stylesheet" href="../../weui/css/weui-index.css">
+    <link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="table-view">
+        <div class="table-colum1">配件名称</div>
+        <div class="table-colum2">可用库存</div>
+        <div class="table-colum3">操作</div>
+    </div>
+    <div class="table-view">
+        <div class="table-colum1">1</div>
+        <div class="table-colum2">2</div>
+        <div class="table-colum3">
+            <a url="../add/add?skuName={{item.skuName}}&qtyFree={{item.qtyFree}}&&newName={{newName}}&&skuId={{item.skuId}}">
+                <i class="fa fa-plus-circle"></i>
+            </a>|
+            <a src="../add/add?skuName={{item.skuName}}&qtyFree={{item.qtyFree}}&&newName={{newName}}&&skuId={{item.skuId}}">
+                <i class="fa fa-minus-circle" style='color:red'></i>
+            </a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script type="text/javascript" src="../../weui/js/jquery-weui.min.js"></script>
+<script type="text/javascript" src="../../js/fastclick.js"></script>
+<script type="text/javascript" src="../../js/hogan.js"></script>
+<script type="text/javascript" src="../../js/util.js"></script>
+<script type="text/javascript" src="inventoryPick.js"></script>
+</body>
+</html>
