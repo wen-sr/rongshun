@@ -1,0 +1,20 @@
+.detail{
+    width: 100%;
+    padding-top:10px;
+}
+
+.detail-list{
+    width: 90%;
+}
+.totalInfo{
+    width: 100%;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.t-right{
+    width: 50%;
+}
+.t-left{
+    width: 50%;
+}

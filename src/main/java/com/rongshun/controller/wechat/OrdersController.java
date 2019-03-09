@@ -67,7 +67,7 @@ public class OrdersController {
         return ordersService.addPayble(ordersVo);
     }
 
-    @RequestMapping("/SalesInfo")
+    @RequestMapping("/salesInfo")
     public ServerResponse SalesInfo(String begin, String end){
         return ordersService.SalesInfo(begin, end);
     }

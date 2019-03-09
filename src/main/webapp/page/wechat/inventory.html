@@ -2,48 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>收货</title>
-    <meta charset="utf-8">
+    <title>查询库存</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" href="../../weui/lib/weui.min.css">
     <link rel="stylesheet" href="../../weui/css/jquery-weui.css">
     <link rel="stylesheet" href="../../weui/css/weui-index.css">
     <link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css"/>
-
 </head>
 <body>
-<div class="weui-cells weui-cells_form"  style="padding-bottom: 55px;">
+<!--<div style="padding: 10px 0;">-->
+    <!--<h1 style="text-align: center;-->
+  <!--font-size: 25px;-->
+  <!--color: #3cc51f;-->
+  <!--font-weight: 400;-->
+  <!--margin: 0 15%;">查询库存</h1>-->
+<!--</div>-->
+<div class="weui-cells weui-cells_form" style="padding-bottom: 55px;">
     <div class="weui-cell">
-        <div class="weui-cell__hd"><label for="picker" class="weui-label">配件名称</label></div>
+        <div class="weui-cell__hd"><label for="skuName" class="weui-label">配件名称</label></div>
         <div class="weui-cell__bd">
-            <input class="weui-input" id="picker" onclick="getSku()" type="text" placeholder="请选择或输入配件名称">
-        </div>
-    </div>
-    <div class="weui-cell">
-        <div class="weui-cell__hd"><label for="qty" class="weui-label">收货数量</label></div>
-        <div class="weui-cell__bd">
-            <div class="weui-cell__bd">
-                <input class="weui-input" id="qty" required type="number" pattern="[0-9]*" placeholder="请输入收货数量">
-            </div>
+            <input class="weui-input" id="skuName" onclick="getSku()" type="text" placeholder="请选择或输入配件名称">
         </div>
     </div>
     <div class="weui-cell" >
-        <a class="weui-btn weui-btn_primary" href="javascript:" style="width:45%"  onclick="add()">组装总成</a>
-        <a class="weui-btn weui-btn_primary" href="javascript:" style="width:45%;margin-bottom: 13px;"  onclick="go()">收货确认</a>
-    </div>
-    <div class="weui-cells" id="list">
+        <a class="weui-btn weui-btn_primary" href="javascript:" style="width:90%;margin-bottom: 13px;"  onclick="go()">查询</a>
     </div>
 </div>
 <div class="weui-tabbar" style="position: fixed">
-    <a href="receipt.html" class="weui-tabbar__item weui-bar__item--on">
+    <a href="receipt.html" class="weui-tabbar__item">
         <!--<span class="weui-badge" style="position: absolute;top: -.4em;right: 1em;">8</span>-->
         <div class="weui-tabbar__icon">
             <i class="fa fa-id-card" style="color:red;font-size: 20px;"></i>
         </div>
         <p class="weui-tabbar__label">收货</p>
     </a>
-    <a href="inventory.html" class="weui-tabbar__item">
+    <a href="inventory.html" class="weui-tabbar__item weui-bar__item--on">
         <div class="weui-tabbar__icon">
             <i class="fa fa-id-card" style="color:red;font-size: 20px;"></i>
         </div>
@@ -62,12 +56,11 @@
         <p class="weui-tabbar__label">管理</p>
     </a>
 </div>
-
 <script type="text/javascript" src="../../js/jquery.min.js"></script>
 <script type="text/javascript" src="../../weui/js/jquery-weui.min.js"></script>
-<!--<script type="text/javascript" src="../../js/fastclick.js"></script>-->
+<script type="text/javascript" src="../../js/fastclick.js"></script>
 <script type="text/javascript" src="../../js/hogan.js"></script>
 <script type="text/javascript" src="../../js/util.js"></script>
-<script type="text/javascript" src="receipt.js"></script>
+<script type="text/javascript" src="inventory.js"></script>
 </body>
 </html>

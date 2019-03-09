@@ -27,7 +27,7 @@ public interface OrdersMapper {
 
     List<OrdersVo> hisInfo(Orders orders);
 
-    List<Orders> salesInfo(@Param("begin") String begin, @Param("end") String end);
+    List<OrdersVo> salesInfo(@Param("begin") String begin, @Param("end") String end);
 
-    List<Orders> unclearInfo(@Param("begin") String begin, @Param("end") String end);
+    List<OrdersVo> unclearInfo(@Param("begin") String begin, @Param("end") String end);
 }

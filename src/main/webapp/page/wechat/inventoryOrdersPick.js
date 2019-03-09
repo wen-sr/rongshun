@@ -1,6 +1,8 @@
 $(function () {
-    var newName = tools.getUrlParam("newName");
-    $("#newName").val(newName);
+    var customer = tools.getUrlParam("customer");
+    var dd = tools.getUrlParam("dd");
+    $("#customer").val(customer);
+    $("#dd").val(dd);
     $("#list").html('');
     tools.request({
         url: "/rongshun/inventory/info",
@@ -12,11 +14,11 @@ $(function () {
                         '<div class="table-colum1">{{skuName}}</div>' +
                         '<div class="table-colum2">{{qtyFree}}</div>' +
                         '<div class="table-colum3">' +
-                                '<a href="addSkuDetail.html?skuName={{skuName}}&qtyFree={{qtyFree}}&&newName='+ newName + '&&skuId={{skuId}}">' +
+                                '<a href="addOrdersDetail.html?skuName={{skuName}}&qtyFree={{qtyFree}}&&customer='+ customer + '&skuId={{skuId}}&dd=' + dd +'">' +
                                 '<i class="fa fa-plus-circle"></i>' +
                                 '</a>' +
                                 '<i class="fa fa-ellipsis-v" aria-hidden="true" style="color: #666;"></i>'+
-                            '<a href="minusSkuDetail.html?skuName={{skuName}}&qtyFree={{qtyFree}}&&newName='+ newName + '&&skuId={{skuId}}">' +
+                            '<a href="minusOrdersDetail.html?skuName={{skuName}}&qtyFree={{qtyFree}}&&customer='+ customer + '&skuId={{skuId}}&dd=' + dd +'">' +
                             '<i class="fa fa-minus-circle" style="color:red"></i>' +
                             '</a>' +
                         '</div>' +
@@ -31,6 +33,7 @@ $(function () {
 });
 
 function back() {
-    var newName = $("#newName").val();
-    window.open('receipt.html?skuName='+ newName,'_self');
+    var customer = $("#customer").val();
+    var dd = $("#dd").val();
+    window.open('orders.html?customer='+ customer + '&dd=' + dd,'_self');
 }

@@ -2,6 +2,7 @@ package com.rongshun.controller.wechat;
 
 import com.rongshun.common.EasyuiTableResponse;
 import com.rongshun.common.RequestHolder;
+import com.rongshun.common.ResponseCode;
 import com.rongshun.common.ServerResponse;
 import com.rongshun.exception.MyException;
 import com.rongshun.pojo.wechat.Inventory;
@@ -21,21 +22,20 @@ public class WeChatUserInfoController {
     IWeChatUserInfoService weChatUserInfoService;
 
     @RequestMapping("/info")
-    public EasyuiTableResponse info(WeChatUserInfo weChatUserInfo){
+    public ServerResponse info(WeChatUserInfo weChatUserInfo){
         WeChatUserInfo w = RequestHolder.getCurrentUser();
-        if(w == null || !("oi05j1rBhYzBjnzgp-ipCdDsdwhs".equalsIgnoreCase(w.getOpenid()))){
-            throw new MyException(-1, "未授权的用户");
-        }
-        ServerResponse<List> response = weChatUserInfoService.info(weChatUserInfo);
-        return  response.parseToEasyuiTableCommonResponse(response.getStatus(),response.getData(), response.getMsg(), response.getData().size(), response.getData().size());
+//        if(w == null || !("oi05j1rBhYzBjnzgp-ipCdDsdwhs".equalsIgnoreCase(w.getOpenid())) || !("oi05j1icCldZEo4O7hFv661I4I-4".equalsIgnoreCase(w.getOpenid()))){
+//            return new ServerResponse(ResponseCode.NEED_LOGIN.getCode());
+//        }
+        return weChatUserInfoService.info(weChatUserInfo);
     }
 
     @RequestMapping("/auth")
     public ServerResponse auth(WeChatUserInfo weChatUserInfo){
         WeChatUserInfo w = RequestHolder.getCurrentUser();
-        if(w == null || !("oi05j1rBhYzBjnzgp-ipCdDsdwhs".equalsIgnoreCase(w.getOpenid()))){
-            throw new MyException(-1, "未授权的用户");
-        }
+//        if(w == null || !("oi05j1rBhYzBjnzgp-ipCdDsdwhs".equalsIgnoreCase(w.getOpenid())) || !("oi05j1icCldZEo4O7hFv661I4I-4".equalsIgnoreCase(w.getOpenid())) ){
+//            return new ServerResponse(ResponseCode.NEED_LOGIN.getCode());
+//        }
         return weChatUserInfoService.updateAuth(weChatUserInfo);
     }
 }

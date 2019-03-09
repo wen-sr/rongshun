@@ -7,7 +7,7 @@ public class Constant {
     public static final String EMAIL                        = "email";
     public static final String OPENID                       = "openId";
 //    public static final String WECHATDOMAIN     = "http://wensr.mynatapp.cc";
-    public static final String WECHATDOMAIN                 = "http://www.jxlh56.com";
+    public static final String WECHATDOMAIN                 = "http://www.jxxh56.com";
     public static final String WXMPOAUTH2ACCESSTOKEN        = "wxMpOAuth2AccessToken";
     public static final String DEFAULTPASSWORD              = "123456";
     //public static final String FTPURL                       = "ftp://141.168.1.188/img";

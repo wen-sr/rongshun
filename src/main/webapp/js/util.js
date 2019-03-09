@@ -21,7 +21,8 @@ var tools = {
                 }
                 // 请求数据错误
                 else {
-                    typeof param.error === 'function' && param.error(res.msg);
+                    console.log(res.msg);
+                    $.toast(res.msg == null ? "出错了" : res.msg, "forbidden");
                 }
             },
             error       : function(err){

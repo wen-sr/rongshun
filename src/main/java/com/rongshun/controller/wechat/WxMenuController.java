@@ -60,17 +60,17 @@ public class WxMenuController implements WxMpMenuService {
 
 //        menu.getButtons().add(button2);
 
-    //WxMenuButton button31 = new WxMenuButton();
-    //button31.setType(MenuButtonType.VIEW);
-    //button31.setName("仓库管理");
-    //button31.setUrl("http://www.jxlh56.com/rongshun/oa/wechat/auth?returnUrl=/page/wechat/index.html");
     WxMenuButton button31 = new WxMenuButton();
-    button31.setType(MenuButtonType.MINIPROGRAM);
+    button31.setType(MenuButtonType.VIEW);
     button31.setName("仓库管理");
-    button31.setAppId("wx0d38f71ff834b1d5");
-    button31.setPagePath("pages/receipt/receipt");
-    button31.setUrl("http://www.jxxh56.com");
+    button31.setUrl("http://www.jxxh56.com/rongshun/oa/wechat/auth?returnUrl=/page/wechat/receipt.html");
     //button31.setUrl("http://www.jxlh56.com/rongshun/oa/wechat/auth?returnUrl=/page/wechat/index.html");
+//    WxMenuButton button31 = new WxMenuButton();
+//    button31.setType(MenuButtonType.MINIPROGRAM);
+//    button31.setName("仓库管理");
+//    button31.setAppId("wx0d38f71ff834b1d5");
+//    button31.setPagePath("pages/receipt/receipt");
+//    button31.setUrl("http://www.jxxh56.com");
 
 
     WxMenuButton button33 = new WxMenuButton();

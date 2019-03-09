@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>收货</title>
+    <title>开单</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -15,28 +15,53 @@
 <body>
 <div class="weui-cells weui-cells_form"  style="padding-bottom: 55px;">
     <div class="weui-cell">
-        <div class="weui-cell__hd"><label for="picker" class="weui-label">配件名称</label></div>
+        <div class="weui-cell__hd"><label for="customer" class="weui-label">客户名称</label></div>
         <div class="weui-cell__bd">
-            <input class="weui-input" id="picker" onclick="getSku()" type="text" placeholder="请选择或输入配件名称">
+            <input class="weui-input" id="customer" type="text" placeholder="请输入客户名称">
         </div>
     </div>
     <div class="weui-cell">
-        <div class="weui-cell__hd"><label for="qty" class="weui-label">收货数量</label></div>
+        <div class="weui-cell__hd"><label for="dd" class="weui-label">开单日期</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="text" id="dd" placeholder="请选择开单日期" />
+        </div>
+    </div>
+    <div class="weui-cell weui-cell_vcode">
+        <div class="weui-cell__hd">
+            <label class="weui-label">历史欠款</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" id="his" type="number" readonly>
+        </div>
+        <div class="weui-cell__ft">
+            <button class="weui-vcode-btn" onclick="getHisDetail()">欠款明细</button>
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label for="paid" class="weui-label">总价</label></div>
         <div class="weui-cell__bd">
             <div class="weui-cell__bd">
-                <input class="weui-input" id="qty" required type="number" pattern="[0-9]*" placeholder="请输入收货数量">
+                <input class="weui-input" id="paid" required type="number" pattern="[0-9]*" placeholder="总价" readonly>
+            </div>
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label for="payable" class="weui-label">实付</label></div>
+        <div class="weui-cell__bd">
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="payable" required type="number" pattern="[0-9]*" placeholder="请输入实付款">
             </div>
         </div>
     </div>
     <div class="weui-cell" >
-        <a class="weui-btn weui-btn_primary" href="javascript:" style="width:45%"  onclick="add()">组装总成</a>
-        <a class="weui-btn weui-btn_primary" href="javascript:" style="width:45%;margin-bottom: 13px;"  onclick="go()">收货确认</a>
+        <a class="weui-btn weui-btn_primary" href="javascript:" style="width:45%"  onclick="addDetail()">添加配件</a>
+        <a class="weui-btn weui-btn_primary" href="javascript:" style="width:45%;margin-bottom: 13px;"  onclick="go()">下单确认</a>
     </div>
     <div class="weui-cells" id="list">
     </div>
 </div>
 <div class="weui-tabbar" style="position: fixed">
-    <a href="receipt.html" class="weui-tabbar__item weui-bar__item--on">
+    <a href="receipt.html" class="weui-tabbar__item">
         <!--<span class="weui-badge" style="position: absolute;top: -.4em;right: 1em;">8</span>-->
         <div class="weui-tabbar__icon">
             <i class="fa fa-id-card" style="color:red;font-size: 20px;"></i>
@@ -49,7 +74,7 @@
         </div>
         <p class="weui-tabbar__label">库存</p>
     </a>
-    <a href="orders.html" class="weui-tabbar__item">
+    <a href="orders.html" class="weui-tabbar__item weui-bar__item--on">
         <div class="weui-tabbar__icon">
             <i class="fa fa-id-card" style="color:red;font-size: 20px;"></i>
         </div>
@@ -68,6 +93,6 @@
 <!--<script type="text/javascript" src="../../js/fastclick.js"></script>-->
 <script type="text/javascript" src="../../js/hogan.js"></script>
 <script type="text/javascript" src="../../js/util.js"></script>
-<script type="text/javascript" src="receipt.js"></script>
+<script type="text/javascript" src="orders.js"></script>
 </body>
 </html>

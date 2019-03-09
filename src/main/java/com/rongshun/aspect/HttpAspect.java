@@ -22,8 +22,8 @@ import java.io.IOException;
  * Created by 廖师兄
  * 2017-01-15 12:31
  */
-//@Aspect
-//@Component
+@Aspect
+@Component
 public class HttpAspect {
 
     private final static Logger logger = LoggerFactory.getLogger(HttpAspect.class);
@@ -40,13 +40,11 @@ public class HttpAspect {
     public void doBefore(JoinPoint joinPoint) throws IOException {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        HttpServletResponse response = attributes.getResponse();
         HttpSession session = request.getSession();
         WeChatUserInfo weChatUserInfo = (WeChatUserInfo) session.getAttribute(Constant.CURRENT_USER);
-        if(weChatUserInfo == null) {
+        if(weChatUserInfo == null || "0".equalsIgnoreCase(weChatUserInfo.getAuth())) {
             logger.info("未授权的用户，无法继续进入程序");
-            reDirect(request, response);
-            throw new MyException(-1, "未授权的用户，无法继续进入程序");
+            throw new MyException(10, "未授权的用户，无法继续进入程序");
         }
         RequestHolder.add(weChatUserInfo);
         logger.info("---------------成功获得登录信息："+ RequestHolder.getCurrentUser().getId() +"---------------");
@@ -78,24 +76,6 @@ public class HttpAspect {
     @AfterReturning(returning = "object", pointcut = "log()")
     public void doAfterReturning(Object object) {
         logger.info("response={}",  object == null ? null :object.toString());
-    }
-
-
-    //对于请求是ajax请求重定向问题的处理方法
-    public void reDirect(HttpServletRequest request, HttpServletResponse response) throws IOException{
-        //获取当前请求的路径
-        String basePath = request.getScheme() + "://" + request.getServerName() + ":"  + request.getServerPort()+request.getContextPath();
-        logger.info("basePath:" + basePath);
-        //如果request.getHeader("X-Requested-With") 返回的是"XMLHttpRequest"说明就是ajax请求，需要特殊处理
-        if("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))){
-            //告诉ajax我是重定向
-            response.setHeader("REDIRECT", "REDIRECT");
-            //告诉ajax我重定向的路径
-            response.setHeader("CONTENTPATH", basePath+"/page/wechat/hello.html");
-            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-        }else{
-            response.sendRedirect(basePath + "/page/wechat/hello.html");
-        }
     }
 
 }

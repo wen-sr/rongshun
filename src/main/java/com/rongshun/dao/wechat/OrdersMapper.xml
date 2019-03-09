@@ -187,16 +187,16 @@
     where a.id = b.orders_id
     and a.customer = #{customer}
   </select>
-  <select id="salesInfo" resultMap="BaseResultMap">
-    select <include refid="Base_Column_List"/>
+  <select id="salesInfo" resultType="com.rongshun.vo.wechat.OrdersVo">
+    select id, customer,paid, payable, dd, paid - payable unGetted
     from orders
-    where DATE_FORMAT(adddate,'%Y-%m-%d') between #{begin} and #{end}
+    where DATE_FORMAT(dd,'%Y/%m/%d') between #{begin} and #{end}
     and status not in ('-1')
   </select>
-  <select id="unclearInfo" resultMap="BaseResultMap">
-    select <include refid="Base_Column_List"/>
+  <select id="unclearInfo" resultType="com.rongshun.vo.wechat.OrdersVo">
+    select id, customer,paid, payable, dd, paid - payable unGetted
     from orders
-    where DATE_FORMAT(adddate,'%Y-%m-%d') between #{begin} and #{end}
+    where DATE_FORMAT(dd,'%Y/%m/%d') between #{begin} and #{end}
     and status in ('0','1')
   </select>
 </mapper>

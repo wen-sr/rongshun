@@ -5,6 +5,7 @@ import com.rongshun.common.ServerResponse;
 import com.rongshun.dao.wechat.InventoryMapper;
 import com.rongshun.dao.wechat.SkuBuildMapper;
 import com.rongshun.dao.wechat.SkuMapper;
+import com.rongshun.exception.MyException;
 import com.rongshun.pojo.wechat.Sku;
 import com.rongshun.pojo.wechat.SkuBuild;
 import com.rongshun.service.wechat.ISkuService;
@@ -48,6 +49,9 @@ public class SkuServiceImpl implements ISkuService {
 //        更新资料，标记为总成配件
         Sku sku = skuMapper.selectByName(skuName);
         if(sku == null){
+            if(qty < 0){
+                return ServerResponse.createByErrorMessage("该总成配件不存在，无法减少零件");
+            }
             sku = new Sku();
             sku.setName(skuName);
 //            sku.setAddwho(RequestHolder.getCurrentUser().getNickname());
@@ -55,34 +59,33 @@ public class SkuServiceImpl implements ISkuService {
             sku.setFooId(1);
             skuMapper.insertSelective(sku);
         }else {
-            sku.setFooId(1);
-            skuMapper.updateByPrimaryKeySelective(sku);
+            if(sku.getFooId() != 1){
+                sku.setFooId(1);
+                skuMapper.updateByPrimaryKeySelective(sku);
+            }
         }
         SkuBuild skuBuild = skuBuildMapper.selectBySkuIdAndFooId(skuId, sku.getId());
         if(skuBuild == null){
+            if(qty < 0){
+                throw new MyException(-1, "该总成未添加过该配件，无法减少");
+            }
             skuBuildMapper.insertSelective(new SkuBuild(skuId,sku.getId(),qty));
         }else {
+            if(skuBuild.getQty() + qty < 0){
+                throw new MyException(-1, "该配件的数量为" + skuBuild.getQty() + ",无法减少" + (0-qty) + "个");
+            }else if(skuBuild.getQty() + qty == 0){
+                skuBuildMapper.deleteByPrimaryKey(skuBuild.getSkuid());
+                return ServerResponse.createBySuccessMsg("减少零件成功");
+            }
             skuBuild.setQty(skuBuild.getQty() + qty);
             skuBuildMapper.updateByPrimaryKeySelective(skuBuild);
         }
-        //扣减子零件的库存
-//        Inventory inventory = inventoryMapper.selectBySkuId(skuMapper.selectByPrimaryKey(skuId).getName());
-//        inventory.setQtyReceipt(inventory.getQtyReceipt() - qty);
-//        inventory.setQtyFree(inventory.getQtyFree() - qty);
-//        inventoryMapper.updateByPrimaryKeySelective(inventory);
-        //增加总成零件的库存
-//        Inventory i = inventoryMapper.selectBySkuId(sku.getName());
-//        if(i == null){
-//            i = new Inventory();
-//            i.setQtyFree(qty);
-//            i.setQtyReceipt(qty);
-//            inventoryMapper.insertSelective(i);
-//        }else {
-//            i.setQtyReceipt(i.getQtyReceipt() + qty);
-//            i.setQtyFree(i.getQtyFree() + qty);
-//            inventoryMapper.updateByPrimaryKeySelective(i);
-//        }
-        return ServerResponse.createBySuccessMsg("添加零件成功");
+        if(qty > 0){
+            return ServerResponse.createBySuccessMsg("添加零件成功");
+        }else {
+            return ServerResponse.createBySuccessMsg("减少零件成功");
+
+        }
     }
 
     @Override

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择配件</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../../weui/lib/weui.min.css">
+    <link rel="stylesheet" href="../../weui/css/jquery-weui.css">
+    <link rel="stylesheet" href="../../weui/css/weui-index.css">
+    <link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="hisDetail.css"/>
+</head>
+<body>
+<div class="weui-navbar" style="position: fixed">
+    <div class="weui-navbar__item weui_bar__item_on">
+        <a href="javascript:;" onclick="back()" class="weui-btn weui-btn_warn">返回</a>
+    </div>
+</div>
+<div class="container">
+    <div class="customer">客户名称：<span id="customer"></span></div>
+    <div class='middle'>下单日期：<span id="dd"></span></div>
+    <div class='middle'>
+        <div style='color:green;width: 50%;'>应付：<span id="paid"></span></div>
+        <div style='color:green;width: 50%;'>实付：<span id="payable"></span></div>
+    </div>
+    <div class='middle' style='color:red;'>欠款：<span id="other"></span></div>
+    <div class="weui-cells" id="list" style="margin-top: 0">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <p>标题文字</p>
+                <p>标题文字</p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label for="add_payable" class="weui-label">补付金额</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="add_payable" type="number" placeholder="请输入补付金额">
+            </div>
+        </div>
+        <div class="weui-cell" >
+            <a class="weui-btn weui-btn_primary" href="javascript:" style="width:100%;margin-bottom: 13px;"  onclick="go()">提交</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script type="text/javascript" src="../../weui/js/jquery-weui.min.js"></script>
+<script type="text/javascript" src="../../js/fastclick.js"></script>
+<script type="text/javascript" src="../../js/hogan.js"></script>
+<script type="text/javascript" src="../../js/util.js"></script>
+<script type="text/javascript" src="hisDetail.js"></script>
+</body>
+</html>

@@ -39,6 +39,11 @@ public class WeChatUserInfoServiceImpl implements IWeChatUserInfoService {
 
     @Override
     public ServerResponse updateAuth(WeChatUserInfo weChatUserInfo) {
+        if("无".equalsIgnoreCase(weChatUserInfo.getAuth())){
+            weChatUserInfo.setAuth("1");
+        }else {
+            weChatUserInfo.setAuth("0");
+        }
         weChatUserInfoMapper.updateByPrimaryKeySelective(weChatUserInfo);
         return ServerResponse.createBySuccessMsg("修改权限成功");
     }

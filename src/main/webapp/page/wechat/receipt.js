@@ -1,6 +1,7 @@
 $(function () {
     var name = tools.getUrlParam("skuName");
     if(name != ''){
+        $("#picker").val(name);
         getDetail();
     }
 
@@ -32,7 +33,7 @@ function getSku() {
                     getDetail();
                 },
                 onClose: function(p, v, d) {
-                    getDetail();
+                    // getDetail();
                 }
             });
         },
@@ -68,7 +69,6 @@ function go() {
         url     : '/rongshun/receipt/add',
         data    : formData,
         success : function (data, msg) {
-            console.log(msg);
             $.alert({
                 title: '提示',
                 text: msg,
@@ -97,41 +97,7 @@ function add() {
         $.toast("货物名称不能为空", "forbidden");
         return;
     }
-    window.open("inventoryPick.html?skuName=" + name, "_self");
-    //
-    // $("#dg").datagrid({
-    //     url: '/rongshun/inventory/info',
-    //     height: 'auto',
-    //     fitColumns: true,
-    //     fit: true,
-    //     striped: true,
-    //     border: true,
-    //     singleSelect: true,
-    //     showFooter: true,
-    //     // onClickCell: onClickCell,
-    //     // toolbar:'#tb',
-    //     columns: [[{
-    //         field: "skuName",
-    //         title: "配件名称",
-    //         width: 50
-    //     }, {
-    //         field: "qtyFree",
-    //         title: "库存",
-    //         width: 30
-    //     }, {
-    //         field: "skuId",
-    //         title: "添加",
-    //         formatter: addPlus,
-    //         align: 'center',
-    //         width: 30
-    //     }, {
-    //         field: "id",
-    //         title: "删减",
-    //         formatter: addMinus,
-    //         align: 'center',
-    //         width: 30
-    //     }]]
-    // });
+    window.open("inventoryPick.html?newName=" + name, "_self");
 }
 
 function addPlus(val, row, index) {
@@ -247,6 +213,7 @@ function getDetail() {
     if (skuName == '') {
         return;
     }
+    $("#list").html('');
     tools.request({
         url: '/rongshun/sku/buildDetail',
         data: "skuName=" + skuName,
@@ -261,8 +228,7 @@ function getDetail() {
                     '</div>' +
                     '{{/list}}';
                 var result = '<div class="list-header" style="color: #D74D49;height: 30px;line-height: 30px;padding-left: 15px;">该总成由以下零件组成:</div>';
-                result += renderHtml(tpl, {list: data});
-                $("#list").html('');
+                result += tools.renderHtml(tpl, {list: data});
                 $('#list').append(result);
             }
         },

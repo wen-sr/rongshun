@@ -2,7 +2,7 @@ package com.rongshun.vo.wechat;
 
 import java.math.BigDecimal;
 
-public class OrdersVo {
+public class    OrdersVo {
     private Integer ordersId;
 
     private String customer;
@@ -32,6 +32,15 @@ public class OrdersVo {
     private Integer qty;
     private String supplier;
     private BigDecimal my;
+    private BigDecimal unGetted;
+
+    public BigDecimal getUnGetted() {
+        return unGetted;
+    }
+
+    public void setUnGetted(BigDecimal unGetted) {
+        this.unGetted = unGetted;
+    }
 
     public OrdersVo() {
     }

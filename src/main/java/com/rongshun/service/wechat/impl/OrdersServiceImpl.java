@@ -63,8 +63,10 @@ public class OrdersServiceImpl implements IOrdersService {
         ordersVo.setCustomer(orders.getCustomer());
         ordersVo.setStatus(orders.getStatus());
         List<OrdersVo> ordersVoList = ordersDetailMapper.findAll(ordersVo);
+        map.put("dd", "");
         for(OrdersVo oo : ordersVoList){
             paid += (oo.getPriceOut()*oo.getQty());
+            map.put("dd", ordersVoList.get(0).getDd());
         }
         map.put("paid", paid);
         map.put("list", ordersVoList);
@@ -79,6 +81,9 @@ public class OrdersServiceImpl implements IOrdersService {
         List<Orders> ordersList = ordersMapper.findAll(orders);
         //添加表头
         if(ordersList != null && ordersList.size() > 0){
+            if(o.getQty() < 0){
+                throw new MyException(-1, "您要减少的配件未下过单");
+            }
             orders = ordersList.get(0);
             if(o.getPriceOut() != null){
                 ordersDetailMapper.selectByOrderIdAndSku(new OrdersDetail(orders.getId(),o.getSkuName()));
@@ -92,7 +97,7 @@ public class OrdersServiceImpl implements IOrdersService {
             orders.setPaid(o.getPriceOut() * o.getQty());
 //            orders.setAddwho(RequestHolder.getCurrentUser().getOpenid());
             orders.setAddwho("wen-sir");
-            orders.setDd(DateTimeUtil.strToDate(o.getDd(), "yyyy-MM-dd"));
+            orders.setDd(DateTimeUtil.strToDate(o.getDd(), "yyyy/MM/dd"));
             ordersMapper.insertSelective(orders);
         }
         //占用库存
@@ -107,15 +112,21 @@ public class OrdersServiceImpl implements IOrdersService {
         //添加明细
         OrdersDetail ordersDetail = ordersDetailMapper.selectByOrderIdAndSku(new OrdersDetail(orders.getId(),o.getSkuName()));
         if(ordersDetail == null){
+            if(o.getQty() < 0){
+                throw new MyException(-1, "您要减少的配件未下过单");
+            }
             ordersDetail = new OrdersDetail();
             ordersDetail.setOrdersId(orders.getId());
             ordersDetail.setPriceOut(o.getPriceOut());
-            Sku sku = skuMapper.selectByName(o.getSkuName());
+//            Sku sku = skuMapper.selectByName(o.getSkuName());
             ordersDetail.setQty(o.getQty());
-            ordersDetail.setSkuId(sku.getId());
+            ordersDetail.setSkuId(o.getSkuId());
             ordersDetail.setSkuName(o.getSkuName());
             ordersDetailMapper.insertSelective(ordersDetail);
         }else {
+            if(ordersDetail.getPriceOut() - o.getPriceOut() != 0){
+                throw new MyException(-1, "此次与之前添加的售价不同，之前为：" + ordersDetail.getPriceOut() + ", 此次为：" + o.getPriceOut());
+            }
             if(ordersDetail.getQty() + o.getQty() == 0){
                 ordersDetailMapper.deleteByPrimaryKey(ordersDetail.getId());
             }else {
@@ -231,12 +242,12 @@ public class OrdersServiceImpl implements IOrdersService {
 
     @Override
     public ServerResponse SalesInfo(String begin, String end) {
-        List<Orders> ordersList = ordersMapper.salesInfo(begin, end);
+        List<OrdersVo> ordersList = ordersMapper.salesInfo(begin, end);
         Map<String, Object> map = new HashMap<>();
         map.put("list", ordersList);
         double totalSales = 0,  getted = 0, ungetted = 0;
         if(ordersList != null && ordersList.size() > 0){
-            for(Orders o : ordersList) {
+            for(OrdersVo o : ordersList) {
                 totalSales += o.getPaid();
                 getted += o.getPayable();
             }
@@ -251,12 +262,12 @@ public class OrdersServiceImpl implements IOrdersService {
 
     @Override
     public ServerResponse unclearInfo(String begin, String end) {
-        List<Orders> ordersList = ordersMapper.unclearInfo(begin, end);
+        List<OrdersVo> ordersList = ordersMapper.unclearInfo(begin, end);
         Map<String, Object> map = new HashMap<>();
         map.put("list", ordersList);
         double totalSales = 0,  getted = 0, ungetted = 0;
         if(ordersList != null && ordersList.size() > 0){
-            for(Orders o : ordersList) {
+            for(OrdersVo o : ordersList) {
                 totalSales += o.getPaid();
                 getted += o.getPayable();
             }
