@@ -30,10 +30,10 @@ function getSku() {
                     }
                 ],
                 onChange: function(p, v, dv) {
-                    getDetail();
+                    // getDetail();
                 },
                 onClose: function(p, v, d) {
-                    // getDetail();
+                    getDetail();
                 }
             });
         },

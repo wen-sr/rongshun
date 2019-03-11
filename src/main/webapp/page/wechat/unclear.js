@@ -14,7 +14,7 @@ $(function () {
 function go() {
     var begin = $("#begin").val();
     var end = $("#end").val();
-
+    $('#list').html('');
     tools.request({
         url     : "/rongshun/orders/unclearInfo",
         data    : {begin : begin, end : end},

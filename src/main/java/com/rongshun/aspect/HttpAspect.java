@@ -47,7 +47,7 @@ public class HttpAspect {
             throw new MyException(10, "未授权的用户，无法继续进入程序");
         }
         RequestHolder.add(weChatUserInfo);
-        logger.info("---------------成功获得登录信息："+ RequestHolder.getCurrentUser().getId() +"---------------");
+        logger.info("---------------成功获得登录信息："+ RequestHolder.getCurrentUser().toString() +"---------------");
         RequestHolder.add(request);
 
         logger.info("---------------这里是请求完成之前的操作---------------");

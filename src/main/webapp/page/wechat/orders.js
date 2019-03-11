@@ -17,6 +17,7 @@ $(function () {
     }
     if(dd != ''){
         $("#dd").val(dd);
+        // $("#dd").calendar("setValue", ["2019/03/10"]);
     }
 });
 
@@ -33,8 +34,8 @@ function getHis() {
             if(res != null){
                 $("#his").val(res["i"]);
                 $("#paid").val(res["paid"]);
-                $("#dd").val(res["dd"]);
                 if(res["list"] != null && res["list"].length > 0){
+                    $("#dd").val(res["dd"]);
                     var tpl =
                         '{{#list}}' +
                         '<div class="weui-cell">' +

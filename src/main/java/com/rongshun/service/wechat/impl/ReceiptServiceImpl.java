@@ -46,8 +46,8 @@ public class ReceiptServiceImpl implements IReceiptService {
         Sku sku = skuMapper.selectByName(receipt.getSkuName());
         if(sku == null) {
             sku = new Sku();
-//            sku.setAddwho(RequestHolder.getCurrentUser().getNickname());
-            sku.setAddwho("wen-sir");
+            sku.setAddwho(RequestHolder.getCurrentUser().getOpenid());
+//            sku.setAddwho("wen-sir");
             sku.setName(receipt.getSkuName());
             skuMapper.insertSelective(sku);
         }
@@ -84,8 +84,8 @@ public class ReceiptServiceImpl implements IReceiptService {
 
         //写入收货明细
         receipt.setSkuId(sku.getId());
-//        receipt.setAddwho(RequestHolder.getCurrentUser().getOpenid());
-        receipt.setAddwho("wen-sir");
+        receipt.setAddwho(RequestHolder.getCurrentUser().getOpenid());
+//        receipt.setAddwho("wen-sir");
         receiptMapper.insertSelective(receipt);
         return ServerResponse.createBySuccessMsg("收货成功");
     }

@@ -1,18 +1,28 @@
 package com.rongshun.service.wechat.impl;
 
+import com.rongshun.aspect.HttpAspect;
 import com.rongshun.common.RequestHolder;
 import com.rongshun.common.ServerResponse;
 import com.rongshun.dao.wechat.*;
 import com.rongshun.exception.MyException;
 import com.rongshun.pojo.wechat.*;
 import com.rongshun.service.wechat.IOrdersService;
+import com.rongshun.util.DataSourceContextHolder;
 import com.rongshun.util.DateTimeUtil;
 import com.rongshun.vo.wechat.OrdersVo;
 import com.rongshun.vo.wechat.ReceiptVo;
+import me.chanjar.weixin.common.exception.WxErrorException;
+import me.chanjar.weixin.mp.api.WxMpService;
+import me.chanjar.weixin.mp.bean.template.WxMpTemplateData;
+import me.chanjar.weixin.mp.bean.template.WxMpTemplateMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +36,8 @@ import java.util.Map;
 @Service
 @Transactional
 public class OrdersServiceImpl implements IOrdersService {
+
+    private final static Logger logger = LoggerFactory.getLogger(HttpAspect.class);
 
     @Autowired
     OrdersMapper ordersMapper;
@@ -44,6 +56,9 @@ public class OrdersServiceImpl implements IOrdersService {
 
     @Autowired
     SkuBuildMapper skuBuildMapper;
+
+    @Autowired
+    WxMpService wxMpService;
 
     @Override
     public ServerResponse getHis(Orders orders) {
@@ -81,22 +96,28 @@ public class OrdersServiceImpl implements IOrdersService {
         List<Orders> ordersList = ordersMapper.findAll(orders);
         //添加表头
         if(ordersList != null && ordersList.size() > 0){
-            if(o.getQty() < 0){
-                throw new MyException(-1, "您要减少的配件未下过单");
-            }
             orders = ordersList.get(0);
             if(o.getPriceOut() != null){
-                ordersDetailMapper.selectByOrderIdAndSku(new OrdersDetail(orders.getId(),o.getSkuName()));
                 orders.setPaid(orders.getPaid() + (o.getPriceOut()*o.getQty()));
+                ordersMapper.updateByPrimaryKeySelective(orders);
+            }else {
+                OrdersDetail od = ordersDetailMapper.selectByOrderIdAndSku(new OrdersDetail(orders.getId(),o.getSkuName()));
+                if(od == null){
+                    throw new MyException(-1, "您要减少的配件未下过单");
+                }
+                orders.setPaid(orders.getPaid() + (od.getPriceOut()*o.getQty()));
                 ordersMapper.updateByPrimaryKeySelective(orders);
             }
         }else {
+            if(o.getQty() < 0){
+                throw new MyException(-1, "您要减少的配件客户未下过单");
+            }
             orders = new Orders();
             orders.setCustomer(o.getCustomer());
             orders.setStatus("-1");
             orders.setPaid(o.getPriceOut() * o.getQty());
-//            orders.setAddwho(RequestHolder.getCurrentUser().getOpenid());
-            orders.setAddwho("wen-sir");
+            orders.setAddwho(RequestHolder.getCurrentUser().getOpenid());
+//            orders.setAddwho("wen-sir");
             orders.setDd(DateTimeUtil.strToDate(o.getDd(), "yyyy/MM/dd"));
             ordersMapper.insertSelective(orders);
         }
@@ -124,8 +145,10 @@ public class OrdersServiceImpl implements IOrdersService {
             ordersDetail.setSkuName(o.getSkuName());
             ordersDetailMapper.insertSelective(ordersDetail);
         }else {
-            if(ordersDetail.getPriceOut() - o.getPriceOut() != 0){
-                throw new MyException(-1, "此次与之前添加的售价不同，之前为：" + ordersDetail.getPriceOut() + ", 此次为：" + o.getPriceOut());
+            if(o.getPriceOut() != null) {
+                if(ordersDetail.getPriceOut() - o.getPriceOut() != 0){
+                    throw new MyException(-1, "此次与之前添加的售价不同，之前为：" + ordersDetail.getPriceOut() + ", 此次为：" + o.getPriceOut());
+                }
             }
             if(ordersDetail.getQty() + o.getQty() == 0){
                 ordersDetailMapper.deleteByPrimaryKey(ordersDetail.getId());
@@ -133,8 +156,6 @@ public class OrdersServiceImpl implements IOrdersService {
                 ordersDetail.setQty(ordersDetail.getQty() + o.getQty());
                 ordersDetailMapper.updateByPrimaryKeySelective(ordersDetail);
             }
-            orders.setPaid(orders.getPaid() + ordersDetail.getPriceOut()*ordersDetail.getQty());
-            ordersMapper.updateByPrimaryKeySelective(orders);
         }
 
         return ServerResponse.createBySuccessMsg("操作成功");
@@ -175,6 +196,28 @@ public class OrdersServiceImpl implements IOrdersService {
 
             ordersMapper.updateByPrimaryKeySelective(orders);
             //发送微信模板消息，通知下单成功
+            List<String> list = new ArrayList<>();
+            list.add("oi05j1rBhYzBjnzgp-ipCdDsdwhs");
+            list.add("oi05j1gEC8-q6qTgrgpxjhb6sSvY");
+            list.add("oi05j1icCldZEo4O7hFv661I4I-4");
+            for (String user : list){
+                WxMpTemplateMessage templateMessage = WxMpTemplateMessage.builder()
+//                            .toUser("oPOAgvx1Utuu0Mg25QTPs5yqDUyw")
+                        .toUser(user)
+                        .templateId("yrEksrWzZdcW2i6lS5RGe1H_G4Su8gQxJ3oZJrIp35k").build();
+                templateMessage.getData().add(new WxMpTemplateData("first", "下单成功", "#284177"));
+                templateMessage.getData().add(new WxMpTemplateData("keyword1", DateTimeUtil.dateToStr(orders.getDd(), "yyyy/mm/dd"), "#0044BB"));
+                templateMessage.getData().add(new WxMpTemplateData("keyword2", orders.getCustomer(), "#0044BB"));
+                templateMessage.getData().add(new WxMpTemplateData("keyword3", "总额：" + orders.getPaid() + "；实付：" +  orders.getPayable(), "#0044BB"));
+                templateMessage.getData().add(new WxMpTemplateData("remark", "镕顺尾板", "#AAAAAA"));
+                try {
+                    wxMpService.getTemplateMsgService().sendTemplateMsg(templateMessage);
+                } catch (WxErrorException e) {
+                    e.printStackTrace();
+                    logger.error("=====微信发送下单时报错=====",e);
+                }
+            }
+
             return ServerResponse.createBySuccessMsg("下单成功");
         }
         return ServerResponse.createByErrorMessage("下单失败, 您还没有添加订单明细");

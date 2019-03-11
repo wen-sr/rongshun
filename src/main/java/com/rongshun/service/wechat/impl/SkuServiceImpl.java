@@ -54,8 +54,8 @@ public class SkuServiceImpl implements ISkuService {
             }
             sku = new Sku();
             sku.setName(skuName);
-//            sku.setAddwho(RequestHolder.getCurrentUser().getNickname());
-            sku.setAddwho("wen-sir");
+            sku.setAddwho(RequestHolder.getCurrentUser().getOpenid());
+//            sku.setAddwho("wen-sir");
             sku.setFooId(1);
             skuMapper.insertSelective(sku);
         }else {
@@ -132,7 +132,8 @@ public class SkuServiceImpl implements ISkuService {
         sku = new Sku();
         sku.setName(name);
         sku.setFooId(0);
-        sku.setAddwho("wen-sir");
+//        sku.setAddwho("wen-sir");
+        sku.setAddwho(RequestHolder.getCurrentUser().getOpenid());
         skuMapper.insertSelective(sku);
         return ServerResponse.createBySuccessMsg("添加配件名称成功");
     }

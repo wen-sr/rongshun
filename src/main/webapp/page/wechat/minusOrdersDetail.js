@@ -11,12 +11,11 @@ $(function () {
     $("#dd").val(dd);
 })
 
-function add() {
+function minus() {
     var skuId = $("#skuId").val();
     var qty = $("#qty").val();
     var customer = $("#customer").html();
     var skuName = $("#skuName").val();
-    var priceOut = $("#priceOut").val();
     var dd = $("#dd").val();
     var reg = /^\d+(\.\d+)?$/;
     if(qty == ''){
@@ -32,8 +31,7 @@ function add() {
         qty         : 0-qty,
         skuName     : skuName,
         customer    : customer,
-        dd          : dd,
-        priceOut    : priceOut
+        dd          : dd
     }
     tools.request({
         url:'/rongshun/orders/add',
