@@ -63,9 +63,9 @@ public class OrdersServiceImpl implements IOrdersService {
     @Override
     public ServerResponse getHis(Orders orders) {
         List<Orders> ordersList = ordersMapper.selectHis(orders);
-        int i = 0,paid =  0,payable = 0;
-        if(ordersList != null && ordersList.size() >0){
-            for (Orders o : ordersList){
+        int i = 0, paid = 0, payable = 0;
+        if (ordersList != null && ordersList.size() > 0) {
+            for (Orders o : ordersList) {
                 i += (o.getPaid() - o.getPayable());
 //                paid += o.getPaid();
 //                payable += o.getPayable();
@@ -79,8 +79,8 @@ public class OrdersServiceImpl implements IOrdersService {
         ordersVo.setStatus(orders.getStatus());
         List<OrdersVo> ordersVoList = ordersDetailMapper.findAll(ordersVo);
         map.put("dd", "");
-        for(OrdersVo oo : ordersVoList){
-            paid += (oo.getPriceOut()*oo.getQty());
+        for (OrdersVo oo : ordersVoList) {
+            paid += (oo.getPriceOut() * oo.getQty());
             map.put("dd", ordersVoList.get(0).getDd());
         }
         map.put("paid", paid);
@@ -95,21 +95,21 @@ public class OrdersServiceImpl implements IOrdersService {
         orders.setStatus("-1");
         List<Orders> ordersList = ordersMapper.findAll(orders);
         //添加表头
-        if(ordersList != null && ordersList.size() > 0){
+        if (ordersList != null && ordersList.size() > 0) {
             orders = ordersList.get(0);
-            if(o.getPriceOut() != null){
-                orders.setPaid(orders.getPaid() + (o.getPriceOut()*o.getQty()));
+            if (o.getPriceOut() != null) {
+                orders.setPaid(orders.getPaid() + (o.getPriceOut() * o.getQty()));
                 ordersMapper.updateByPrimaryKeySelective(orders);
-            }else {
-                OrdersDetail od = ordersDetailMapper.selectByOrderIdAndSku(new OrdersDetail(orders.getId(),o.getSkuName()));
-                if(od == null){
+            } else {
+                OrdersDetail od = ordersDetailMapper.selectByOrderIdAndSku(new OrdersDetail(orders.getId(), o.getSkuName()));
+                if (od == null) {
                     throw new MyException(-1, "您要减少的配件未下过单");
                 }
-                orders.setPaid(orders.getPaid() + (od.getPriceOut()*o.getQty()));
+                orders.setPaid(orders.getPaid() + (od.getPriceOut() * o.getQty()));
                 ordersMapper.updateByPrimaryKeySelective(orders);
             }
-        }else {
-            if(o.getQty() < 0){
+        } else {
+            if (o.getQty() < 0) {
                 throw new MyException(-1, "您要减少的配件客户未下过单");
             }
             orders = new Orders();
@@ -124,16 +124,16 @@ public class OrdersServiceImpl implements IOrdersService {
         //占用库存
         Inventory inventory = inventoryMapper.selectBySkuId(o.getSkuName());
         inventory.setQtyShipped(inventory.getQtyShipped() + o.getQty());
-        if(inventory.getQtyFree() - o.getQty() < 0){
+        if (inventory.getQtyFree() - o.getQty() < 0) {
             throw new MyException(-1, "库存不足，添加配件失败");
         }
         inventory.setQtyFree(inventory.getQtyFree() - o.getQty());
         inventoryMapper.updateByPrimaryKeySelective(inventory);
 
         //添加明细
-        OrdersDetail ordersDetail = ordersDetailMapper.selectByOrderIdAndSku(new OrdersDetail(orders.getId(),o.getSkuName()));
-        if(ordersDetail == null){
-            if(o.getQty() < 0){
+        OrdersDetail ordersDetail = ordersDetailMapper.selectByOrderIdAndSku(new OrdersDetail(orders.getId(), o.getSkuName()));
+        if (ordersDetail == null) {
+            if (o.getQty() < 0) {
                 throw new MyException(-1, "您要减少的配件未下过单");
             }
             ordersDetail = new OrdersDetail();
@@ -144,15 +144,15 @@ public class OrdersServiceImpl implements IOrdersService {
             ordersDetail.setSkuId(o.getSkuId());
             ordersDetail.setSkuName(o.getSkuName());
             ordersDetailMapper.insertSelective(ordersDetail);
-        }else {
-            if(o.getPriceOut() != null) {
-                if(ordersDetail.getPriceOut() - o.getPriceOut() != 0){
+        } else {
+            if (o.getPriceOut() != null) {
+                if (ordersDetail.getPriceOut() - o.getPriceOut() != 0) {
                     throw new MyException(-1, "此次与之前添加的售价不同，之前为：" + ordersDetail.getPriceOut() + ", 此次为：" + o.getPriceOut());
                 }
             }
-            if(ordersDetail.getQty() + o.getQty() == 0){
+            if (ordersDetail.getQty() + o.getQty() == 0) {
                 ordersDetailMapper.deleteByPrimaryKey(ordersDetail.getId());
-            }else {
+            } else {
                 ordersDetail.setQty(ordersDetail.getQty() + o.getQty());
                 ordersDetailMapper.updateByPrimaryKeySelective(ordersDetail);
             }
@@ -170,57 +170,61 @@ public class OrdersServiceImpl implements IOrdersService {
     @Override
     public ServerResponse confirm(OrdersVo ordersVo) {
         List<Orders> ordersList = ordersMapper.findAll(new Orders(ordersVo.getCustomer(), "-1"));
-        if(ordersList != null && ordersList.size() > 0){
-            List<OrdersVo> ordersVoList = ordersDetailMapper.findAll(new OrdersVo(ordersList.get(0).getId()));
-            double sumQty = 0;
-            for(OrdersVo o : ordersVoList){
-                sumQty += o.getQty()*o.getPriceOut();
-                //增加库存
-//                Inventory inventory = inventoryMapper.selectBySkuId(o.getSkuName(),o.getSupplier());
-//                inventory.setQtyShipped(inventory.getQtyShipped() + o.getQty());
-//                if(inventory.getQtyFree() - o.getQty() < 0){
-//                    throw new MyException(-1, "供应商为" + o.getSupplier() + "的" + o.getSkuName() + "库存不足");
-//                }
-//                inventory.setQtyFree(inventory.getQtyFree() - o.getQty());
-//                inventoryMapper.updateByPrimaryKeySelective(inventory);
-            }
-            Orders orders = ordersMapper.findAll(new Orders(ordersVo.getCustomer(), "-1")).get(0);
+        Orders orders = null;
+        if (ordersList != null && ordersList.size() > 0) {
+            orders = ordersList.get(0);
             orders.setPayable(ordersVo.getPayable());
-            if (sumQty == ordersVo.getPayable()) {
+            if (orders.getPaid() == ordersVo.getPayable()) {
                 orders.setStatus("2");
-            }else if(ordersVo.getPayable() == 0){
+            } else if (ordersVo.getPayable() == 0) {
                 orders.setStatus("0");
-            }else {
+            } else {
                 orders.setStatus("1");
             }
-
             ordersMapper.updateByPrimaryKeySelective(orders);
-            //发送微信模板消息，通知下单成功
-            List<String> list = new ArrayList<>();
-            list.add("oi05j1rBhYzBjnzgp-ipCdDsdwhs");
-            list.add("oi05j1gEC8-q6qTgrgpxjhb6sSvY");
-            list.add("oi05j1icCldZEo4O7hFv661I4I-4");
-            for (String user : list){
-                WxMpTemplateMessage templateMessage = WxMpTemplateMessage.builder()
-//                            .toUser("oPOAgvx1Utuu0Mg25QTPs5yqDUyw")
-                        .toUser(user)
-                        .templateId("yrEksrWzZdcW2i6lS5RGe1H_G4Su8gQxJ3oZJrIp35k").build();
-                templateMessage.getData().add(new WxMpTemplateData("first", "下单成功", "#284177"));
-                templateMessage.getData().add(new WxMpTemplateData("keyword1", DateTimeUtil.dateToStr(orders.getDd(), "yyyy/mm/dd"), "#0044BB"));
-                templateMessage.getData().add(new WxMpTemplateData("keyword2", orders.getCustomer(), "#0044BB"));
-                templateMessage.getData().add(new WxMpTemplateData("keyword3", "总额：" + orders.getPaid() + "；实付：" +  orders.getPayable(), "#0044BB"));
-                templateMessage.getData().add(new WxMpTemplateData("remark", "镕顺尾板", "#AAAAAA"));
-                try {
-                    wxMpService.getTemplateMsgService().sendTemplateMsg(templateMessage);
-                } catch (WxErrorException e) {
-                    e.printStackTrace();
-                    logger.error("=====微信发送下单时报错=====",e);
-                }
-            }
+        } else {
+            orders = new Orders();
+            orders.setStatus("2");
+            orders.setPayable(ordersVo.getPayable());
+            orders.setCustomer(ordersVo.getCustomer());
+            orders.setPaid(ordersVo.getPayable());
+            orders.setAddwho(RequestHolder.getCurrentUser().getOpenid());
+            orders.setDd(DateTimeUtil.strToDate(ordersVo.getDd(), "yyyy/MM/dd"));
+            ordersMapper.insertSelective(orders);
+            OrdersDetail ordersDetail = new OrdersDetail();
+            ordersDetail.setQty(1);
+            ordersDetail.setOrdersId(orders.getId());
+            ordersDetail.setPriceOut(ordersVo.getPayable());
+            ordersDetail.setSkuId(0);
+            ordersDetail.setSkuName("服务费");
+            ordersDetailMapper.insertSelective(ordersDetail);
 
-            return ServerResponse.createBySuccessMsg("下单成功");
         }
-        return ServerResponse.createByErrorMessage("下单失败, 您还没有添加订单明细");
+        //发送微信模板消息，通知下单成功
+        List<String> list = new ArrayList<>();
+        list.add("oi05j1rBhYzBjnzgp-ipCdDsdwhs");
+        list.add("oi05j1gEC8-q6qTgrgpxjhb6sSvY");
+        list.add("oi05j1icCldZEo4O7hFv661I4I-4");
+        for (String user : list) {
+            WxMpTemplateMessage templateMessage = WxMpTemplateMessage.builder()
+//                            .toUser("oPOAgvx1Utuu0Mg25QTPs5yqDUyw")
+                    .toUser(user)
+                    .url("http://www.jxxh56.com/rongshun/page/wechat/orderdetail.html?orderId=" + orders.getId())
+                    .templateId("yrEksrWzZdcW2i6lS5RGe1H_G4Su8gQxJ3oZJrIp35k").build();
+            templateMessage.getData().add(new WxMpTemplateData("first", "下单成功", "#284177"));
+            templateMessage.getData().add(new WxMpTemplateData("keyword1", DateTimeUtil.dateToStr(orders.getDd(), "yyyy/MM/dd"), "#0044BB"));
+            templateMessage.getData().add(new WxMpTemplateData("keyword2", orders.getCustomer(), "#0044BB"));
+            templateMessage.getData().add(new WxMpTemplateData("keyword3", "总额：" + orders.getPaid() + "；实付：" + orders.getPayable(), "#0044BB"));
+            templateMessage.getData().add(new WxMpTemplateData("remark", "镕顺尾板", "#AAAAAA"));
+            try {
+                wxMpService.getTemplateMsgService().sendTemplateMsg(templateMessage);
+            } catch (WxErrorException e) {
+                e.printStackTrace();
+                logger.error("=====微信发送下单时报错=====", e);
+            }
+        }
+
+        return ServerResponse.createBySuccessMsg("下单成功");
     }
 
     @Override
@@ -234,8 +238,8 @@ public class OrdersServiceImpl implements IOrdersService {
         double paid = 0, payable = 0;
         String dd = ordersList.get(0).getDd();
         List<Orders> ordersList1 = ordersMapper.selectHis(orders);
-        if(ordersList1 != null && ordersList1.size() > 0){
-            for(Orders o : ordersList1){
+        if (ordersList1 != null && ordersList1.size() > 0) {
+            for (Orders o : ordersList1) {
                 paid += o.getPaid();
                 payable += o.getPayable();
             }
@@ -261,19 +265,19 @@ public class OrdersServiceImpl implements IOrdersService {
     @Override
     public ServerResponse addPayble(OrdersVo ordersVo) {
         double addPayble = ordersVo.getPayable();
-        if(addPayble == 0){
+        if (addPayble == 0) {
             return ServerResponse.createByErrorMessage("未输入补付金额");
         }
         Orders orders = new Orders();
         orders.setCustomer(ordersVo.getCustomer());
         List<Orders> ordersList = ordersMapper.selectHis(orders);
-        if(ordersList != null && ordersList.size() > 0){
-            for(Orders o : ordersList){
-                if(o.getPayable() + addPayble > o.getPaid()){
+        if (ordersList != null && ordersList.size() > 0) {
+            for (Orders o : ordersList) {
+                if (o.getPayable() + addPayble > o.getPaid()) {
                     addPayble = o.getPaid() - o.getPayable();
                     o.setPayable(o.getPaid());
                     o.setStatus("2");
-                }else {
+                } else {
                     o.setPayable(o.getPayable() + addPayble);
                     o.setStatus("1");
                 }
@@ -288,9 +292,9 @@ public class OrdersServiceImpl implements IOrdersService {
         List<OrdersVo> ordersList = ordersMapper.salesInfo(begin, end);
         Map<String, Object> map = new HashMap<>();
         map.put("list", ordersList);
-        double totalSales = 0,  getted = 0, ungetted = 0;
-        if(ordersList != null && ordersList.size() > 0){
-            for(OrdersVo o : ordersList) {
+        double totalSales = 0, getted = 0, ungetted = 0;
+        if (ordersList != null && ordersList.size() > 0) {
+            for (OrdersVo o : ordersList) {
                 totalSales += o.getPaid();
                 getted += o.getPayable();
             }
@@ -308,9 +312,9 @@ public class OrdersServiceImpl implements IOrdersService {
         List<OrdersVo> ordersList = ordersMapper.unclearInfo(begin, end);
         Map<String, Object> map = new HashMap<>();
         map.put("list", ordersList);
-        double totalSales = 0,  getted = 0, ungetted = 0;
-        if(ordersList != null && ordersList.size() > 0){
-            for(OrdersVo o : ordersList) {
+        double totalSales = 0, getted = 0, ungetted = 0;
+        if (ordersList != null && ordersList.size() > 0) {
+            for (OrdersVo o : ordersList) {
                 totalSales += o.getPaid();
                 getted += o.getPayable();
             }

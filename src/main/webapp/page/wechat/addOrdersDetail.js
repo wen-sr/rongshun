@@ -39,7 +39,6 @@ function add() {
         url:'/rongshun/orders/add',
         data:formData,
         success:function(data, msg){
-            console.log(msg);
             $.alert({
                 title: '提示',
                 text: msg,
