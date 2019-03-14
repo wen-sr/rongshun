@@ -1,13 +1,14 @@
 package com.rongshun.controller.wechat;
 
-import com.rongshun.common.Constant;
-import com.rongshun.common.EasyuiTableResponse;
-import com.rongshun.common.ResponseCode;
-import com.rongshun.common.ServerResponse;
+import com.rongshun.aspect.HttpAspect;
+import com.rongshun.common.*;
 import com.rongshun.pojo.wechat.Orders;
 import com.rongshun.pojo.wechat.OrdersDetail;
+import com.rongshun.pojo.wechat.WeChatUserInfo;
 import com.rongshun.service.wechat.IOrdersService;
 import com.rongshun.vo.wechat.OrdersVo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,12 +25,19 @@ import java.util.List;
 @RestController
 @RequestMapping("/orders")
 public class OrdersController {
+
+    private final static Logger logger = LoggerFactory.getLogger(HttpAspect.class);
     @Autowired
     IOrdersService ordersService;
 
     @RequestMapping("/getHis")
     public ServerResponse getHis(Orders orders){
-        return ordersService.getHis(orders);
+        WeChatUserInfo w = RequestHolder.getCurrentUser();
+        logger.info("====用户信息：====" + w.toString());
+        if(("oi05j1rBhYzBjnzgp-ipCdDsdwhs".equalsIgnoreCase(w.getOpenid())) || ("oi05j1icCldZEo4O7hFv661I4I-4".equalsIgnoreCase(w.getOpenid()))  || ("oi05j1gEC8-q6qTgrgpxjhb6sSvY".equalsIgnoreCase(w.getOpenid())) ){
+            return ordersService.getHis(orders);
+        }
+        return new ServerResponse(ResponseCode.NEED_LOGIN.getCode());
     }
 
     @RequestMapping("/hisInfo")
@@ -44,7 +52,12 @@ public class OrdersController {
 
     @RequestMapping("/add")
     public ServerResponse add(OrdersVo o){
-        return ordersService.add(o);
+        WeChatUserInfo w = RequestHolder.getCurrentUser();
+        logger.info("====用户信息：====" + w.toString());
+        if(("oi05j1rBhYzBjnzgp-ipCdDsdwhs".equalsIgnoreCase(w.getOpenid())) || ("oi05j1icCldZEo4O7hFv661I4I-4".equalsIgnoreCase(w.getOpenid()))  || ("oi05j1gEC8-q6qTgrgpxjhb6sSvY".equalsIgnoreCase(w.getOpenid())) ){
+            return ordersService.add(o);
+        }
+        return new ServerResponse(ResponseCode.NEED_LOGIN.getCode());
     }
 
     @RequestMapping("/detail")
@@ -54,7 +67,12 @@ public class OrdersController {
 
     @RequestMapping("/confirm")
     public ServerResponse confirm(OrdersVo ordersVo){
-        return ordersService.confirm(ordersVo);
+        WeChatUserInfo w = RequestHolder.getCurrentUser();
+        logger.info("====用户信息：====" + w.toString());
+        if(("oi05j1rBhYzBjnzgp-ipCdDsdwhs".equalsIgnoreCase(w.getOpenid())) || ("oi05j1icCldZEo4O7hFv661I4I-4".equalsIgnoreCase(w.getOpenid()))  || ("oi05j1gEC8-q6qTgrgpxjhb6sSvY".equalsIgnoreCase(w.getOpenid())) ){
+            return ordersService.confirm(ordersVo);
+        }
+        return new ServerResponse(ResponseCode.NEED_LOGIN.getCode());
     }
 
     @RequestMapping("/payDone")
@@ -69,12 +87,22 @@ public class OrdersController {
 
     @RequestMapping("/salesInfo")
     public ServerResponse SalesInfo(String begin, String end){
-        return ordersService.SalesInfo(begin, end);
+        WeChatUserInfo w = RequestHolder.getCurrentUser();
+        logger.info("====用户信息：====" + w.toString());
+        if(("oi05j1rBhYzBjnzgp-ipCdDsdwhs".equalsIgnoreCase(w.getOpenid())) || ("oi05j1icCldZEo4O7hFv661I4I-4".equalsIgnoreCase(w.getOpenid()))  || ("oi05j1gEC8-q6qTgrgpxjhb6sSvY".equalsIgnoreCase(w.getOpenid())) ){
+            return ordersService.SalesInfo(begin, end);
+        }
+        return new ServerResponse(ResponseCode.NEED_LOGIN.getCode());
     }
 
     @RequestMapping("/unclearInfo")
     public ServerResponse unclearInfo(String begin, String end){
-        return ordersService.unclearInfo(begin, end);
+        WeChatUserInfo w = RequestHolder.getCurrentUser();
+        logger.info("====用户信息：====" + w.toString());
+        if(("oi05j1rBhYzBjnzgp-ipCdDsdwhs".equalsIgnoreCase(w.getOpenid())) || ("oi05j1icCldZEo4O7hFv661I4I-4".equalsIgnoreCase(w.getOpenid()))  || ("oi05j1gEC8-q6qTgrgpxjhb6sSvY".equalsIgnoreCase(w.getOpenid())) ){
+            return ordersService.unclearInfo(begin, end);
+        }
+        return new ServerResponse(ResponseCode.NEED_LOGIN.getCode());
     }
 
 
