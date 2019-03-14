@@ -46,8 +46,9 @@ public class OrdersController {
     }
 
     @RequestMapping("/getCustomer")
-    public List<Orders> getCustomer(Orders orders){
-        return ordersService.getCustomer(orders);
+    public ServerResponse getCustomer(Orders orders){
+        List<Orders> ordersList=  ordersService.getCustomer(orders);
+        return ServerResponse.createBySuccess(ordersList);
     }
 
     @RequestMapping("/add")

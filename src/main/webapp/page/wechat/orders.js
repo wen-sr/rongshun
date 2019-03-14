@@ -20,7 +20,37 @@ $(function () {
         // $("#dd").calendar("setValue", ["2019/03/10"]);
     }
 });
+function getCustomer() {
+    tools.request({
+        url: tools.getServerUrl("/orders/getCustomer"),
+        method: "POST",
+        success: function (data, msg) {
+            var skuNameArr = [];
+            for(var i in data){
+                skuNameArr.push(data[i].customer);
+            }
+            $("#customer").picker({
+                title: "请选择客户",
+                inputReadOnly: false,
+                cols: [
+                    {
+                        textAlign: 'center',
+                        values: skuNameArr
+                    }
+                ],
+                onChange: function(p, v, dv) {
+                    // getDetail();
+                },
+                onClose: function(p, v, d) {
+                    getHis();
+                }
+            });
+        },
+        error: function (error) {
 
+        }
+    })
+}
 function getHis() {
     var customer = $("#customer").val();
     if(customer == ''){
