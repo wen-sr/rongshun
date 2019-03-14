@@ -174,7 +174,7 @@ public class OrdersServiceImpl implements IOrdersService {
         if (ordersList != null && ordersList.size() > 0) {
             orders = ordersList.get(0);
             orders.setPayable(ordersVo.getPayable());
-            if (orders.getPaid() == ordersVo.getPayable()) {
+            if (orders.getPaid() >= ordersVo.getPayable()) {
                 orders.setStatus("2");
             } else if (ordersVo.getPayable() == 0) {
                 orders.setStatus("0");
@@ -209,12 +209,12 @@ public class OrdersServiceImpl implements IOrdersService {
             WxMpTemplateMessage templateMessage = WxMpTemplateMessage.builder()
 //                            .toUser("oPOAgvx1Utuu0Mg25QTPs5yqDUyw")
                     .toUser(user)
-                    .url("http://www.jxxh56.com/rongshun/page/wechat/orderdetail.html?orderId=" + orders.getId())
+                    .url("http://www.jxxh56.com/rongshun/oa/wechat/auth?returnUrl=/page/wechat/orderdetail.html?orderId=" + orders.getId())
                     .templateId("yrEksrWzZdcW2i6lS5RGe1H_G4Su8gQxJ3oZJrIp35k").build();
             templateMessage.getData().add(new WxMpTemplateData("first", "下单成功", "#284177"));
             templateMessage.getData().add(new WxMpTemplateData("keyword1", DateTimeUtil.dateToStr(orders.getDd(), "yyyy/MM/dd"), "#0044BB"));
             templateMessage.getData().add(new WxMpTemplateData("keyword2", orders.getCustomer(), "#0044BB"));
-            templateMessage.getData().add(new WxMpTemplateData("keyword3", "总额：" + orders.getPaid() + "；实付：" + orders.getPayable(), "#0044BB"));
+            templateMessage.getData().add(new WxMpTemplateData("keyword3", "总额：" + orders.getPaid() + "；实付：" + orders.getPayable(), "#EF1F1F"));
             templateMessage.getData().add(new WxMpTemplateData("remark", "镕顺尾板", "#AAAAAA"));
             try {
                 wxMpService.getTemplateMsgService().sendTemplateMsg(templateMessage);
@@ -273,8 +273,8 @@ public class OrdersServiceImpl implements IOrdersService {
         List<Orders> ordersList = ordersMapper.selectHis(orders);
         if (ordersList != null && ordersList.size() > 0) {
             for (Orders o : ordersList) {
-                if (o.getPayable() + addPayble > o.getPaid()) {
-                    addPayble = o.getPaid() - o.getPayable();
+                if (o.getPayable() + addPayble >= o.getPaid()) {
+                    addPayble = addPayble - (o.getPaid() - o.getPayable());
                     o.setPayable(o.getPaid());
                     o.setStatus("2");
                 } else {
@@ -282,6 +282,9 @@ public class OrdersServiceImpl implements IOrdersService {
                     o.setStatus("1");
                 }
                 ordersMapper.updateByPrimaryKeySelective(o);
+                if(addPayble == 0){
+                    break;
+                }
             }
         }
         return ServerResponse.createBySuccessMsg("补付款成功");
