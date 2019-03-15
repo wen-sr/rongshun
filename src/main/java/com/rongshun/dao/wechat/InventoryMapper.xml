@@ -138,5 +138,6 @@
         and supplier = #{supplier,jdbcType=VARCHAR}
       </if>
     </where>
+    order by qty_free
   </select>
 </mapper>
