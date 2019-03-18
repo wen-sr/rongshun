@@ -174,7 +174,7 @@ public class OrdersServiceImpl implements IOrdersService {
         if (ordersList != null && ordersList.size() > 0) {
             orders = ordersList.get(0);
             orders.setPayable(ordersVo.getPayable());
-            if (orders.getPaid() >= ordersVo.getPayable()) {
+            if (orders.getPaid() <= ordersVo.getPayable()) {
                 orders.setStatus("2");
             } else if (ordersVo.getPayable() == 0) {
                 orders.setStatus("0");
